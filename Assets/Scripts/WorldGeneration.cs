@@ -11,6 +11,8 @@ public class WorldGeneration : MonoBehaviour
 
     private float timeSinceLastCall = 0f;
     private float callInterval = 1f;
+
+    public GameObject defaultTile;
     
     // Start is called before the first frame update
     void Start()
@@ -57,9 +59,9 @@ public class WorldGeneration : MonoBehaviour
         
         //Debug.Log("Detectou um não chão em " + coordinates + " => Colocando um chão nas coordenadas (" + x + "," + z + ")");
         
-        GameObject plane = GameObject.CreatePrimitive(PrimitiveType.Plane);
-        plane.transform.position = adjustedPosition;
-        plane.transform.localScale = new Vector3(50, 1, 50);
+        GameObject tile = Instantiate(defaultTile, adjustedPosition, Quaternion.identity);
+        tile.transform.position = adjustedPosition;
+        tile.transform.localScale = new Vector3(50, 1, 50);
     
     }
 }
