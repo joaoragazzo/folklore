@@ -51,17 +51,17 @@ public class WorldGeneration : MonoBehaviour
     {
         RaycastHit hit;
         
-        int gridSize = 500;
+        int gridSize = 1000;
         int x = Mathf.RoundToInt(coordinates.x / gridSize) * gridSize;
         int z = Mathf.RoundToInt(coordinates.z / gridSize) * gridSize;
 
         Vector3 adjustedPosition = new Vector3(x, 0, z);
         
-        //Debug.Log("Detectou um não chão em " + coordinates + " => Colocando um chão nas coordenadas (" + x + "," + z + ")");
+        Debug.Log("Detectou um não chão em " + coordinates + " => Colocando um chão nas coordenadas (" + x + "," + z + ")");
         
         GameObject tile = Instantiate(defaultTile, adjustedPosition, Quaternion.identity);
         tile.transform.position = adjustedPosition;
-        tile.transform.localScale = new Vector3(50, 1, 50);
+        tile.transform.localScale = new Vector3(1, 1, 1);
     
     }
 }
