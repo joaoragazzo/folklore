@@ -10,7 +10,7 @@ public class WorldGeneration : MonoBehaviour
     public float radiusToCheck = 250.0f;
 
     private float timeSinceLastCall = 0f;
-    private float callInterval = 1f;
+    private float callInterval = 2.5f;
 
     public GameObject defaultTile;
     
