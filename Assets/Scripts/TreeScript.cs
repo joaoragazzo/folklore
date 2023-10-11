@@ -12,43 +12,59 @@ public class GrassBladeGenerator : MonoBehaviour
     public GameObject treeTwo;
     public GameObject treeThree;
     public GameObject treeFour;
-
-    public GameObject selectTree()
+    public int noiseMapSize = 750;
+    public float exclusionRadius = 40f;
+    
+    private GameObject RandomTreeSelection()
     {
-        int randomNumber = Random.Range(0, 3);
+        int randomNumber = Random.Range(0, 4);
 
         if (randomNumber == 0)
             return treeOne;
-        else if (randomNumber == 1)
+        if (randomNumber == 1)
             return treeTwo;
-        else if (randomNumber == 2)
+        if (randomNumber == 2)
             return treeThree;
-        else
-            return treeFour;
+        return treeFour;
     }
+
+    private GameObject RandomTreeConfiguration(GameObject tree)
+    {
+        float size = Random.Range(1f, 2f);
+        
+        tree.transform.localScale = new Vector3(100 * size, 100 * size, 100 * size);
+        return tree;
+    }
+    
+    
     
     private void Start()
     {
         halfTileSize = tileSize / 2;
-        float[,] noiseMap = new float[tileSize, tileSize];
+        float[,] noiseMap = new float[noiseMapSize, noiseMapSize];
         (float xOffset, float yOffset) = (Random.Range(-10000f, 10000f), Random.Range(-1000f, 1000f));
-        
-        for (int y = 0; y < tileSize; y++)
+
+        // Fator de escala para projetar noiseMap proporcionalmente ao mapa
+        float scale = (float)tileSize / noiseMapSize;
+
+        for (int y = 0; y < noiseMapSize; y++)
         {
-            for (int x = 0; x < tileSize; x++)
+            for (int x = 0; x < noiseMapSize; x++)
             {
                 float noiseValue = Mathf.PerlinNoise(x * 0.3f + xOffset, y * 0.3f + yOffset);
-                //Debug.Log("(" + x + "," + y + ") | " + noiseValue);
                 noiseMap[x, y] = noiseValue;
                 
-                if (noiseMap[x, y] > 0.8f)
+                if (noiseValue > 0.78f)
                 {
-                    Vector3 position = new Vector3(transform.position.x + x, 1f, transform.position.z + y);
-                    //Debug.Log("Colocando grass em (" + x + "," + y + ")");
+                    // Use o fator de escala ao posicionar as árvores
+                    Vector3 position = new Vector3(transform.position.x + x * scale, 0.6f, transform.position.z + y * scale);
 
-                    GameObject tree = selectTree();
+                    if (Vector3.Distance(position, Vector3.zero) > exclusionRadius)
+                    {
+                        GameObject tree = RandomTreeConfiguration(RandomTreeSelection());
+                        Instantiate(tree, position, Quaternion.Euler(-90, 0, 0));   
+                    }
                     
-                    Instantiate(tree, position, Quaternion.Euler(-90, 0, 0));
                 }
                 
             }

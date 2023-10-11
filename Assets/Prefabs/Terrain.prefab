@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6080101137534083177}
   - component: {fileID: 6345347849040141853}
   - component: {fileID: 3764956379686914215}
-  - component: {fileID: 8029575057368929831}
+  - component: {fileID: 160955687524699690}
   m_Layer: 0
   m_Name: Terrain mesh
   m_TagString: Untagged
@@ -93,24 +93,26 @@ TerrainCollider:
   serializedVersion: 2
   m_TerrainData: {fileID: 15600000, guid: cf965a18d2d524340b9b97603842a43f, type: 2}
   m_EnableTreeColliders: 1
---- !u!114 &8029575057368929831
+--- !u!114 &160955687524699690
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5465362262832792416}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e4cc7d17860e994a9442f5c5697914b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileSize: 500
+  tileSize: 1000
   halfTileSize: 0
   treeOne: {fileID: 3154706569989777735, guid: 508fbdca3519b204a8cf2302b4339ab4, type: 3}
   treeTwo: {fileID: 2440728833814527516, guid: bd2f3c0f9bc22ae4295a6856489a4015, type: 3}
   treeThree: {fileID: 4630264918353582950, guid: a4d8b36927a82f740a66fba61c2c8832, type: 3}
   treeFour: {fileID: 656899404091045540, guid: 86390073655fe204cb7fa81b5c676cca, type: 3}
+  noiseMapSize: 750
+  exclusionRadius: 40
 --- !u!1 &8325569324592411023
 GameObject:
   m_ObjectHideFlags: 0

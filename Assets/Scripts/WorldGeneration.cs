@@ -6,7 +6,7 @@ using UnityEngine;
 public class WorldGeneration : MonoBehaviour
 {
     
-    public float heightToCheck = 2.0f; 
+    public float heightToCheck = 15.0f; 
     public float radiusToCheck = 250.0f;
 
     private float timeSinceLastCall = 0f;
@@ -47,13 +47,22 @@ public class WorldGeneration : MonoBehaviour
         
     }
     
+    int AdjustCoordinate(float coordinate, int gridSize)
+    {
+        int halfGridSize = gridSize / 2;
+        if (coordinate >= 0)
+            return ((int)coordinate + halfGridSize) / gridSize * gridSize;
+        
+        return ((int)Math.Abs(coordinate) + halfGridSize) / gridSize * gridSize * -1;
+    }
+    
     public void GenerateWorld(Vector3 coordinates)
     {
         RaycastHit hit;
-        
+
         int gridSize = 1000;
-        int x = Mathf.RoundToInt(coordinates.x / gridSize) * gridSize;
-        int z = Mathf.RoundToInt(coordinates.z / gridSize) * gridSize;
+        int x = AdjustCoordinate(coordinates.x, gridSize);
+        int z = AdjustCoordinate(coordinates.z, gridSize);
 
         Vector3 adjustedPosition = new Vector3(x, 0, z);
         
