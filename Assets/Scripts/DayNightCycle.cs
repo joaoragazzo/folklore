@@ -9,7 +9,8 @@ public class DayNightCycle : MonoBehaviour
     // Variáveis estáticas
     public static bool isDay; // Indica se é dia
     public static int daysPassed = 0; // Conta os dias que passaram
-
+    public static float currentRotation = 0; // Rotação acumulada
+    
     // Variáveis internas
     private float daySpeed;
     private float nightSpeed;
@@ -33,9 +34,14 @@ public class DayNightCycle : MonoBehaviour
         // Verifica se é dia ou noite
         isDay = timeInCycle < dayDuration;
 
-        // Calcula e aplica a rotação
+        // Calcula a mudança na rotação
         float rotationChange = (isDay ? daySpeed : nightSpeed) * Time.deltaTime;
-        transform.Rotate(new Vector3(rotationChange, 0, 0));
+
+        // Acumula a rotação
+        currentRotation += rotationChange;
+
+        // Aplica a rotação
+        transform.rotation = Quaternion.Euler(new Vector3(currentRotation, 0, 0));
 
         // Atualiza o contador de dias
         if (timeInCycle < Time.deltaTime)
