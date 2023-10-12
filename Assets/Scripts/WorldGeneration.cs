@@ -66,7 +66,7 @@ public class WorldGeneration : MonoBehaviour
 
         Vector3 adjustedPosition = new Vector3(x, 0, z);
         
-        Debug.Log("Detectou um não chão em " + coordinates + " => Colocando um chão nas coordenadas (" + x + "," + z + ")");
+        //Debug.Log("Detectou um não chão em " + coordinates + " => Colocando um chão nas coordenadas (" + x + "," + z + ")");
         
         GameObject tile = Instantiate(defaultTile, adjustedPosition, Quaternion.identity);
         tile.transform.position = adjustedPosition;
