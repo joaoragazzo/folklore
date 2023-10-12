@@ -384,6 +384,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1109978560}
     m_Modifications:
+    - target: {fileID: 2646860835654628976, guid: b08b78e796218e142856fb2067a272a7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 2745544300848167247, guid: b08b78e796218e142856fb2067a272a7, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -477,9 +481,25 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6732834114149194975, guid: b08b78e796218e142856fb2067a272a7, type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6732834114149194975, guid: b08b78e796218e142856fb2067a272a7, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c994f400440d3e044899e8ea014fc506, type: 2}
+    - target: {fileID: 6732834114149194975, guid: b08b78e796218e142856fb2067a272a7, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6732834114149194975, guid: b08b78e796218e142856fb2067a272a7, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 33912585740936896, guid: c994f400440d3e044899e8ea014fc506, type: 2}
+    - target: {fileID: 6732834114149194975, guid: b08b78e796218e142856fb2067a272a7, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
