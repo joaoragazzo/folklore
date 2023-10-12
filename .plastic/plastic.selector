@@ -1,0 +1,4 @@
+repository "UNIFAL Computação Grafica@UNIFAL_Versionamento@cloud"
+  path "/"
+    br "/main"
+    co "/main"
