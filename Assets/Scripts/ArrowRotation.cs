@@ -16,7 +16,7 @@ public class ArrowRotation : MonoBehaviour
     void Update()
     {
         // Calcula a mudança na rotação desde a última frame
-        float deltaRotation = DayNightCycle.currentRotation - previousRotation;
+        float deltaRotation = -(DayNightCycle.currentRotation - previousRotation);
 
         // Normaliza a mudança na rotação para evitar a reversão após 90 graus
         if (deltaRotation < -180)
