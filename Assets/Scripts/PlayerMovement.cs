@@ -8,7 +8,6 @@ using Cursor = UnityEngine.Cursor;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
-    private Camera mainCamera;
     public float walkSpeed = 6f;
     public float runSpeed = 12f;
     public float gravity = 10f;
@@ -32,19 +31,15 @@ public class PlayerMovement : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         worldgeneration = GetComponent<WorldGeneration>();
-        mainCamera = Camera.main;
         
-        //Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        LookAtMousePosition();
-        
         #region Movement script
         
         Vector3 foward = transform.TransformDirection(Vector3.forward);
@@ -98,29 +93,6 @@ public class PlayerMovement : MonoBehaviour
         // }
         #endregion
 
-    }
-    
-    void LookAtMousePosition()
-    {
-        // Obtendo a posição do mouse na tela
-        Vector2 mousePosition = Input.mousePosition;
-
-        // Convertendo a posição do mouse para uma posição no mundo do jogo
-        Ray cameraRay = mainCamera.ScreenPointToRay(mousePosition);
-        Plane groundPlane = new Plane(Vector3.up, Vector3.zero); // Plano horizontal
-        float rayLength;
-
-        if (groundPlane.Raycast(cameraRay, out rayLength))
-        {
-            // Pega o ponto no mundo onde o raio intersecta o plano
-            Vector3 pointToLook = cameraRay.GetPoint(rayLength);
-            
-            // Ignora a diferença de altura (y)
-            pointToLook.y = transform.position.y;
-
-            // Faz o personagem olhar para esse ponto
-            transform.LookAt(pointToLook);
-        }
     }
     
 }
