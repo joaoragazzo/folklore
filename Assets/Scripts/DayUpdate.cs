@@ -17,6 +17,6 @@ public class DayUpdate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dayCounter.text = "DIA: " + DayNightCycle.daysPassed;
+        dayCounter.text = "DAY " + DayNightCycle.daysPassed;
     }
 }
