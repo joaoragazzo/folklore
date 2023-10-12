@@ -6,11 +6,13 @@ using UnityEngine;
 public class WorldGeneration : MonoBehaviour
 {
     
-    public float heightToCheck = 2.0f; 
+    public float heightToCheck = 15.0f; 
     public float radiusToCheck = 250.0f;
 
     private float timeSinceLastCall = 0f;
-    private float callInterval = 1f;
+    private float callInterval = 2.5f;
+
+    public GameObject defaultTile;
     
     // Start is called before the first frame update
     void Start()
@@ -45,21 +47,30 @@ public class WorldGeneration : MonoBehaviour
         
     }
     
+    int AdjustCoordinate(float coordinate, int gridSize)
+    {
+        int halfGridSize = gridSize / 2;
+        if (coordinate >= 0)
+            return ((int)coordinate + halfGridSize) / gridSize * gridSize;
+        
+        return ((int)Math.Abs(coordinate) + halfGridSize) / gridSize * gridSize * -1;
+    }
+    
     public void GenerateWorld(Vector3 coordinates)
     {
         RaycastHit hit;
-        
-        int gridSize = 500;
-        int x = Mathf.RoundToInt(coordinates.x / gridSize) * gridSize;
-        int z = Mathf.RoundToInt(coordinates.z / gridSize) * gridSize;
+
+        int gridSize = 1000;
+        int x = AdjustCoordinate(coordinates.x, gridSize);
+        int z = AdjustCoordinate(coordinates.z, gridSize);
 
         Vector3 adjustedPosition = new Vector3(x, 0, z);
         
-        //Debug.Log("Detectou um não chão em " + coordinates + " => Colocando um chão nas coordenadas (" + x + "," + z + ")");
+        Debug.Log("Detectou um não chão em " + coordinates + " => Colocando um chão nas coordenadas (" + x + "," + z + ")");
         
-        GameObject plane = GameObject.CreatePrimitive(PrimitiveType.Plane);
-        plane.transform.position = adjustedPosition;
-        plane.transform.localScale = new Vector3(50, 1, 50);
+        GameObject tile = Instantiate(defaultTile, adjustedPosition, Quaternion.identity);
+        tile.transform.position = adjustedPosition;
+        tile.transform.localScale = new Vector3(1, 1, 1);
     
     }
 }
