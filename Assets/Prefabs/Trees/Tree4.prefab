@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6481673065616784579}
   - component: {fileID: 3747621250291491333}
   - component: {fileID: 2727009559663333603}
+  - component: {fileID: -436728662898763955}
   m_Layer: 0
   m_Name: Tree4
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -0, z: 0}
-  m_LocalScale: {x: 123.330864, y: 123.330864, z: 123.330864}
+  m_LocalScale: {x: 143.88153, y: 143.88153, z: 143.88153}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -106,3 +107,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8247335449976585770, guid: ac590a98425225448ac36615123146ec, type: 3}
+--- !u!114 &-436728662898763955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656899404091045540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9edcd19647be4f4ba7c3f8f5e9213be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallDuration: 2
+  fadeDuration: 2

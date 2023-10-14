@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class RotatingCollider : MonoBehaviour
@@ -8,6 +9,7 @@ public class RotatingCollider : MonoBehaviour
 
     private BoxCollider boxCollider;
     private Quaternion initialRotation;
+    private List<IDamageble> damagedEntities = new List<IDamageble>(); // Lista para rastrear entidades danificadas
 
     private void Start()
     {
@@ -42,18 +44,20 @@ public class RotatingCollider : MonoBehaviour
         foreach (var hitCollider in hitColliders)
         {
             IDamageble damageableEntity = hitCollider.GetComponent<IDamageble>();
-            if (damageableEntity != null)
+            if (damageableEntity != null && !damagedEntities.Contains(damageableEntity))
             {
                 damageableEntity.TakeDamage(1);
+                damagedEntities.Add(damageableEntity);
             }
         }
 
-        // Se a rotação alcançou ou ultrapassou 120 graus, pare de rotacionar e redefina a rotação local
+        // Se a rotação alcançou ou ultrapassou 120 graus, pare de rotacionar, redefina a rotação local e limpe a lista de entidades danificadas
         if (currentAngle >= 120f)
         {
             isRotating = false;
             currentAngle = 0f;
             boxCollider.transform.localRotation = initialRotation;
+            damagedEntities.Clear();
         }
     }
 }
