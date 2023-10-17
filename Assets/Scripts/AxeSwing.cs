@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AxeSwing : MonoBehaviour
 {
-    public float rotationSpeed = 120f;
-    public float returnSpeed = 120f;
+    private float rotationSpeed = 120f;
+    private float returnSpeed = 120f;
     public int damageAmount = 1;
 
     private bool isRotating = false;
@@ -18,20 +18,14 @@ public class AxeSwing : MonoBehaviour
     {
         initialRotation = transform.localRotation; 
         boxCollider = GetComponent<BoxCollider>(); // Obtenha o BoxCollider no mesmo GameObject.
-
-        if (boxCollider == null)
-        {
-            Debug.LogError("BoxCollider não encontrado no GameObject");
-        }
-
-        if (!boxCollider.isTrigger)
-        {
-            Debug.LogError("O BoxCollider deve ser um Trigger");
-        }
     }
 
     private void Update()
     {
+        rotationSpeed = Player.axeRotationSpeed;
+        returnSpeed = Player.axeRotationSpeed;
+        damageAmount = Player.axeDamage;
+        
         if (Input.GetButtonDown("Fire1") && !isRotating && !isReturning)
         {
             isRotating = true;

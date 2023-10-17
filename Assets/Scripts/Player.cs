@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     public static int healthPotionNumber = 3;
     public static int dronesNumber = 0;
     public static float baseDamageMultiplier = 1;
+    public static float axeRotationSpeed = 120f;
+    public static int axeDamage = 1;
     
     
     private Camera mainCamera;
