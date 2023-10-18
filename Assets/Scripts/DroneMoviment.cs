@@ -19,6 +19,12 @@ public class DroneFollow : MonoBehaviour
             return;
         }
 
+
+        if (Player.isRunning)
+            moveSpeed = Player.runSpeed - 1f;
+        else
+            moveSpeed = Player.walkSpeed - 1f;
+
         Vector3 directionToPlayer = (playerTransform.position - transform.position).normalized;
         float distanceToPlayer = Vector3.Distance(playerTransform.position, transform.position);
 
