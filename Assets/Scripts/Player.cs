@@ -13,13 +13,18 @@ public class Player : MonoBehaviour
     public static float critChance = 0.20f;
     public static float critDamage = 1.5f;
     public static float walkSpeed = 6f;
-    public static float runSpeed = 12f;
+    public static float runSpeedMultiplier = 2f;
+    public static float runSpeed
+    {
+        get { return walkSpeed * runSpeedMultiplier; }
+    }
     public static int maxHealthPotionNumber = 3;
     public static int healthPotionNumber = 3;
     public static int dronesNumber = 0;
     public static float baseDamageMultiplier = 1;
     public static float axeRotationSpeed = 120f;
     public static int axeDamage = 1;
+    public static bool isRunning;
     
     
     private Camera mainCamera;
@@ -67,7 +72,7 @@ public class Player : MonoBehaviour
         Vector3 forward = Vector3.forward;
         Vector3 right = Vector3.right;
 
-        bool isRunning = Input.GetKey(KeyCode.LeftShift);
+        isRunning = Input.GetKey(KeyCode.LeftShift);
         float curSpeedX = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Vertical") : 0 ;
         float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Horizontal") : 0 ;
         //float movementDirectionY = moveDirection.y;
