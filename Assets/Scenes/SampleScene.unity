@@ -140,6 +140,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 810177255}
     - target: {fileID: 350121343638312268, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
+      propertyPath: height
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 350121343638312268, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1570986722}
@@ -166,6 +170,10 @@ PrefabInstance:
     - target: {fileID: 4271682585799533967, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: field of view
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271682585799533967, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4380683075490278372, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: m_LocalPosition.x
@@ -216,6 +224,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1752206632}
     - target: {fileID: 4562615036942711979, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
+      propertyPath: height
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4562615036942711979, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1570986722}
@@ -233,7 +245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5035227494174713956, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: m_PlaneDistance
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5952036087878287927, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: m_Name
@@ -255,6 +267,10 @@ PrefabInstance:
       propertyPath: drone2
       value: 
       objectReference: {fileID: 810177255}
+    - target: {fileID: 8929138114954908303, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
+      propertyPath: height
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8929138114954908303, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: mainCamera
       value: 

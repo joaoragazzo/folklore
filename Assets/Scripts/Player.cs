@@ -44,6 +44,8 @@ public class Player : MonoBehaviour
     public bool canMove = true;
     private CharacterController characterController;
     private WorldGeneration worldgeneration;
+
+    private bool tested = false;
     
     
     
@@ -125,6 +127,16 @@ public class Player : MonoBehaviour
         // }
         #endregion
 
+        if (Input.GetKey(KeyCode.B) && !tested)
+        {
+            health -= 1;
+            tested = true;
+            Debug.Log("oiiiiii");
+        }
+        else
+        {
+            tested = false;
+        }
     }
     
     void LookAtMousePosition()
