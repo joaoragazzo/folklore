@@ -5,6 +5,10 @@ using UnityEngine;
 public class ShopUpdate : MonoBehaviour
 {
    public GameObject shopIcons;
+
+   public GameObject shopObject;
+
+   private bool showShop = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +18,24 @@ public class ShopUpdate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            showShop = !showShop;
+        }
+
+        shopObject.SetActive(showShop);
+
+        if (showShop)
+        {
+            Player.canMove = false;
+            DayNightCycle.paused = true;
+        }
+        else
+        {
+            Player.canMove = true;
+            DayNightCycle.paused = false;
+        }
+
         if (DayNightCycle.isDay)
         {
             // Se a condição for verdadeira, desative o objeto pai

@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     public static int axeDamage = 1;
     public static bool isRunning;
     public static int money = 0;
+    public static bool canMove = true;
     
     public static float runSpeed
     {
@@ -41,7 +42,6 @@ public class Player : MonoBehaviour
     //private float rotationX = 0;
 
     private Vector3 moveDirection = Vector3.zero;
-    public bool canMove = true;
     private CharacterController characterController;
     private WorldGeneration worldgeneration;
 
