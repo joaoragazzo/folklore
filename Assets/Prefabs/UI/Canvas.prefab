@@ -645,6 +645,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d628ccbebb6066b4fa9d5a8954890532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2626311210645306402
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4636170464222240396}
+  - component: {fileID: 5876019352965876562}
+  m_Layer: 0
+  m_Name: ShopUPDATE
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4636170464222240396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2626311210645306402}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -841.5304, y: 11.16156, z: 704.1683}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5226136495840757302}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5876019352965876562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2626311210645306402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2783909b61a94f14da4015c5c8b423d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopIcons: {fileID: 8375440615785186415}
 --- !u!1 &2678654439754394201
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,6 +764,7 @@ RectTransform:
   - {fileID: 431974731945641677}
   - {fileID: 4583298609101231109}
   - {fileID: 8656151258187449463}
+  - {fileID: 4636170464222240396}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1231,7 +1277,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8656151258187449463}
-  - component: {fileID: 7214904593707136700}
   m_Layer: 0
   m_Name: Shop
   m_TagString: Untagged
@@ -1248,7 +1293,7 @@ Transform:
   m_GameObject: {fileID: 8375440615785186415}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -595, y: 52, z: 0}
+  m_LocalPosition: {x: -595, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1257,18 +1302,6 @@ Transform:
   - {fileID: 4105379832968517210}
   m_Father: {fileID: 5226136495840757302}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7214904593707136700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8375440615785186415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2783909b61a94f14da4015c5c8b423d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8563765244895343235
 GameObject:
   m_ObjectHideFlags: 0

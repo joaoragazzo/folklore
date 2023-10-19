@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShopUpdate : MonoBehaviour
 {
+   public GameObject shopIcons;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,21 +14,18 @@ public class ShopUpdate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!DayNightCycle.isDay)
+        
+        if (DayNightCycle.isDay)
         {
-            foreach (Renderer rend in transform.GetComponentsInChildren<Renderer>())
-            {
-                rend.enabled = false;
-            }    
+            // Se a condição for verdadeira, desative o objeto pai
+            shopIcons.SetActive(true);
         }
         else
-        {
-            foreach (Renderer rend in transform.GetComponentsInChildren<Renderer>())
-            {
-                rend.enabled = false;
-            }    
+        { 
+            // Se a condição for falsa, ative o objeto pai
+            shopIcons.SetActive(false);
         }
-        
+
 
     }
 }
