@@ -28,11 +28,15 @@ public class ShopUpdate : MonoBehaviour
         if (showShop)
         {
             Player.canMove = false;
+            Player.canRotate = false;
+            Player.canShoot = false;
             DayNightCycle.paused = true;
         }
         else
         {
             Player.canMove = true;
+            Player.canShoot = true;
+            Player.canRotate = true;
             DayNightCycle.paused = false;
         }
 

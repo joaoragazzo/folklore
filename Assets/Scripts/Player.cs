@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     public static bool isRunning;
     public static int money = 0;
     public static bool canMove = true;
+    public static bool canRotate = true;
+    public static bool canShoot = true;
     
     public static float runSpeed
     {
@@ -65,8 +67,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        LookAtMousePosition();
+        if(canRotate)
+            LookAtMousePosition();
         
         #region Movement script
         
