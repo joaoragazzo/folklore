@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8050431278166913989}
   - component: {fileID: 1958510311313800846}
   - component: {fileID: 5357293920698349562}
+  - component: {fileID: 5449418361163167036}
   m_Layer: 0
   m_Name: Cuca
   m_TagString: Untagged
@@ -107,3 +108,16 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5449418361163167036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548194766583704521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b77f0072792918349a8c8f8511f308b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jogador: {fileID: 0}
