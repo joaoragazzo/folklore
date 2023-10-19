@@ -4,7 +4,7 @@ using Quaternion = UnityEngine.Quaternion;
 using Random = UnityEngine.Random;
 using Vector3 = UnityEngine.Vector3;
 
-public class GrassBladeGenerator : MonoBehaviour
+public class TreeProceduralGenerator : MonoBehaviour
 {
     public int tileSize = 1000;
     public int halfTileSize;

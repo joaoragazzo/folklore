@@ -14,10 +14,6 @@ public class Player : MonoBehaviour
     public static float critDamage = 1.5f;
     public static float walkSpeed = 6f;
     public static float runSpeedMultiplier = 2f;
-    public static float runSpeed
-    {
-        get { return walkSpeed * runSpeedMultiplier; }
-    }
     public static int maxHealthPotionNumber = 3;
     public static int healthPotionNumber = 3;
     public static int dronesNumber = 0;
@@ -25,6 +21,12 @@ public class Player : MonoBehaviour
     public static float axeRotationSpeed = 120f;
     public static int axeDamage = 1;
     public static bool isRunning;
+    public static int money = 0;
+    
+    public static float runSpeed
+    {
+        get { return walkSpeed * runSpeedMultiplier; }
+    }
     
     
     private Camera mainCamera;

@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class TreeScript1 : MonoBehaviour, IDamageble
+public class TreeHealthSystem : MonoBehaviour, IDamageble
 {
     private int health = 3;
     private float shakeDuration = 0.5f;
@@ -50,6 +50,8 @@ public class TreeScript1 : MonoBehaviour, IDamageble
 
     private IEnumerator FallOver(float targetAngle)
     {
+        Player.money += 3;
+        
         float elapsed = 0.0f;
         Quaternion initialRotation = transform.rotation;
         Quaternion finalRotation = Quaternion.Euler(targetAngle, 0, 0);
