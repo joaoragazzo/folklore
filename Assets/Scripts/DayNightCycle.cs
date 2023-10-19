@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class DayNightCycle : MonoBehaviour
@@ -16,6 +17,8 @@ public class DayNightCycle : MonoBehaviour
     private float nightSpeed;
     private float totalCycle;
 
+    public static bool paused = false;
+
     // Inicialização
     void Start()
     {
@@ -28,25 +31,28 @@ public class DayNightCycle : MonoBehaviour
     // Atualização é chamada uma vez por frame
     void Update()
     {
-        // Calcula o tempo atual no ciclo
-        float timeInCycle = Time.time % totalCycle;
-
-        // Verifica se é dia ou noite
-        isDay = timeInCycle < dayDuration;
-
-        // Calcula a mudança na rotação
-        float rotationChange = (isDay ? daySpeed : nightSpeed) * Time.deltaTime;
-
-        // Acumula a rotação
-        currentRotation += rotationChange;
-
-        // Aplica a rotação
-        transform.rotation = Quaternion.Euler(new Vector3(currentRotation, 0, 0));
-
-        // Atualiza o contador de dias
-        if (timeInCycle < Time.deltaTime)
+        if (!paused)
         {
-            daysPassed++; // Um novo dia começou
+            // Calcula o tempo atual no ciclo
+            float timeInCycle = Time.time % totalCycle;
+
+            // Verifica se é dia ou noite
+            isDay = timeInCycle < dayDuration;
+
+            // Calcula a mudança na rotação
+            float rotationChange = (isDay ? daySpeed : nightSpeed) * Time.deltaTime;
+
+            // Acumula a rotação
+            currentRotation += rotationChange;
+
+            // Aplica a rotação
+            transform.rotation = Quaternion.Euler(new Vector3(currentRotation, 0, 0));
+
+            // Atualiza o contador de dias
+            if (timeInCycle < Time.deltaTime)
+            {
+                daysPassed++; // Um novo dia começou
+            }
         }
     }
 }

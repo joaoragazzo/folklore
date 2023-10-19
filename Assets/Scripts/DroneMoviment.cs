@@ -69,15 +69,21 @@ public class DroneFollow : MonoBehaviour
         }
 
         // Fazendo o drone olhar para a posição do mouse
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit))
+        if (Player.canRotate)
         {
-            // Se o raio atingir um objeto (supondo que seja o chão ou qualquer objeto em um layer específico), faça o drone olhar para esse ponto
-            Vector3 lookAtPoint = hit.point;
-            lookAtPoint.y = transform.position.y; // Mantém a altura do drone constante, remove isso se você quer que o drone olhe para cima/baixo
-            transform.LookAt(lookAtPoint);
+            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                // Se o raio atingir um objeto (supondo que seja o chão ou qualquer objeto em um layer específico), faça o drone olhar para esse ponto
+                Vector3 lookAtPoint = hit.point;
+                lookAtPoint.y =
+                    transform.position
+                        .y; // Mantém a altura do drone constante, remove isso se você quer que o drone olhe para cima/baixo
+                transform.LookAt(lookAtPoint);
+            }
         }
     }
 }

@@ -26,7 +26,9 @@ public class AxeSwing : MonoBehaviour
         returnSpeed = Player.axeRotationSpeed;
         damageAmount = Player.axeDamage;
         
-        if (Input.GetButtonDown("Fire1") && !isRotating && !isReturning)
+        
+        
+        if (Input.GetButtonDown("Fire1") && !isRotating && !isReturning && Player.canShoot)
         {
             isRotating = true;
             currentAngle = 0f;
