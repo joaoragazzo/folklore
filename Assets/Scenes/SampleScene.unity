@@ -131,14 +131,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 290710387849060719, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1570986722}
+    - target: {fileID: 290710387849060719, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
+      propertyPath: followDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 290710387849060719, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 1295740111}
     - target: {fileID: 350121343638312268, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: drone1
       value: 
-      objectReference: {fileID: 1000961795}
+      objectReference: {fileID: 0}
     - target: {fileID: 350121343638312268, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: drone2
       value: 
-      objectReference: {fileID: 810177255}
+      objectReference: {fileID: 0}
     - target: {fileID: 350121343638312268, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: height
       value: 5
@@ -203,6 +215,30 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3180668328638218598, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.451875
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180668328638218598, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.451875
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180668328638218598, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.451875
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180668328638218598, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.3976
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180668328638218598, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.397
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180668328638218598, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3583686753019020567, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -213,7 +249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3583686753019020567, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -219.79799
+      value: -219.79807
       objectReference: {fileID: 0}
     - target: {fileID: 3704852057818719727, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: m_AnchorMax.y
@@ -318,11 +354,11 @@ PrefabInstance:
     - target: {fileID: 4562615036942711979, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: drone1
       value: 
-      objectReference: {fileID: 1000961795}
+      objectReference: {fileID: 0}
     - target: {fileID: 4562615036942711979, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: drone2
       value: 
-      objectReference: {fileID: 1752206632}
+      objectReference: {fileID: 0}
     - target: {fileID: 4562615036942711979, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: height
       value: 5
@@ -435,6 +471,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6943364545738177776, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1570986722}
+    - target: {fileID: 6943364545738177776, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
+      propertyPath: followDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6943364545738177776, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 1295740111}
     - target: {fileID: 7879670805725396157, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -503,14 +551,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8914019557339481472, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1570986722}
+    - target: {fileID: 8914019557339481472, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
+      propertyPath: followDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8914019557339481472, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 1295740111}
     - target: {fileID: 8929138114954908303, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: drone1
       value: 
-      objectReference: {fileID: 1752206632}
+      objectReference: {fileID: 0}
     - target: {fileID: 8929138114954908303, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: drone2
       value: 
-      objectReference: {fileID: 810177255}
+      objectReference: {fileID: 0}
     - target: {fileID: 8929138114954908303, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: height
       value: 5
@@ -703,16 +763,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!4 &810177255 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7024605549405612463, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
-  m_PrefabInstance: {fileID: 98727062}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1000961795 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4885901658670212104, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
-  m_PrefabInstance: {fileID: 98727062}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1243457079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -856,11 +906,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1752206632 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7794400305430019770, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
-  m_PrefabInstance: {fileID: 98727062}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1987966822 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 83266572596847528, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
