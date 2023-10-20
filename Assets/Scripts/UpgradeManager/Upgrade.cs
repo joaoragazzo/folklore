@@ -12,8 +12,10 @@ public abstract class Upgrade
 
     private PlayerInteraction playerInteraction;
     
-
-    public abstract bool ApplyUpgrade(PlayerStats playerstats);
-
+<<<<<<< Updated upstream
+    public abstract bool ApplyUpgrade();
+=======
+    public abstract void ApplyUpgrade(PlayerStats playerstats);
+>>>>>>> Stashed changes
     
 }

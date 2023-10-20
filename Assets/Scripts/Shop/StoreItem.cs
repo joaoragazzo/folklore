@@ -26,10 +26,7 @@ public class StoreItem : MonoBehaviour
 
     private void OnPurchaseButtonClicked()
     {
-        PlayerInteraction playerinteraction = new PlayerInteraction();
-        playerinteraction.Initialize();
-        
-        bool success = upgrade.ApplyUpgrade(playerinteraction.PlayerStats);
+        bool success = upgrade.ApplyUpgrade();
 
         if (success)
         {

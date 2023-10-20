@@ -11,7 +11,7 @@ public class StoreController : MonoBehaviour
     void Start()
     {
         
-        availableUpgrades.Add(new StrengthUpgrade());
+        availableUpgrades.Add(new HealthUpgrade());
         // Preencha a lista 'availableUpgrades' com seus upgrades.
         // Você pode fazer isso manualmente, ou se cada Upgrade é um ScriptableObject,
         // você pode carregá-los de um diretório.

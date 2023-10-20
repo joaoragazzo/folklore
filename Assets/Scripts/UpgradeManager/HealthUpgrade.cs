@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StrengthUpgrade : Upgrade
+public class Strengthgrade : Upgrade
 {
     public PlayerInteraction playerInteraction;
+<<<<<<< Updated upstream
 
+    public HealthUpgrade()
+=======
     
-    public StrengthUpgrade()
-
+    public Strengthgrade()
+>>>>>>> Stashed changes
     {
         playerInteraction = new PlayerInteraction();
         playerInteraction.Initialize();
@@ -19,8 +22,8 @@ public class StrengthUpgrade : Upgrade
         Price = 35;
     }
 
-
-    public override bool ApplyUpgrade(PlayerStats playerstats)
+<<<<<<< Updated upstream
+    public override bool ApplyUpgrade()
     {
         if (playerInteraction.PlayerStats.Money >= 35)
         {
@@ -28,8 +31,13 @@ public class StrengthUpgrade : Upgrade
             playerInteraction.PlayerStats.Money -= 35;
             return true;
         }
-
+        
         return false;
+=======
+    public override void ApplyUpgrade(PlayerStats playerstats)
+    {
+        playerstats.MaxHealth = playerstats.Strength + 1;
+>>>>>>> Stashed changes
     }
 }
     
