@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class TreeHealthSystem : MonoBehaviour, IDamageble
 {
+    private PlayerInteraction playerInteraction = new PlayerInteraction();
+    
     private int health = 3;
     private float shakeDuration = 0.5f;
     private float shakeMagnitude = 0.1f;
@@ -50,7 +52,7 @@ public class TreeHealthSystem : MonoBehaviour, IDamageble
 
     private IEnumerator FallOver(float targetAngle)
     {
-        Player.money += 3;
+        playerInteraction.PlayerStats.Money += 3;
         
         float elapsed = 0.0f;
         Quaternion initialRotation = transform.rotation;

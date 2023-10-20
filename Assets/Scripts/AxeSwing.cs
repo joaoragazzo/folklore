@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AxeSwing : MonoBehaviour
 {
+    private PlayerInteraction playerInteraction = new PlayerInteraction();
+    
     private float rotationSpeed = 120f;
     private float returnSpeed = 120f;
     public int damageAmount = 1;
@@ -16,19 +18,21 @@ public class AxeSwing : MonoBehaviour
 
     private void Start()
     {
+        playerInteraction.Initialize();
         initialRotation = transform.localRotation; 
         boxCollider = GetComponent<BoxCollider>(); // Obtenha o BoxCollider no mesmo GameObject.
     }
 
     private void Update()
     {
-        rotationSpeed = Player.axeRotationSpeed;
-        returnSpeed = Player.axeRotationSpeed;
-        damageAmount = Player.axeDamage;
         
-        
-        
-        if (Input.GetButtonDown("Fire1") && !isRotating && !isReturning && Player.canShoot)
+        rotationSpeed = playerInteraction.PlayerStats.AxeRotateSpeed;
+        returnSpeed = playerInteraction.PlayerStats.AxeRotateSpeed;
+        damageAmount = playerInteraction.PlayerStats.Strength;
+
+
+
+        if (Input.GetButtonDown("Fire1") && !isRotating && !isReturning && playerInteraction.PlayerStats.CanFire)
         {
             isRotating = true;
             currentAngle = 0f;

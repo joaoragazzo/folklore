@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class DroneFollow : MonoBehaviour
 {
+    private PlayerInteraction playerInteraction = new PlayerInteraction();
+    
     public Transform playerTransform;
     public float followDistance = 3.0f;
     public float safeDistance = 2.0f;
@@ -16,13 +20,20 @@ public class DroneFollow : MonoBehaviour
 
     private void Awake()
     {
+        
+        
         if (allDrones == null)
         {
             allDrones = new List<DroneFollow>();
         }
         allDrones.Add(this); // adicionar este drone à lista quando é criado/inicializado
     }
-    
+
+    private void Start()
+    {
+        playerInteraction.Initialize();
+    }
+
     private void Update()
     {
         if (playerTransform == null || mainCamera == null)
@@ -32,10 +43,10 @@ public class DroneFollow : MonoBehaviour
         }
 
 
-        if (Player.isRunning)
-            moveSpeed = Player.runSpeed - 1f;
+        if (playerInteraction.PlayerStats.IsRunning)
+            moveSpeed = playerInteraction.PlayerStats.WalkSpeed - 1f;
         else
-            moveSpeed = Player.walkSpeed - 1f;
+            moveSpeed = playerInteraction.PlayerStats.WalkSpeed * playerInteraction.PlayerStats.RunSpeedMultiplier - 1f;
 
         Vector3 directionToPlayer = (playerTransform.position - transform.position).normalized;
         float distanceToPlayer = Vector3.Distance(playerTransform.position, transform.position);
@@ -70,7 +81,7 @@ public class DroneFollow : MonoBehaviour
 
         // Fazendo o drone olhar para a posição do mouse
 
-        if (Player.canRotate)
+        if (playerInteraction.PlayerStats.CanTurn)
         {
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ShopUpdate : MonoBehaviour
 {
-   public GameObject shopIcons;
+    public PlayerInteraction playerInteraction = new PlayerInteraction();
+    
+    public GameObject shopIcons;
 
    public GameObject shopObject;
 
@@ -12,7 +14,7 @@ public class ShopUpdate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerInteraction.Initialize();
     }
 
     // Update is called once per frame
@@ -27,16 +29,12 @@ public class ShopUpdate : MonoBehaviour
 
         if (showShop)
         {
-            Player.canMove = false;
-            Player.canRotate = false;
-            Player.canShoot = false;
+            playerInteraction.PlayerStats.Freeze();
             DayNightCycle.paused = true;
         }
         else
         {
-            Player.canMove = true;
-            Player.canShoot = true;
-            Player.canRotate = true;
+            playerInteraction.PlayerStats.Unfreeze();
             DayNightCycle.paused = false;
         }
 

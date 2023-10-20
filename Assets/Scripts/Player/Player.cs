@@ -1,6 +1,8 @@
+using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using Cursor = UnityEngine.Cursor;
 
 
@@ -8,32 +10,11 @@ using Cursor = UnityEngine.Cursor;
 [RequireComponent(typeof(CharacterController))]
 public class Player : MonoBehaviour
 {
-    // Player Stats 
-    public static float health = 100f;
-    public static float critChance = 0.20f;
-    public static float critDamage = 1.5f;
-    public static float walkSpeed = 6f;
-    public static float runSpeedMultiplier = 2f;
-    public static int maxHealthPotionNumber = 3;
-    public static int healthPotionNumber = 3;
-    public static int dronesNumber = 0;
-    public static float baseDamageMultiplier = 1;
-    public static float axeRotationSpeed = 120f;
-    public static int axeDamage = 1;
-    public static bool isRunning;
-    public static int money = 0;
-    public static bool canMove = true;
-    public static bool canRotate = true;
-    public static bool canShoot = true;
-    
-    public static float runSpeed
-    {
-        get { return walkSpeed * runSpeedMultiplier; }
-    }
+    // Player Stats
+    public PlayerStats Stats { get; private set; }
     
     
     private Camera mainCamera;
-    
     
     public float gravity = 10f;
 
@@ -48,10 +29,14 @@ public class Player : MonoBehaviour
     private WorldGeneration worldgeneration;
 
     private bool tested = false;
-    
-    
-    
-    
+
+
+    public void Awake()
+    {
+        Stats = new PlayerStats();
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,13 +46,12 @@ public class Player : MonoBehaviour
         
         //Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = true;
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(canRotate)
+        if(Stats.CanTurn)
             LookAtMousePosition();
         
         #region Movement script
@@ -78,9 +62,10 @@ public class Player : MonoBehaviour
         Vector3 forward = Vector3.forward;
         Vector3 right = Vector3.right;
 
-        isRunning = Input.GetKey(KeyCode.LeftShift);
-        float curSpeedX = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Vertical") : 0 ;
-        float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Horizontal") : 0 ;
+        Stats.IsRunning = Input.GetKey(KeyCode.LeftShift);
+        
+        float curSpeedX = Stats.CanMove ? (Stats.IsRunning ? Stats.RunSpeedMultiplier * Stats.WalkSpeed : Stats.WalkSpeed) * Input.GetAxis("Vertical") : 0 ;
+        float curSpeedY = Stats.CanMove ? (Stats.IsRunning ? Stats.RunSpeedMultiplier * Stats.WalkSpeed : Stats.WalkSpeed) * Input.GetAxis("Horizontal") : 0 ;
         //float movementDirectionY = moveDirection.y;
         
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
@@ -90,7 +75,7 @@ public class Player : MonoBehaviour
         {
             // Normaliza o vetor de movimento para garantir que a velocidade diagonal não seja mais rápida
             moveDirection.Normalize();
-            moveDirection *= (isRunning ? runSpeed : walkSpeed); // Aplica a velocidade correta após a normalização
+            moveDirection *= (Stats.IsRunning ? Stats.RunSpeedMultiplier * Stats.WalkSpeed : Stats.WalkSpeed); // Aplica a velocidade correta após a normalização
         }
         
         characterController.Move(moveDirection * Time.deltaTime);
@@ -116,18 +101,11 @@ public class Player : MonoBehaviour
         // }
         
         #endregion
-        
-        #region Camera movement (fescontinued)
-        // Camera move function
-        // if (canMove)
-        // {
-        //     rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
-        //     rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
-        //     playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0,0);
-        //     transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0 );
-        //     
-        // }
-        #endregion
+
+        if (Input.GetKey(KeyCode.B))
+        {
+            Stats.Health -= 1;
+        }
         
     }
     
