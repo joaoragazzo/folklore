@@ -11,6 +11,6 @@ public abstract class Upgrade
 
     private PlayerInteraction playerInteraction;
     
-    public abstract void ApplyUpgrade(Player playerstats);
+    public abstract bool ApplyUpgrade();
     
 }
