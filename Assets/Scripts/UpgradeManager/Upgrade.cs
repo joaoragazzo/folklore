@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Upgrade
 {
+    
     public string Name { get; protected set; }
     public string Description { get; protected set; }
     public Sprite Image { get; protected set; }
@@ -11,6 +12,10 @@ public abstract class Upgrade
 
     private PlayerInteraction playerInteraction;
     
+<<<<<<< Updated upstream
     public abstract bool ApplyUpgrade();
+=======
+    public abstract void ApplyUpgrade(PlayerStats playerstats);
+>>>>>>> Stashed changes
     
 }
