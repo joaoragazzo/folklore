@@ -30,7 +30,7 @@ public class TreeHealthSystem : MonoBehaviour, IDamageble
         
         StartCoroutine(Shake());
         
-        if (health == 0)
+        if (health <= 0)
         {
             float randomAngle = (Random.value > 0.5f) ? -10f : -180f;
             StartCoroutine(FallOver(randomAngle));
