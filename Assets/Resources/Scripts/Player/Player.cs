@@ -101,11 +101,6 @@ public class Player : MonoBehaviour
         // }
         
         #endregion
-
-        if (Input.GetKey(KeyCode.B))
-        {
-            Stats.Health -= 1;
-        }
         
     }
     
