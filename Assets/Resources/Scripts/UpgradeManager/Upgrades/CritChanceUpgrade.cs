@@ -2,33 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StrengthUpgrade : Upgrade
+public class CritChanceUpgrade : Upgrade
 {
-    public PlayerInteraction playerInteraction;
-
-    public StrengthUpgrade()
+    private PlayerInteraction playerInteraction;
+    
+    public CritChanceUpgrade()
     {
         playerInteraction = new PlayerInteraction();
         playerInteraction.Initialize();
 
-        Name = "Força";
-        Description = "Força +1";
-        Image = Resources.Load<Sprite>("Images/Upgrades/treedamageupgradeicon");
-        Price = 35;
-        Max = 3;
+        Name = "Crit. Chance";
+        Description = "Crit. Chance +10%";
+        Image = Resources.Load<Sprite>("Images/Upgrades/critchanceupgradeicon");
+        Price = 30;
+        Max = 10;
     }
 
     public override bool ApplyUpgrade()
     {
-
         if (playerInteraction.PlayerStats.Money >= Price)
         {
-            playerInteraction.PlayerStats.Strength += 1;
+            playerInteraction.PlayerStats.CritChance += (float)0.10;
             playerInteraction.PlayerStats.Money -= Price;
             return true;
         }
-        
+
         return false;
     }
 }
-    

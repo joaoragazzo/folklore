@@ -11,7 +11,7 @@ public class PlayerStats : IDamageble
     public float WalkSpeed { get; set; } = 6f;
     public float RunSpeedMultiplier { get; set; } = 2f;
     public int Strength { get; set; } = 1;
-    public float CritChance { get; set; } = 0.25f;
+    public float CritChance { get; set; } = 0.0f;
     public float CritMultiplier { get; set; } = 2.5f;
     public float AxeRotateSpeed { get; set; } = 120f;
     public float BaseDamageMultiplier { get; set; } = 100f;

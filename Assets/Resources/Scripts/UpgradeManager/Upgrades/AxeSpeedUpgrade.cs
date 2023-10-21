@@ -2,33 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StrengthUpgrade : Upgrade
+public class AxeSpeedUpgrade : Upgrade
 {
-    public PlayerInteraction playerInteraction;
-
-    public StrengthUpgrade()
+    private PlayerInteraction playerInteraction;
+    
+    public AxeSpeedUpgrade()
     {
         playerInteraction = new PlayerInteraction();
         playerInteraction.Initialize();
 
-        Name = "Força";
-        Description = "Força +1";
-        Image = Resources.Load<Sprite>("Images/Upgrades/treedamageupgradeicon");
-        Price = 35;
-        Max = 3;
+        Name = "Balanço";
+        Description = "Balanço +50%";
+        Image = Resources.Load<Sprite>("Images/Upgrades/axespeedupgradeicon");
+        Price = 20;
+        Max = int.MaxValue;
     }
 
     public override bool ApplyUpgrade()
     {
-
         if (playerInteraction.PlayerStats.Money >= Price)
         {
-            playerInteraction.PlayerStats.Strength += 1;
+            playerInteraction.PlayerStats.AxeRotateSpeed *= (float)1.5;
             playerInteraction.PlayerStats.Money -= Price;
             return true;
         }
-        
+
         return false;
     }
-}
     
+}

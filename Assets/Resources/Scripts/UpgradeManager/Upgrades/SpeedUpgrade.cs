@@ -2,33 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StrengthUpgrade : Upgrade
+public class SpeedUpgrade : Upgrade
 {
-    public PlayerInteraction playerInteraction;
-
-    public StrengthUpgrade()
+    private PlayerInteraction playerInteraction;
+    
+    public SpeedUpgrade()
     {
         playerInteraction = new PlayerInteraction();
         playerInteraction.Initialize();
 
-        Name = "Força";
-        Description = "Força +1";
-        Image = Resources.Load<Sprite>("Images/Upgrades/treedamageupgradeicon");
-        Price = 35;
-        Max = 3;
+        Name = "Velocidade";
+        Description = "Velocidade +15%";
+        Image = Resources.Load<Sprite>("Images/Upgrades/speedupgradeicon");
+        Price = 20;
+        Max = int.MaxValue;
     }
 
     public override bool ApplyUpgrade()
     {
-
         if (playerInteraction.PlayerStats.Money >= Price)
         {
-            playerInteraction.PlayerStats.Strength += 1;
+            playerInteraction.PlayerStats.WalkSpeed *= (float)1.15;
             playerInteraction.PlayerStats.Money -= Price;
             return true;
         }
-        
+
         return false;
     }
 }
-    
