@@ -58,6 +58,7 @@ public class TreeHealthSystem : MonoBehaviour, IDamageble
 
     private IEnumerator FallOver(float targetAngle)
     {
+        treeCollider.enabled = false;
         playerInteraction.PlayerStats.Money += 3;
         
         float elapsed = 0.0f;
@@ -72,9 +73,7 @@ public class TreeHealthSystem : MonoBehaviour, IDamageble
         }
 
         transform.rotation = finalRotation;
-
-        // Desativar colisão e iniciar animação de desaparecimento
-        treeCollider.enabled = false;
+        
         StartCoroutine(FadeOutAndDestroy());
     }
 
