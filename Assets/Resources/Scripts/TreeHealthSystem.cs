@@ -10,7 +10,8 @@ public class TreeHealthSystem : MonoBehaviour, IDamageble
     private float shakeMagnitude = 0.1f;
     public float fallDuration = 2.0f;
     public float fadeDuration = 2.0f; // Duração da animação de desaparecimento
-
+    private bool dead = false;
+    
     private Collider treeCollider;
 
     private void Awake()
@@ -30,8 +31,10 @@ public class TreeHealthSystem : MonoBehaviour, IDamageble
         
         StartCoroutine(Shake());
         
-        if (health <= 0)
+        if (health <= 0 && !dead)
         {
+            dead = true;
+            playerInteraction.PlayerStats.Money += 3;
             float randomAngle = (Random.value > 0.5f) ? -10f : -180f;
             StartCoroutine(FallOver(randomAngle));
         }
@@ -58,7 +61,7 @@ public class TreeHealthSystem : MonoBehaviour, IDamageble
 
     private IEnumerator FallOver(float targetAngle)
     {
-        playerInteraction.PlayerStats.Money += 3;
+        treeCollider.enabled = false;
         
         float elapsed = 0.0f;
         Quaternion initialRotation = transform.rotation;
@@ -72,9 +75,7 @@ public class TreeHealthSystem : MonoBehaviour, IDamageble
         }
 
         transform.rotation = finalRotation;
-
-        // Desativar colisão e iniciar animação de desaparecimento
-        treeCollider.enabled = false;
+        
         StartCoroutine(FadeOutAndDestroy());
     }
 
