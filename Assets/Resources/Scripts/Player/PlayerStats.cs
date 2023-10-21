@@ -33,12 +33,7 @@ public class PlayerStats : IDamageble
             IsAlive = false;
         }
     }
-
-
-    public void IncreaseMaxHealth(float multiplier)
-    {
-        MaxHealth *= multiplier;
-    }
+    
 
     public void Freeze()
     {
