@@ -12,9 +12,10 @@ public class StrengthUpgrade : Upgrade
         playerInteraction.Initialize();
 
         Name = "Força";
-        Description = "Aumenta sua força em +1";
+        Description = "Força +1";
         Image = Resources.Load<Sprite>("Images/Upgrades/treedamageupgradeicon");
-        Price = 0;
+        Price = 35;
+        Max = 3;
     }
 
     public override bool ApplyUpgrade()

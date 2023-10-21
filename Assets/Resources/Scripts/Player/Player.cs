@@ -28,9 +28,7 @@ public class Player : MonoBehaviour
     private CharacterController characterController;
     private WorldGeneration worldgeneration;
 
-    private bool tested = false;
-
-
+    
     public void Awake()
     {
         Stats = new PlayerStats();
