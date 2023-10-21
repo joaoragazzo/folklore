@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthUpgrade : Upgrade
+public class StrengthUpgrade : Upgrade
 {
     public PlayerInteraction playerInteraction;
 
-    public HealthUpgrade()
+    public StrengthUpgrade()
     {
         playerInteraction = new PlayerInteraction();
         playerInteraction.Initialize();
@@ -14,7 +14,7 @@ public class HealthUpgrade : Upgrade
         Name = "Força";
         Description = "Aumenta sua força em +1";
         Image = Resources.Load<Sprite>("Images/Upgrades/treedamageupgradeicon");
-        Price = 35;
+        Price = 0;
     }
 
     public override bool ApplyUpgrade()

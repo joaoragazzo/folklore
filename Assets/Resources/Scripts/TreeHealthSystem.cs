@@ -18,6 +18,11 @@ public class TreeHealthSystem : MonoBehaviour, IDamageble
         treeCollider = GetComponent<Collider>();
     }
 
+    private void Start()
+    {
+        playerInteraction.Initialize();
+    }
+    
     public void TakeDamage(int damage)
     {
         health -= 1;

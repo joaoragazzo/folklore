@@ -4,10 +4,10 @@ using UnityEngine.UI;
 
 public class StoreItem : MonoBehaviour
 {
-    public TextMeshPro nameText;
-    public TextMeshPro descriptionText;
+    public TextMeshProUGUI nameText;
+    public TextMeshProUGUI descriptionText;
+    public TextMeshProUGUI priceText;
     public Image iconImage;
-    public TextMeshPro priceText;
     public Button purchaseButton;
 
     private Upgrade upgrade;
