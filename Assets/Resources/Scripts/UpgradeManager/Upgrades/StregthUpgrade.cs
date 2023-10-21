@@ -24,7 +24,6 @@ public class StrengthUpgrade : Upgrade
         {
             playerInteraction.PlayerStats.Strength += 1;
             playerInteraction.PlayerStats.Money -= Price;
-            Debug.LogError(playerInteraction.PlayerStats.Strength);
             return true;
         }
         
