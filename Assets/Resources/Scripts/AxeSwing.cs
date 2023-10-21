@@ -15,6 +15,7 @@ public class AxeSwing : MonoBehaviour
     private float currentAngle = 0f;
     private Quaternion initialRotation;
     private BoxCollider boxCollider; // Referência para o BoxCollider.
+    private List<IDamageble> treeHits;
 
     private void Start()
     {
@@ -84,9 +85,7 @@ public class AxeSwing : MonoBehaviour
 
         if (damageableEntity != null && isRotating) // Se é uma entidade danificável e o machado está girando.
         {
-            
             damageableEntity.TakeDamage(damageAmount);
         }
-        
     }
 }
