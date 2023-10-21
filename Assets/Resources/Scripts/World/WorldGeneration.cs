@@ -6,8 +6,8 @@ using UnityEngine;
 public class WorldGeneration : MonoBehaviour
 {
     
-    public float heightToCheck = 15.0f; 
-    public float radiusToCheck = 250.0f;
+    private float heightToCheck = float.MaxValue; 
+    private float radiusToCheck = 250.0f;
 
     private float timeSinceLastCall = 0f;
     private float callInterval = 2.5f;
