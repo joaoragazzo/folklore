@@ -43,7 +43,7 @@ public class DroneFollow : MonoBehaviour
         }
 
 
-        if (playerInteraction.PlayerStats.IsRunning)
+        if (!playerInteraction.PlayerStats.IsRunning)
             moveSpeed = playerInteraction.PlayerStats.WalkSpeed - 1f;
         else
             moveSpeed = playerInteraction.PlayerStats.WalkSpeed * playerInteraction.PlayerStats.RunSpeedMultiplier - 1f;
