@@ -19,10 +19,12 @@ public class StrengthUpgrade : Upgrade
 
     public override bool ApplyUpgrade()
     {
-        if (playerInteraction.PlayerStats.Money >= 35)
+
+        if (playerInteraction.PlayerStats.Money >= Price)
         {
             playerInteraction.PlayerStats.Strength += 1;
-            playerInteraction.PlayerStats.Money -= 35;
+            playerInteraction.PlayerStats.Money -= Price;
+            Debug.LogError(playerInteraction.PlayerStats.Strength);
             return true;
         }
         

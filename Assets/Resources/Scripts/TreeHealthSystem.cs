@@ -25,7 +25,8 @@ public class TreeHealthSystem : MonoBehaviour, IDamageble
     
     public void TakeDamage(int damage)
     {
-        health -= 1;
+        Debug.Log(playerInteraction.PlayerStats.Strength);
+        health -= playerInteraction.PlayerStats.Strength;
         
         StartCoroutine(Shake());
         
