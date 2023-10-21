@@ -15,9 +15,11 @@ public class AxeSwing : MonoBehaviour
     private float currentAngle = 0f;
     private Quaternion initialRotation;
     private BoxCollider boxCollider; // Referência para o BoxCollider.
+    private List<IDamageble> hitObjectsDuringSwing;
 
     private void Start()
     {
+        hitObjectsDuringSwing = new List<IDamageble>();
         playerInteraction.Initialize();
         initialRotation = transform.localRotation; 
         boxCollider = GetComponent<BoxCollider>(); // Obtenha o BoxCollider no mesmo GameObject.
@@ -46,6 +48,7 @@ public class AxeSwing : MonoBehaviour
         if (isReturning)
         {
             ReturnToInitialRotation();
+            hitObjectsDuringSwing.Clear();
         }
     }
 
@@ -82,11 +85,10 @@ public class AxeSwing : MonoBehaviour
 
         IDamageble damageableEntity = other.GetComponent<IDamageble>();
 
-        if (damageableEntity != null && isRotating) // Se é uma entidade danificável e o machado está girando.
+        if (damageableEntity != null && isRotating && !hitObjectsDuringSwing.Contains(damageableEntity)) // Se é uma entidade danificável e o machado está girando.
         {
-            
             damageableEntity.TakeDamage(damageAmount);
+            hitObjectsDuringSwing.Add(damageableEntity);
         }
-        
     }
 }
