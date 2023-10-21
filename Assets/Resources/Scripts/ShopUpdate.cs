@@ -25,6 +25,11 @@ public class ShopUpdate : MonoBehaviour
             showShop = !showShop;
         }
 
+        if (!DayNightCycle.isDay)
+        {
+            showShop = false;
+        }
+        
         shopObject.SetActive(showShop);
 
         if (showShop)
