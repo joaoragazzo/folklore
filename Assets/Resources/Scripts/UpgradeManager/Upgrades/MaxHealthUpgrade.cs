@@ -2,27 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CritChanceUpgrade : Upgrade
+public class MaxHealthUpgrade : Upgrade
 {
     private PlayerInteraction playerInteraction;
     
-    public CritChanceUpgrade()
+    public MaxHealthUpgrade()
     {
         playerInteraction = new PlayerInteraction();
         playerInteraction.Initialize();
 
-        Name = "Dano Crítico";
-        Description = "Dano Crítico +10%";
-        Image = Resources.Load<Sprite>("Images/Upgrades/critdamageupgrade");
-        Price = 30;
-        Max = 10;
+        Name = "Vida Max.";
+        Description = "Vida máxima +5%";
+        Image = Resources.Load<Sprite>("Images/Upgrades/maxhealthupgradeicon");
+        Price = 20;
+        Max = int.MaxValue;
     }
 
     public override bool ApplyUpgrade()
     {
         if (playerInteraction.PlayerStats.Money >= Price)
         {
-            playerInteraction.PlayerStats.CritMultiplier += (float)0.10;
+            playerInteraction.PlayerStats.MaxHealth *= (float)1.05;
             playerInteraction.PlayerStats.Money -= Price;
             return true;
         }

@@ -23,6 +23,6 @@ public class DayUpdate : MonoBehaviour
     void Update()
     {
         
-        dayCounter.text = "DAY " + worldInteraction.worldStats.DayCounter;
+        dayCounter.text = "DIA " + worldInteraction.worldStats.DayCounter;
     }
 }
