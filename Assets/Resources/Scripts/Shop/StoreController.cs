@@ -14,6 +14,7 @@ public class StoreController : MonoBehaviour
         availableUpgrades.Add(new SpeedUpgrade());
         availableUpgrades.Add(new CritChanceUpgrade());
         availableUpgrades.Add(new AxeSpeedUpgrade());
+        availableUpgrades.Add(new MaxHealthUpgrade());
         
         // Preencha a lista 'availableUpgrades' com seus upgrades.
         // Você pode fazer isso manualmente, ou se cada Upgrade é um ScriptableObject,
