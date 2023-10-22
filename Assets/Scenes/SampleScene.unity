@@ -493,7 +493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4301139026826974121, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000033343018
+      value: -0.0000034773125
       objectReference: {fileID: 0}
     - target: {fileID: 4350345628325234735, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1275,7 +1275,7 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 3168629718210732818, guid: 942493a9406170b4bae772d343136637, type: 3}
   - {fileID: 5046081693261445432, guid: 5075d28f1d3f42949afef167c4cc39a0, type: 3}
-  - {fileID: 548194766583704521, guid: 24db2dc2aa875f749912ae22f79b66fd, type: 3}
+  - {fileID: 1253966484828143668, guid: 24db2dc2aa875f749912ae22f79b66fd, type: 3}
   - {fileID: 5437669043584454034, guid: 372c4ecae5fc93247a478a1505ffd01f, type: 3}
   - {fileID: 5437669043584454034, guid: b1aff3e07ed23ba459ea4fd01002ce42, type: 3}
   spawnInterval: 0.5
