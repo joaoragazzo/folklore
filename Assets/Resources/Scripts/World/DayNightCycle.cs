@@ -46,7 +46,7 @@ public class DayNightCycle : MonoBehaviour
                 worldStats.DayCounter++;
             }
             
-            Debug.Log("IS DAY: " + worldStats.IsDay + " || TIME: " + worldStats.Time);
+            //Debug.Log("IS DAY: " + worldStats.IsDay + " || TIME: " + worldStats.Time);
         }
     }
 }
