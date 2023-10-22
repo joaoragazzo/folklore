@@ -14,13 +14,17 @@ public class DroneFollow : MonoBehaviour
     public float droneAvoidanceDistance = 2.0f; 
     public float moveSpeed = 5.0f;
     public Camera mainCamera; // A câmera principal do jogo, você precisa associar isso no Editor da Unity
-    public int height = 3;
+    public int height = 5;
+    private float verticalAmplitude = 0.5f;
+    private float vertialFrequency = 1f;
+    private float initialPhase;
+    
     
     private static List<DroneFollow> allDrones; // lista estática contendo todas as instâncias de drones
 
     private void Awake()
     {
-        
+        initialPhase = UnityEngine.Random.Range(0f, 2f * Mathf.PI);
         
         if (allDrones == null)
         {
@@ -32,10 +36,15 @@ public class DroneFollow : MonoBehaviour
     private void Start()
     {
         playerInteraction.Initialize();
+        
     }
 
     private void Update()
     {
+        float deltaTime = Time.timeSinceLevelLoad;
+        float verticalMovement = Mathf.Sin(deltaTime * vertialFrequency + initialPhase) * verticalAmplitude;
+        
+        
         if (playerTransform == null || mainCamera == null)
         {
             Debug.LogWarning("Player Transform ou Main Camera não está definido.");
@@ -50,20 +59,24 @@ public class DroneFollow : MonoBehaviour
 
         Vector3 directionToPlayer = (playerTransform.position - transform.position).normalized;
         float distanceToPlayer = Vector3.Distance(playerTransform.position, transform.position);
+        
+        
 
         // Movendo o drone para frente ou para trás, baseado na distância segura e de seguimento
         if (distanceToPlayer < safeDistance)
         {
             Vector3 newPosition = transform.position - directionToPlayer * moveSpeed * Time.deltaTime;
-            newPosition.y = height;
+            newPosition.y = height + verticalMovement;
             transform.position = newPosition;
         }
-        else if (distanceToPlayer > followDistance)
+        else if (distanceToPlayer >= followDistance)
         {
             Vector3 newPosition = transform.position + directionToPlayer * moveSpeed * Time.deltaTime;
-            newPosition.y = height;
+            newPosition.y = height + verticalMovement;
             transform.position = newPosition;
         }
+        
+        
         
         // Verifica a proximidade de outros drones e ajusta a posição para evitar colisão
         foreach (var otherDrone in allDrones)

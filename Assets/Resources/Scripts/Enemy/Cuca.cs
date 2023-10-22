@@ -14,6 +14,7 @@ public class Cuca : MonoBehaviour, IDamageble
 
     void Start()
     {
+        
         // Encontra o jogador no cenário utilizando a tag "Player".
         // Certifique-se de que seu jogador esteja marcado com essa tag.
         jogador = GameObject.FindGameObjectWithTag("Player").transform;
