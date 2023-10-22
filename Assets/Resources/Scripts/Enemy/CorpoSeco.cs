@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boitata : MonoBehaviour, IDamageble
+public class CorpoSeco : MonoBehaviour, IDamageble
 {
     public static float health = 100f;
     public static float critChance = 0.20f;
-    public static float critDamage = 1.5f;
+    public static float critDamage = .75f;
     public static float baseDamageMultiplier = 1;
     
-    public static float velocidade = 5.0f; // Velocidade na qual o inimigo vai se mover na direção do jogador.
+    public static float velocidade = 1.5f; // Velocidade na qual o inimigo vai se mover na direção do jogador.
     public Transform jogador; // Referência para a posição do jogador.
 
     void Start()
