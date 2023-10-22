@@ -1,14 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
+    private WorldInteraction worldInteraction;
+    
     public Transform playerTransform;
     public GameObject[] enemyPrefabs;
     public static int maxEnemies = 500;
     private static int currentEnemyCount;
-
+    
     public float spawnInterval = 2f;
 
     // Limites dentro dos quais os inimigos podem ser spawnados, relativos à posição da câmera.
@@ -16,6 +20,11 @@ public class EnemySpawner : MonoBehaviour
     public float maxX = 10f;
     public float minZ = -10f;
     public float maxZ = 10f;
+
+    private void Awake()
+    {
+        
+    }
 
     void Start()
     {
@@ -25,9 +34,12 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnEnemies()
     {
+        worldInteraction = new WorldInteraction();
+        worldInteraction.Initialize();
         while (true)
         {
-            if (currentEnemyCount < maxEnemies)
+            //Debug.Log("Está dia? " + worldInteraction.worldStats.IsDay);
+            if (currentEnemyCount < maxEnemies && !worldInteraction.worldStats.IsDay)
             {
                 SpawnEnemy();
             }
