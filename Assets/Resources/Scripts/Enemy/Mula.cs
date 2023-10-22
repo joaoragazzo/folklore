@@ -9,7 +9,7 @@ public class Mula : MonoBehaviour, IDamageble
     public static float critDamage = 1.5f;
     public static float baseDamageMultiplier = 1;
     
-    public static float velocidade = 5.0f; // Velocidade na qual o inimigo vai se mover na direção do jogador.
+    public static float velocidade = 10.0f; // Velocidade na qual o inimigo vai se mover na direção do jogador.
     public Transform jogador; // Referência para a posição do jogador.
 
     void Start()
