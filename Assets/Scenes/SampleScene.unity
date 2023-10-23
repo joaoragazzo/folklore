@@ -561,7 +561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4301139026826974121, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000017940998
+      value: -0.00089812715
       objectReference: {fileID: 0}
     - target: {fileID: 4330381445579257154, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: m_LocalPosition.x
@@ -911,6 +911,22 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7535531648315085529, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
+      propertyPath: bulletVFX
+      value: 
+      objectReference: {fileID: 797523203188049986, guid: 56e588d8f6737c846b1b2cda40036799, type: 3}
+    - target: {fileID: 7535531648315085529, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7535531648315085529, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
+      propertyPath: projectileSpeed
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7535531648315085529, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
+      propertyPath: mouseColliderMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 7879670805725396157, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1119,6 +1135,7 @@ PrefabInstance:
     - {fileID: 5735748881208758079, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
     m_RemovedGameObjects:
     - {fileID: 8270122530938444843, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
+    - {fileID: 5936044277185200715, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 83266572596847528, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
