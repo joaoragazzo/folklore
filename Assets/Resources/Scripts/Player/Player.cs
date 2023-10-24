@@ -65,6 +65,13 @@ public class Player : MonoBehaviour
         float curSpeedX = Stats.CanMove ? (Stats.IsRunning ? Stats.RunSpeedMultiplier * Stats.WalkSpeed : Stats.WalkSpeed) * Input.GetAxis("Vertical") : 0 ;
         float curSpeedY = Stats.CanMove ? (Stats.IsRunning ? Stats.RunSpeedMultiplier * Stats.WalkSpeed : Stats.WalkSpeed) * Input.GetAxis("Horizontal") : 0 ;
         //float movementDirectionY = moveDirection.y;
+
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        {
+            Stats.IsMoving = true;
+        }
+        else Stats.IsMoving = false;
+        
         
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 

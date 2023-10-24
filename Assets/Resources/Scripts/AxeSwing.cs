@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class AxeSwing : MonoBehaviour
@@ -54,6 +55,7 @@ public class AxeSwing : MonoBehaviour
 
     private void PerformRotation()
     {
+        playerInteraction.PlayerStats.IsAttacking = true;
         float rotationThisFrame = rotationSpeed * Time.deltaTime;
         currentAngle += rotationThisFrame;
 
@@ -64,6 +66,7 @@ public class AxeSwing : MonoBehaviour
             isRotating = false;
             isReturning = true;
         }
+        playerInteraction.PlayerStats.IsAttacking = true;
     }
 
     private void ReturnToInitialRotation()

@@ -326,7 +326,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3801943125401234692, guid: 6b00d7b8bd517264bb353ca6fd9adb21, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.9595857
+      value: 3.12
       objectReference: {fileID: 0}
     - target: {fileID: 3801943125401234692, guid: 6b00d7b8bd517264bb353ca6fd9adb21, type: 3}
       propertyPath: m_LocalPosition.y
@@ -334,7 +334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3801943125401234692, guid: 6b00d7b8bd517264bb353ca6fd9adb21, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.760776
+      value: -4.18
       objectReference: {fileID: 0}
     - target: {fileID: 3801943125401234692, guid: 6b00d7b8bd517264bb353ca6fd9adb21, type: 3}
       propertyPath: m_LocalRotation.w
@@ -375,6 +375,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8131965728350026602, guid: 6b00d7b8bd517264bb353ca6fd9adb21, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6293225821559958046}
+    - targetCorrespondingSourceObject: {fileID: 8131965728350026602, guid: 6b00d7b8bd517264bb353ca6fd9adb21, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4182568494999303425}
   m_SourcePrefab: {fileID: 100100000, guid: 6b00d7b8bd517264bb353ca6fd9adb21, type: 3}
 --- !u!4 &4330381445579257154 stripped
 Transform:
@@ -399,12 +402,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
-  followDistance: 3
+  followDistance: 5
   safeDistance: 2
   droneAvoidanceDistance: 2
   moveSpeed: 5
   mainCamera: {fileID: 4271682585799533967}
   height: 6
+  repulsionForce: 5
+--- !u!54 &4182568494999303425
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8647234972807258924}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1461838548835637391
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -589,7 +620,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8948508710668638505, guid: f486a126c61d92142860bd41b3f76025, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.81
+      value: 6.82
       objectReference: {fileID: 0}
     - target: {fileID: 8948508710668638505, guid: f486a126c61d92142860bd41b3f76025, type: 3}
       propertyPath: m_LocalPosition.y
@@ -597,7 +628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8948508710668638505, guid: f486a126c61d92142860bd41b3f76025, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.69
+      value: -0.78
       objectReference: {fileID: 0}
     - target: {fileID: 8948508710668638505, guid: f486a126c61d92142860bd41b3f76025, type: 3}
       propertyPath: m_LocalRotation.w
@@ -634,6 +665,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 400223535264255611, guid: f486a126c61d92142860bd41b3f76025, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7018301832388947601}
+    - targetCorrespondingSourceObject: {fileID: 400223535264255611, guid: f486a126c61d92142860bd41b3f76025, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2412538784356068807}
   m_SourcePrefab: {fileID: 100100000, guid: f486a126c61d92142860bd41b3f76025, type: 3}
 --- !u!4 &2203431465686079593 stripped
 Transform:
@@ -658,12 +692,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
-  followDistance: 3
+  followDistance: 5
   safeDistance: 2
   droneAvoidanceDistance: 2
   moveSpeed: 5
   mainCamera: {fileID: 4271682585799533967}
   height: 6
+  repulsionForce: 5
+--- !u!54 &2412538784356068807
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7437331206727454523}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &7657217613664865353
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -797,7 +859,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3519670059105423120, guid: 97e3c9e0e67ccda4e98ef1e9d6a278d0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.1251194
+      value: -0.07
       objectReference: {fileID: 0}
     - target: {fileID: 3519670059105423120, guid: 97e3c9e0e67ccda4e98ef1e9d6a278d0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -805,7 +867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3519670059105423120, guid: 97e3c9e0e67ccda4e98ef1e9d6a278d0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.8006194
+      value: -1.11
       objectReference: {fileID: 0}
     - target: {fileID: 3519670059105423120, guid: 97e3c9e0e67ccda4e98ef1e9d6a278d0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -846,6 +908,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5310433384451111486, guid: 97e3c9e0e67ccda4e98ef1e9d6a278d0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1803986921267949801}
+    - targetCorrespondingSourceObject: {fileID: 5310433384451111486, guid: 97e3c9e0e67ccda4e98ef1e9d6a278d0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4029555688330431945}
   m_SourcePrefab: {fileID: 100100000, guid: 97e3c9e0e67ccda4e98ef1e9d6a278d0, type: 3}
 --- !u!1 &2527976351756482011 stripped
 GameObject:
@@ -865,12 +930,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
-  followDistance: 3
+  followDistance: 5
   safeDistance: 2
   droneAvoidanceDistance: 2
   moveSpeed: 5
   mainCamera: {fileID: 4271682585799533967}
   height: 6
+  repulsionForce: 5
+--- !u!54 &4029555688330431945
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2527976351756482011}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &6521000444105556213 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3519670059105423120, guid: 97e3c9e0e67ccda4e98ef1e9d6a278d0, type: 3}
