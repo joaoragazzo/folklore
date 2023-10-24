@@ -20,6 +20,8 @@ public class PlayerStats : IDamageble
     public bool CanTurn { get; set; } = true;
     public bool CanFire { get; set; } = true;
     public bool IsRunning { get; set; } = false;
+    public bool IsMoving { get; set; }
+    public bool IsAttacking { get; set; }
     public Vector3 Mouse3DPosition { get; set; }
     
     
