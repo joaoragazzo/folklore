@@ -19,6 +19,8 @@ public class DroneFollow : MonoBehaviour
     private float vertialFrequency = 1f;
     private float initialPhase;
     
+    public float repulsionForce = 50.0f;
+
     
     private static List<DroneFollow> allDrones; // lista estática contendo todas as instâncias de drones
 
@@ -53,7 +55,7 @@ public class DroneFollow : MonoBehaviour
 
 
         if (!playerInteraction.PlayerStats.IsRunning)
-            moveSpeed = playerInteraction.PlayerStats.WalkSpeed - 1f;
+            moveSpeed = playerInteraction.PlayerStats.WalkSpeed * playerInteraction.PlayerStats.RunSpeedMultiplier - 3f;
         else
             moveSpeed = playerInteraction.PlayerStats.WalkSpeed * playerInteraction.PlayerStats.RunSpeedMultiplier - 1f;
 
@@ -79,19 +81,28 @@ public class DroneFollow : MonoBehaviour
         
         
         // Verifica a proximidade de outros drones e ajusta a posição para evitar colisão
+        
+        Vector3 totalRepulsionVector = Vector3.zero;
         foreach (var otherDrone in allDrones)
         {
             if (otherDrone != this)
             {
                 float distanceToDrone = Vector3.Distance(transform.position, otherDrone.transform.position);
+
                 if (distanceToDrone < droneAvoidanceDistance)
                 {
-                    Vector3 avoidDirection = (transform.position - otherDrone.transform.position).normalized;
-                    transform.position += avoidDirection * moveSpeed * Time.deltaTime;
+                    // Calcula o vetor de repulsão. Quanto mais próximo o drone, maior a força.
+                    Vector3 repulsionVector = (transform.position - otherDrone.transform.position).normalized;
+                    repulsionVector /= distanceToDrone; // Aumenta a força à medida que a distância diminui
+                    
+                    totalRepulsionVector += repulsionVector;
                 }
             }
         }
-
+        
+        GetComponent<Rigidbody>().AddForce(totalRepulsionVector * repulsionForce);
+        
+        
         // Fazendo o drone olhar para a posição do mouse
 
         if (playerInteraction.PlayerStats.CanTurn)
@@ -103,7 +114,6 @@ public class DroneFollow : MonoBehaviour
             {
                 // Se o raio atingir um objeto (supondo que seja o chão ou qualquer objeto em um layer específico), faça o drone olhar para esse ponto
                 Vector3 lookAtPoint = hit.point;
-                lookAtPoint.y = transform.position.y; // Mantém a altura do drone constante, remove isso se você quer que o drone olhe para cima/baixo
                 
                 transform.LookAt(lookAtPoint);
             }
