@@ -15,7 +15,7 @@ public class AmmoScript : MonoBehaviour
 // Start is called before the first frame update
     void Start()
     {
-        float speed = 10f;
+        float speed = 150f;
         ammoRigidbody.velocity = transform.forward * speed;
     }
 
