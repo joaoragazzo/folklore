@@ -12,7 +12,7 @@ public class AmmoScript : MonoBehaviour
         ammoRigidbody = GetComponent<Rigidbody>();
     }
 
-    // Start is called before the first frame update
+// Start is called before the first frame update
     void Start()
     {
         float speed = 10f;
@@ -21,6 +21,19 @@ public class AmmoScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        if(other.CompareTag("Enemy")) // Verifica se o objeto atingido tem a tag "Enemy"
+        {
+            Destroy(gameObject);
+        }
+        
+        if(other.CompareTag("Tree")) // Verifica se o objeto atingido tem a tag "Enemy"
+        {
+            Destroy(gameObject);
+        }
+        
+        if(other.CompareTag("Ground")) // Verifica se o objeto atingido tem a tag "Enemy"
+        {
+            Destroy(gameObject);
+        }
     }
 }

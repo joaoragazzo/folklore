@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine;
 
-public class DroneAttack : MonoBehaviour
+public class DroneAttackShotgun : MonoBehaviour
 {
     public GameObject projectilePrefab; // O prefab do seu projétil; defina isso no inspetor da Unity.
     public float projectileSpeed = 20f; // A velocidade do seu projétil.
     public float fireRate = 1f; // Quantos tiros por segundo.
-    private float nextTimeToFire = 0f; // Controla o tempo até o próximo tiro.
+    private float nextTimeToFire = 2f; // Controla o tempo até o próximo tiro.
     [SerializeField] private LayerMask mouseColliderMask = new LayerMask();
     [SerializeField] private Transform bulletVFX;
     
@@ -24,6 +23,8 @@ public class DroneAttack : MonoBehaviour
             if (Input.GetMouseButton(0) && Time.time >= nextTimeToFire)
             {
                 Instantiate(projectilePrefab, transform.position, Quaternion.LookRotation(aimDir, Vector3.up));
+                
+                nextTimeToFire = Time.time + 1f/fireRate;
             }
         }
         
