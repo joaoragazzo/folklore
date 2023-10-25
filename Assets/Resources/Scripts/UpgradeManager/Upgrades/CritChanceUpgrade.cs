@@ -11,8 +11,8 @@ public class CritChanceUpgrade : Upgrade
         playerInteraction = new PlayerInteraction();
         playerInteraction.Initialize();
 
-        Name = "Dano Crítico";
-        Description = "Dano Crítico +10%";
+        Name = "Chance de Crítico";
+        Description = "Chance de Crítico +10";
         Image = Resources.Load<Sprite>("Images/Upgrades/critdamageupgrade");
         Price = 30;
         Max = 10;
@@ -22,7 +22,7 @@ public class CritChanceUpgrade : Upgrade
     {
         if (playerInteraction.PlayerStats.Money >= Price)
         {
-            playerInteraction.PlayerStats.CritMultiplier += (float)0.10;
+            playerInteraction.PlayerStats.CritChance += 10;
             playerInteraction.PlayerStats.Money -= Price;
             return true;
         }

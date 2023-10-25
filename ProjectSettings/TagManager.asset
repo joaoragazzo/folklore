@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - World
+  - Tree
+  - Ground
+  - Enemy
   layers:
   - Default
   - TransparentFX

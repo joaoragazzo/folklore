@@ -13,6 +13,7 @@ public class StoreController : MonoBehaviour
         availableUpgrades.Add(new StrengthUpgrade());
         availableUpgrades.Add(new SpeedUpgrade());
         availableUpgrades.Add(new CritChanceUpgrade());
+        availableUpgrades.Add(new CritMultiplierUpgrade());
         availableUpgrades.Add(new AxeSpeedUpgrade());
         availableUpgrades.Add(new MaxHealthUpgrade());
         

@@ -366,7 +366,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4a38d98a2f65cd640921e85316052a4a, type: 3}
       propertyPath: m_Name
-      value: Curupira 1
+      value: Curupira
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4a38d98a2f65cd640921e85316052a4a, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -66,7 +66,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 81c7ecf12b88f4f41b755f433fead3b2, type: 3}
       propertyPath: m_Name
-      value: saci
+      value: Saci
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 81c7ecf12b88f4f41b755f433fead3b2, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
