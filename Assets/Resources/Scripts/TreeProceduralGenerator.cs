@@ -31,7 +31,7 @@ public class TreeProceduralGenerator : MonoBehaviour
     private GameObject RandomTreeConfiguration(GameObject treePrefab)
     {
         GameObject treeInstance = Instantiate(treePrefab);
-        float size = Random.Range(1f, 2f);   
+        float size = Random.Range(1f, 2f);
         treeInstance.transform.localScale = new Vector3(100 * size, 100 * size, 100 * size);
         return treeInstance;
     }
@@ -62,7 +62,7 @@ public class TreeProceduralGenerator : MonoBehaviour
                     if (Vector3.Distance(position, Vector3.zero) > exclusionRadius)
                     {
                         GameObject tree = RandomTreeConfiguration(RandomTreeSelection());
-                        Instantiate(tree, position, Quaternion.Euler(-90, 0, 0));   
+                        tree.transform.position = new Vector3(position.x, position.y, position.z);   
                     }
                     
                 }
