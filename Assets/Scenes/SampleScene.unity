@@ -391,6 +391,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3025685671246414882, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
+      propertyPath: spreadAngle
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3085204457843708890, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
