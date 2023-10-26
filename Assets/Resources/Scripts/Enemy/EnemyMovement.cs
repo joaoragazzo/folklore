@@ -20,13 +20,15 @@ public class EnemyMovement
 
         newPosition += direcao * walkSpeed * Time.deltaTime;
         newRotation = Quaternion.LookRotation(direcao);
+        (newRotation.x, newRotation.z) = (0, 0);
         
         if (Vector3.Distance(position, playerInteraction.PlayerStats.PlayerPosition) <= attackDistance)
         {
+            position.y = 0;
             return (position, newRotation);
         }
-        
-        
+
+        newPosition.y = 0;
         return (newPosition, newRotation);
     }
 
