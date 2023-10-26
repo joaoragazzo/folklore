@@ -6,7 +6,6 @@ using UnityEngine;
 public class DroneAttackRifle : MonoBehaviour
 {
     public GameObject projectilePrefab; // O prefab do seu projétil; defina isso no inspetor da Unity.
-    public float projectileSpeed = 20f; // A velocidade do seu projétil.
     public float fireRate = 1f; // Quantos tiros por segundo.
     private float nextTimeToFire = 2f; // Controla o tempo até o próximo tiro.
     [SerializeField] private LayerMask mouseColliderMask = new LayerMask();
