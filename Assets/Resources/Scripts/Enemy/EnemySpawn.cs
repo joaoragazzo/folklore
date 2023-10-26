@@ -56,7 +56,7 @@ public class EnemySpawner : MonoBehaviour
         Vector3 cameraPosition = Camera.main.transform.position;
         Vector3 spawnPosition = new Vector3(
             Random.Range(cameraPosition.x + minX, cameraPosition.x + maxX),
-            playerTransform.position.y, // os inimigos serão spawnados na altura da câmera, ajuste conforme necessário
+            0, // os inimigos serão spawnados na altura 0, ajuste conforme necessário
             Random.Range(cameraPosition.z + minZ, cameraPosition.z + maxZ)
         );
 
