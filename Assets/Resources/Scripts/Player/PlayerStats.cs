@@ -23,7 +23,7 @@ public class PlayerStats : IDamageble
     public bool IsMoving { get; set; }
     public bool IsAttacking { get; set; }
     public Vector3 Mouse3DPosition { get; set; }
-    
+    public Vector3 PlayerPosition { get; set; }
     
     public List<Upgrade> Upgrades { get; set; } = new List<Upgrade>();
     

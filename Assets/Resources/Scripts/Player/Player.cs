@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using Cursor = UnityEngine.Cursor;
 
@@ -16,13 +17,6 @@ public class Player : MonoBehaviour
     
     private Camera mainCamera;
     
-    public float gravity = 10f;
-
-    //public Camera playerCamera;
-    //public float jumpPower = 7f;
-    //public float lookSpeed = 2f;
-    //public float lookXLimit = 45f;
-    //private float rotationX = 0;
 
     private Vector3 moveDirection = Vector3.zero;
     private CharacterController characterController;
@@ -82,31 +76,27 @@ public class Player : MonoBehaviour
             moveDirection.Normalize();
             moveDirection *= (Stats.IsRunning ? Stats.RunSpeedMultiplier * Stats.WalkSpeed : Stats.WalkSpeed); // Aplica a velocidade correta após a normalização
         }
+
+
         
         characterController.Move(moveDirection * Time.deltaTime);
         
         #endregion
 
+        #region Fixing player location
+
+        transform.position = new Vector3(transform.position.x, 1f, transform.position.z);
+        
+        #endregion
+        
         #region Check if the player is near to the edge
         
         worldgeneration.CheckBorders(transform.position);
         
         #endregion
-        
-        #region Jumping fucntion (descontinued)
 
-        // Jumping function
-        // if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
-        // {
-        //     moveDirection.y = jumpPower;
-        // }
-        // else
-        // {
-        //     moveDirection.y = movementDirectionY;
-        // }
-        
-        #endregion
-        
+        Stats.PlayerPosition = transform.position;
+
     }
     
     void LookAtMousePosition()

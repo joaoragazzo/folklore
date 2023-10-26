@@ -1,46 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.UI;
 using UnityEngine;
 
-public class Sacy : MonoBehaviour, IDamageble
+public class Saci : MonoBehaviour, IDamageble
 {
-    public static float health = 100f;
-    public static float critChance = 0.20f;
-    public static float critDamage = 1.5f;
-    public static float baseDamageMultiplier = 1;
-    
-    public static float velocidade = 5.0f; // Velocidade na qual o inimigo vai se mover na direção do jogador.
-    public Transform jogador; // Referência para a posição do jogador.
+    private SaciStats Stats;
+    private EnemyMovement _enemyMovement;
 
     void Start()
     {
-        // Encontra o jogador no cenário utilizando a tag "Player".
-        // Certifique-se de que seu jogador esteja marcado com essa tag.
-        jogador = GameObject.FindGameObjectWithTag("Player").transform;
+        Stats = new SaciStats();
+        _enemyMovement = new EnemyMovement();
     }
 
     void Update()
     {
-        // Verifica se o jogador foi encontrado.
-        if(jogador)
-        {
-            // Calcula a direção do jogador a partir da posição atual do inimigo.
-            Vector3 direcao = (jogador.position - transform.position).normalized;
-
-            // Move o inimigo na direção do jogador.
-            transform.position += direcao * velocidade * Time.deltaTime;
-
-            // Opcional: Faz com que o inimigo sempre olhe na direção do jogador.
-            // Quaternions são usados para representar rotações.
-            transform.rotation = Quaternion.LookRotation(direcao);
-        }
+        (transform.position, transform.rotation) = _enemyMovement.newPosition(
+            transform.position,
+            Stats.baseSpeed,
+            Stats.baseAttackRange
+        );
     }
 
     public void TakeDamage(int amount)
     {
-        health -= amount;
+        Stats.baseHealth -= amount;
 
-        if (health <= 0)
+        if (Stats.baseHealth <= 0)
         {
             Destroy(gameObject);
         }

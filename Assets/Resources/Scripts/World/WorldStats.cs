@@ -10,7 +10,7 @@ public class WorldStats
     public float Time { get; set; } = 0;
     public bool IsDay { get; set; } = true;
     public bool IsPaused { get; set; } = false;
-    public int DayDurationInSeconds { get; set; } = 120;
+    public int DayDurationInSeconds { get; set; } = 10;
     public int NightDurationInSeconds { get; set;  } = 210;
     
 
