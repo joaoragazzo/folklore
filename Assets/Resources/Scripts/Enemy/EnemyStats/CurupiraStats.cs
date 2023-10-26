@@ -5,7 +5,7 @@
     {
         baseHealth = 100;
         baseSpeed = 5f;
-        baseAttackRange = 10f;
+        baseAttackRange = 40f;
         baseAttackSpeed = 5f;
         baseAttackDamage = 20f;
     }
