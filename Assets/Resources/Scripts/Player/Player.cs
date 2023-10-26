@@ -92,21 +92,9 @@ public class Player : MonoBehaviour
         worldgeneration.CheckBorders(transform.position);
         
         #endregion
-        
-        #region Jumping fucntion (descontinued)
 
-        // Jumping function
-        // if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
-        // {
-        //     moveDirection.y = jumpPower;
-        // }
-        // else
-        // {
-        //     moveDirection.y = movementDirectionY;
-        // }
-        
-        #endregion
-        
+        Stats.PlayerPosition = transform.position;
+
     }
     
     void LookAtMousePosition()
