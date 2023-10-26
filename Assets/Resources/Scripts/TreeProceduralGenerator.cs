@@ -28,12 +28,12 @@ public class TreeProceduralGenerator : MonoBehaviour
         return treeFour;
     }
 
-    private GameObject RandomTreeConfiguration(GameObject tree)
+    private GameObject RandomTreeConfiguration(GameObject treePrefab)
     {
-        float size = Random.Range(1f, 2f);
-        
-        tree.transform.localScale = new Vector3(100 * size, 100 * size, 100 * size);
-        return tree;
+        GameObject treeInstance = Instantiate(treePrefab);
+        float size = Random.Range(1f, 2f);   
+        treeInstance.transform.localScale = new Vector3(100 * size, 100 * size, 100 * size);
+        return treeInstance;
     }
     
     
