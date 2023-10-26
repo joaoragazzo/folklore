@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
-public class DroneFollow : MonoBehaviour
+public class DroneMovement : MonoBehaviour
 {
     private PlayerInteraction playerInteraction = new PlayerInteraction();
     
@@ -22,7 +22,7 @@ public class DroneFollow : MonoBehaviour
     public float repulsionForce = 50.0f;
 
     
-    private static List<DroneFollow> allDrones; // lista estática contendo todas as instâncias de drones
+    private static List<DroneMovement> allDrones; // lista estática contendo todas as instâncias de drones
 
     private void Awake()
     {
@@ -30,7 +30,7 @@ public class DroneFollow : MonoBehaviour
         
         if (allDrones == null)
         {
-            allDrones = new List<DroneFollow>();
+            allDrones = new List<DroneMovement>();
         }
         allDrones.Add(this); // adicionar este drone à lista quando é criado/inicializado
     }
