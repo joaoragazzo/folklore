@@ -1,6 +1,5 @@
 ﻿public class CorpoSecoStats: EnemyStats
 {
-
     public CorpoSecoStats()
     {
         baseHealth = 350;
