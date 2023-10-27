@@ -84,13 +84,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5554366859237318526, guid: afb2eb37cc113344d903cd81cf21f1ab, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 324830033607463209, guid: afb2eb37cc113344d903cd81cf21f1ab, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6879541196870893629}
+    - targetCorrespondingSourceObject: {fileID: 324830033607463209, guid: afb2eb37cc113344d903cd81cf21f1ab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3696884025607066372}
   m_SourcePrefab: {fileID: 100100000, guid: afb2eb37cc113344d903cd81cf21f1ab, type: 3}
 --- !u!4 &2327363576747520709 stripped
 Transform:
@@ -215,3 +219,17 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &3696884025607066372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3058262145610105692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad58b386d90e5134fa63c569f1ab45e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeDuration: 5
+  damage: 0

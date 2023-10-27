@@ -24,7 +24,9 @@ public class PlayerStats : IDamageble
     public bool IsAttacking { get; set; }
     public Vector3 Mouse3DPosition { get; set; }
     public Vector3 PlayerPosition { get; set; }
-    
+    public int RifleDamage { get; set; } = 10;
+    public int ShotgunDamage { get; set; } = 10;
+    public int SniperDamage { get; set; } = 100;
     public List<Upgrade> Upgrades { get; set; } = new List<Upgrade>();
     
 
