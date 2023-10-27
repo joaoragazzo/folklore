@@ -3,7 +3,7 @@
 
     public CurupiraStats()
     {
-        baseHealth = 100;
+        baseHealth = 125;
         baseSpeed = 5f;
         baseAttackRange = 25f;
         baseAttackSpeed = 5f;

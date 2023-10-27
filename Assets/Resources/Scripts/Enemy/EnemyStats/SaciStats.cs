@@ -3,7 +3,7 @@
 
     public SaciStats()
     {
-        baseHealth = 100;
+        baseHealth = 150;
         baseSpeed = 5f;
         baseAttackSpeed = 2f;
         baseAttackRange = 3f;

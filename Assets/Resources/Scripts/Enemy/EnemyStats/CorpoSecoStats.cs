@@ -2,7 +2,7 @@
 {
     public CorpoSecoStats()
     {
-        baseHealth = 350;
+        baseHealth = 400;
         baseSpeed = 1.5f;
         baseAttackDamage = 33f;
         baseAttackRange = 3f;

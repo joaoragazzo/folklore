@@ -3,7 +3,7 @@
 
     public MulaStats()
     {
-        baseHealth = 200;
+        baseHealth = 250;
         baseSpeed = 10f;
         baseAttackDamage = 25f;
         baseAttackRange = 7f;
