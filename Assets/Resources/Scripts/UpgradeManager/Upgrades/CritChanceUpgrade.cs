@@ -13,7 +13,7 @@ public class CritChanceUpgrade : Upgrade
 
         Name = "Chance de Crítico";
         Description = "Chance de Crítico +10";
-        Image = Resources.Load<Sprite>("Images/Upgrades/critdamageupgrade");
+        Image = (Sprite)UnityEngine.Resources.Load("Images/Upgrades/critdamageupgrade");
         Price = 30;
         Max = 10;
     }

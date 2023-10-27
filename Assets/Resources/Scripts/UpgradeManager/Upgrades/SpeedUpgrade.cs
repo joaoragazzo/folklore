@@ -13,7 +13,7 @@ public class SpeedUpgrade : Upgrade
 
         Name = "Velocidade";
         Description = "Velocidade +15%";
-        Image = Resources.Load<Sprite>("Images/Upgrades/speedupgradeicon");
+        Image = (Sprite)UnityEngine.Resources.Load("Images/Upgrades/speedupgradeicon");
         Price = 20;
         Max = int.MaxValue;
     }

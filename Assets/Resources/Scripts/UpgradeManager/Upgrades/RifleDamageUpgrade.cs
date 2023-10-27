@@ -1,26 +1,27 @@
 ﻿using UnityEngine;
 
-    public class CritMultiplierUpgrade : Upgrade
+namespace Resources.Scripts.UpgradeManager.Upgrades
+{
+    public class RifleDamageUpgrade : Upgrade
     {
         private PlayerInteraction playerInteraction;
 
-        public CritMultiplierUpgrade()
+        public RifleDamageUpgrade()
         {
             playerInteraction = new PlayerInteraction();
             playerInteraction.Initialize();
 
-            Name = "Dano Crítico";
-            Description = "Dano Crítico +10%";
+            Name = "Dano do Rifle";
+            Description = "Dano do Rifle +10%";
             Image = (Sprite)UnityEngine.Resources.Load("Images/Upgrades/critdamageupgrade");
-            Price = 30;
-            Max = 10;
+            Price = 6;
+            Max = 500;
         }
-
         public override bool ApplyUpgrade()
         {
             if (playerInteraction.PlayerStats.Money >= Price)
             {
-                playerInteraction.PlayerStats.CritMultiplier += (float)0.10;
+                playerInteraction.PlayerStats.RifleDamage += (float)0.10;
                 playerInteraction.PlayerStats.Money -= Price;
                 return true;
             }
@@ -28,3 +29,4 @@
             return false;
         }
     }
+}

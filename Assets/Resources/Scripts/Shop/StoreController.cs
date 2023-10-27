@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Resources.Scripts.UpgradeManager.Upgrades;
 using UnityEngine;
 
 public class StoreController : MonoBehaviour
@@ -16,6 +17,9 @@ public class StoreController : MonoBehaviour
         availableUpgrades.Add(new CritMultiplierUpgrade());
         availableUpgrades.Add(new AxeSpeedUpgrade());
         availableUpgrades.Add(new MaxHealthUpgrade());
+        availableUpgrades.Add(new RifleDamageUpgrade());
+        availableUpgrades.Add(new ShotgunDamageUpgrade());
+        availableUpgrades.Add(new SniperDamageUpgrade());
         
         // Preencha a lista 'availableUpgrades' com seus upgrades.
         // Você pode fazer isso manualmente, ou se cada Upgrade é um ScriptableObject,

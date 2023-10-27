@@ -8,7 +8,7 @@ public class ShotgunAmmoScript : MonoBehaviour
     private Rigidbody ammoRigidbody;
     private PlayerInteraction playerInteraction;
     public float lifeDuration = 5;
-    public int damage;
+    public double damage;
     
     
     private void Awake()
@@ -32,7 +32,7 @@ public class ShotgunAmmoScript : MonoBehaviour
         if(other.CompareTag("Enemy")) // Verifica se o objeto atingido tem a tag "Enemy"
         {
             IDamageble damageableEntity = other.GetComponent<IDamageble>();
-            damageableEntity.TakeDamage(damage);
+            damageableEntity.TakeDamage((int)damage);
             Destroy(gameObject);
         }
         
