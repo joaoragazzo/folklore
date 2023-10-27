@@ -13,7 +13,7 @@ public class MaxHealthUpgrade : Upgrade
 
         Name = "Vida Max.";
         Description = "Vida máxima +5%";
-        Image = (Sprite)UnityEngine.Resources.Load("Images/Upgrades/maxhealthupgradeicon");
+        Image = Resources.Load<Sprite>("Images/Upgrades/maxhealthupgradeicon");
         Price = 20;
         Max = int.MaxValue;
     }

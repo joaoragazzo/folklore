@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 
-namespace Resources.Scripts.UpgradeManager.Upgrades
-{
     public class RifleDamageUpgrade : Upgrade
     {
         private PlayerInteraction playerInteraction;
@@ -13,7 +11,7 @@ namespace Resources.Scripts.UpgradeManager.Upgrades
 
             Name = "Dano do Rifle";
             Description = "Dano do Rifle +10%";
-            Image = (Sprite)UnityEngine.Resources.Load("Images/Upgrades/critdamageupgrade");
+            Image = Resources.Load<Sprite>("Images/Upgrades/critdamageupgrade");
             Price = 6;
             Max = 500;
         }
@@ -29,4 +27,3 @@ namespace Resources.Scripts.UpgradeManager.Upgrades
             return false;
         }
     }
-}

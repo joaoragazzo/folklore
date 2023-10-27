@@ -1,8 +1,6 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Resources.Scripts.UpgradeManager.Upgrades
-{
     public class SniperDamageUpgrade : Upgrade
     {
         private PlayerInteraction playerInteraction;
@@ -14,7 +12,7 @@ namespace Resources.Scripts.UpgradeManager.Upgrades
 
             Name = "Dano da Sniper";
             Description = "Dano da Sniper +10%";
-            Image = (Sprite)UnityEngine.Resources.Load("Images/Upgrades/critdamageupgrade");
+            Image = Resources.Load<Sprite>("Images/Upgrades/critdamageupgrade");
             Price = 20;
             Max = 500;
         }
@@ -31,4 +29,3 @@ namespace Resources.Scripts.UpgradeManager.Upgrades
             return false;
         }
     }
-}

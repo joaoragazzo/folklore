@@ -1,7 +1,4 @@
 ﻿using UnityEngine;
-
-namespace Resources.Scripts.UpgradeManager.Upgrades
-{
     public class ShotgunDamageUpgrade : Upgrade
     {
         private PlayerInteraction playerInteraction;
@@ -13,7 +10,7 @@ namespace Resources.Scripts.UpgradeManager.Upgrades
 
             Name = "Dano da Shotgun";
             Description = "Dano da Shotgun +10%";
-            Image = (Sprite)UnityEngine.Resources.Load("Images/Upgrades/critdamageupgrade");
+            Image = Resources.Load<Sprite>("Images/Upgrades/critdamageupgrade");
             Price = 10;
             Max = 500;
         }
@@ -30,4 +27,3 @@ namespace Resources.Scripts.UpgradeManager.Upgrades
             return false;
         }
     }
-}

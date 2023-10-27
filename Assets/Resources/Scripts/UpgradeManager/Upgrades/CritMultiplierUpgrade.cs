@@ -11,7 +11,7 @@
 
             Name = "Dano Crítico";
             Description = "Dano Crítico +10%";
-            Image = (Sprite)UnityEngine.Resources.Load("Images/Upgrades/critdamageupgrade");
+            Image = Resources.Load<Sprite>("Images/Upgrades/critdamageupgrade");
             Price = 30;
             Max = 10;
         }

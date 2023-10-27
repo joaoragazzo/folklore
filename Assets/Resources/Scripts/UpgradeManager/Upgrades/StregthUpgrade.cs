@@ -13,7 +13,7 @@ public class StrengthUpgrade : Upgrade
 
         Name = "Força";
         Description = "Força +1";
-        Image = (Sprite)UnityEngine.Resources.Load("Images/Upgrades/treedamageupgradeicon");
+        Image = Resources.Load<Sprite>("Images/Upgrades/treedamageupgradeicon");
         Price = 35;
         Max = 3;
     }

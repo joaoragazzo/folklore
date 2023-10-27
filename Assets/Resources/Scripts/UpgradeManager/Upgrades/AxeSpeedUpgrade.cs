@@ -13,7 +13,7 @@ public class AxeSpeedUpgrade : Upgrade
 
         Name = "Balanço";
         Description = "Balanço +50%";
-        Image = (Sprite)UnityEngine.Resources.Load("Images/Upgrades/axespeedupgradeicon");
+        Image = Resources.Load<Sprite>("Images/Upgrades/axespeedupgradeicon");
         Price = 20;
         Max = int.MaxValue;
     }
