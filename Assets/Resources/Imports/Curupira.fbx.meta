@@ -497,7 +497,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: CharacterArmature|CharacterArmature|CharacterArmature|Run
+      name: curupira Run
       takeName: CharacterArmature|CharacterArmature|CharacterArmature|Run
       internalID: 2264407738392007033
       firstFrame: 0

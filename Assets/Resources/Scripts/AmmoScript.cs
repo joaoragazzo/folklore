@@ -6,6 +6,7 @@ using UnityEngine;
 public class AmmoScript : MonoBehaviour
 {
     private Rigidbody ammoRigidbody;
+    public float lifeDuration = 5;
 
     private void Awake()
     {
@@ -17,6 +18,7 @@ public class AmmoScript : MonoBehaviour
     {
         float speed = 150f;
         ammoRigidbody.velocity = transform.forward * speed;
+        Destroy(gameObject, lifeDuration);
     }
 
     private void OnTriggerEnter(Collider other)

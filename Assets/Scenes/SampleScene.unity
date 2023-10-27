@@ -999,6 +999,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8478747068882113371, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 1052042925715283412, guid: 1f60ea79b160f0b49bdfb5d0a984499f, type: 3}
     - target: {fileID: 8568277557366682770, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1528,7 +1532,7 @@ MonoBehaviour:
   - {fileID: 4346373273835431633, guid: 8001b8e9c9b7d1141a81f6c89a454789, type: 3}
   - {fileID: 1253966484828143668, guid: 24db2dc2aa875f749912ae22f79b66fd, type: 3}
   - {fileID: 5167018607012669076, guid: 1839824245a23d94192f34ce27cd9743, type: 3}
-  - {fileID: 3935366997147695357, guid: 6d885b61e1e6bea47abeef6d15fc529e, type: 3}
+  - {fileID: 8026161919606736609, guid: 6d885b61e1e6bea47abeef6d15fc529e, type: 3}
   spawnInterval: 0.5
   minX: -100
   maxX: 100
@@ -1708,7 +1712,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7217430794168245339, guid: 6d885b61e1e6bea47abeef6d15fc529e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.39
+      value: -12.91
       objectReference: {fileID: 0}
     - target: {fileID: 7217430794168245339, guid: 6d885b61e1e6bea47abeef6d15fc529e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1716,7 +1720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7217430794168245339, guid: 6d885b61e1e6bea47abeef6d15fc529e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.41
+      value: 4.67
       objectReference: {fileID: 0}
     - target: {fileID: 7217430794168245339, guid: 6d885b61e1e6bea47abeef6d15fc529e, type: 3}
       propertyPath: m_LocalRotation.w
