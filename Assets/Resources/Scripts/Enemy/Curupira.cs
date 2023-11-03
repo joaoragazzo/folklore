@@ -7,9 +7,13 @@ public class Curupira : MonoBehaviour, IDamageble
     private CurupiraStats Stats;
     private EnemyMovement _enemyMovement;
     private bool isAttacking;
-
+    private PlayerInteraction _playerInteraction;
+    private Animator _animator;
+    
     void Start()
     {
+        _playerInteraction = new PlayerInteraction();
+        _animator = GetComponent<Animator>();
         Stats = new CurupiraStats();
         _enemyMovement = new EnemyMovement();
     }
@@ -22,6 +26,20 @@ public class Curupira : MonoBehaviour, IDamageble
             Stats.baseAttackRange,
             isAttacking
             );
+
+        if (isAttacking)
+        {
+            _animator.SetTrigger("Curupira Attacking");
+        }
+        else if (!_animator.GetCurrentAnimatorStateInfo(0).IsName("Curupira Running"))
+        {
+            _animator.Play("Curupira Running");
+        }
+    }
+
+    public void onAttack()
+    {
+        
     }
     
     public void TakeDamage(int amount)
