@@ -7,6 +7,7 @@ public class Cuca : MonoBehaviour, IDamageble
 
     private CucaStats Stats;
     private EnemyMovement _enemyMovement;
+    private bool isAttacking;
     
     void Start()
     {
@@ -16,10 +17,11 @@ public class Cuca : MonoBehaviour, IDamageble
 
     void Update()
     {
-        (transform.position, transform.rotation) = _enemyMovement.newPosition(
+        (transform.position, transform.rotation, isAttacking) = _enemyMovement.newPosition(
             transform.position,
             Stats.baseSpeed,
-            Stats.baseAttackRange
+            Stats.baseAttackRange,
+            isAttacking
             );
 
     }

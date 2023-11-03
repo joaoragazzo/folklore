@@ -6,6 +6,7 @@ public class Curupira : MonoBehaviour, IDamageble
 {
     private CurupiraStats Stats;
     private EnemyMovement _enemyMovement;
+    private bool isAttacking;
 
     void Start()
     {
@@ -15,10 +16,11 @@ public class Curupira : MonoBehaviour, IDamageble
 
     void Update()
     {
-        (transform.position, transform.rotation) = _enemyMovement.newPosition(
+        (transform.position, transform.rotation, isAttacking) = _enemyMovement.newPosition(
             transform.position,
             Stats.baseSpeed,
-            Stats.baseAttackRange
+            Stats.baseAttackRange,
+            isAttacking
             );
     }
     

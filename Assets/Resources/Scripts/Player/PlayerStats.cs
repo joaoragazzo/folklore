@@ -28,7 +28,7 @@ public class PlayerStats : IDamageble
     public double ShotgunDamage { get; set; } = 10;
     public double SniperDamage { get; set; } = 250;
     public List<Upgrade> Upgrades { get; set; } = new List<Upgrade>();
-    
+    public HashSet<CorpoSeco> ZombiesAttacking { get; set; } = new HashSet<CorpoSeco>();
 
 
     public void TakeDamage(int amount)

@@ -54,6 +54,10 @@ public class Player : MonoBehaviour
         Vector3 forward = Vector3.forward;
         Vector3 right = Vector3.right;
 
+        Stats.CanMove = !(Stats.ZombiesAttacking.Count >= 1);
+        Debug.Log(Stats.ZombiesAttacking.Count + " " + Stats.CanMove);
+
+
         Stats.IsRunning = Input.GetKey(KeyCode.LeftShift);
         
         float curSpeedX = Stats.CanMove ? (Stats.IsRunning ? Stats.RunSpeedMultiplier * Stats.WalkSpeed : Stats.WalkSpeed) * Input.GetAxis("Vertical") : 0 ;
