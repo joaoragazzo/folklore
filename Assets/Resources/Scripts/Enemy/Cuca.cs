@@ -7,21 +7,42 @@ public class Cuca : MonoBehaviour, IDamageble
 
     private CucaStats Stats;
     private EnemyMovement _enemyMovement;
+    private bool isAttacking;
+    private PlayerInteraction _playerInteraction;
+    private Animator _animator;
     
     void Start()
     {
+        _animator = GetComponent<Animator>();
+        _playerInteraction = new PlayerInteraction();
+        _playerInteraction.Initialize();
         Stats = new CucaStats();
         _enemyMovement = new EnemyMovement();
     }
 
     void Update()
     {
-        (transform.position, transform.rotation) = _enemyMovement.newPosition(
+        (transform.position, transform.rotation, isAttacking) = _enemyMovement.newPosition(
             transform.position,
             Stats.baseSpeed,
-            Stats.baseAttackRange
+            Stats.baseAttackRange,
+            isAttacking
             );
 
+        if (isAttacking)
+        {
+            _animator.SetTrigger("Cuca Attacking");
+        }
+        else if (!_animator.GetCurrentAnimatorStateInfo(0).IsName("Cuca Walk"))
+        {
+            _animator.Play("Cuca Walk");
+        }
+        
+    }
+
+    public void onAttack()
+    {
+        
     }
     
     public void TakeDamage(int amount)

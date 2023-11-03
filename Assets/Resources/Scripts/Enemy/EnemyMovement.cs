@@ -11,7 +11,7 @@ public class EnemyMovement
         playerInteraction.Initialize();
     }
 
-    public (Vector3, Quaternion) newPosition(Vector3 position, float walkSpeed, float attackDistance)
+    public (Vector3, Quaternion, bool) newPosition(Vector3 position, float walkSpeed, float attackDistance, bool isAttacking)
     {
         Vector3 newPosition = position;
         Quaternion newRotation = new Quaternion();
@@ -24,12 +24,14 @@ public class EnemyMovement
         
         if (Vector3.Distance(position, playerInteraction.PlayerStats.PlayerPosition) <= attackDistance)
         {
+            isAttacking = true;
             position.y = 0;
-            return (position, newRotation);
+            return (position, newRotation, isAttacking);
         }
 
+        isAttacking = false;
         newPosition.y = 0;
-        return (newPosition, newRotation);
+        return (newPosition, newRotation, isAttacking);
     }
 
 
