@@ -8,9 +8,14 @@ public class Cuca : MonoBehaviour, IDamageble
     private CucaStats Stats;
     private EnemyMovement _enemyMovement;
     private bool isAttacking;
+    private PlayerInteraction _playerInteraction;
+    private Animator _animator;
     
     void Start()
     {
+        _animator = GetComponent<Animator>();
+        _playerInteraction = new PlayerInteraction();
+        _playerInteraction.Initialize();
         Stats = new CucaStats();
         _enemyMovement = new EnemyMovement();
     }
@@ -24,6 +29,20 @@ public class Cuca : MonoBehaviour, IDamageble
             isAttacking
             );
 
+        if (isAttacking)
+        {
+            _animator.SetTrigger("Cuca Attacking");
+        }
+        else
+        {
+            _animator.Play("Cuca Walk");
+        }
+        
+    }
+
+    public void onAttack()
+    {
+        
     }
     
     public void TakeDamage(int amount)

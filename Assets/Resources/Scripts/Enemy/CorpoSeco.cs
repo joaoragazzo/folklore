@@ -66,6 +66,5 @@ public class CorpoSeco : MonoBehaviour, IDamageble
             Destroy(gameObject);
         }
         
-        
     }
 }
