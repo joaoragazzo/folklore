@@ -8,6 +8,7 @@ public class DayNightCycle : MonoBehaviour
     private float daySpeed;
     private float nightSpeed;
     private float totalCycle;
+    private float _cycleTime = 0f;
 
    
     private void Awake()
@@ -31,7 +32,8 @@ public class DayNightCycle : MonoBehaviour
     {
         if (!worldStats.IsPaused)
         {
-            float timeInCycle = Time.time % totalCycle;
+            _cycleTime += Time.deltaTime;
+            float timeInCycle = _cycleTime % totalCycle;
             
             worldStats.IsDay = timeInCycle < worldStats.DayDurationInSeconds;
             
