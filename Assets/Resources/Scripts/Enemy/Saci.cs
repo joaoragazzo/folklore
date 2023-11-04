@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Saci : MonoBehaviour, IDamageble
 {
+    private bool alive = true;
     private SaciStats Stats;
     private EnemyMovement _enemyMovement;
     private bool isAttacking;
@@ -22,7 +23,7 @@ public class Saci : MonoBehaviour, IDamageble
 
     void Update()
     {
-        (transform.position, transform.rotation, isAttacking) = _enemyMovement.newPosition(
+        if (alive) (transform.position, transform.rotation, isAttacking) = _enemyMovement.newPosition(
             transform.position,
             Stats.baseSpeed,
             Stats.baseAttackRange,
@@ -44,13 +45,19 @@ public class Saci : MonoBehaviour, IDamageble
         
     }
 
+    public void onDie()
+    {
+        Destroy(gameObject);
+    }
+
     public void TakeDamage(int amount)
     {
         Stats.baseHealth -= amount;
 
         if (Stats.baseHealth <= 0)
         {
-            Destroy(gameObject);
+            alive = false;
+            _animator.SetTrigger("Die");
         }
     }
 }

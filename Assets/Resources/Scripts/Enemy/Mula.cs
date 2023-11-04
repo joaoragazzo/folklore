@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mula : MonoBehaviour, IDamageble
 {
-
+    private bool alive = true;
     private MulaStats Stats;
     private EnemyMovement _enemyMovement;
     private bool isAttacking;
@@ -23,7 +23,7 @@ public class Mula : MonoBehaviour, IDamageble
 
     void Update()
     {
-        (transform.position, transform.rotation, isAttacking) = _enemyMovement.newPosition(
+        if (alive) (transform.position, transform.rotation, isAttacking) = _enemyMovement.newPosition(
             transform.position,
             Stats.baseSpeed,
             Stats.baseAttackRange,
@@ -45,6 +45,11 @@ public class Mula : MonoBehaviour, IDamageble
     {
         
     }
+
+    public void onDie()
+    {
+        Destroy(gameObject); 
+    }
     
     public void TakeDamage(int amount)
     {
@@ -52,7 +57,8 @@ public class Mula : MonoBehaviour, IDamageble
 
         if (Stats.baseHealth <= 0)
         {
-            Destroy(gameObject);
+            alive = false;
+            _animator.SetTrigger("Die");
         }
     }
 }

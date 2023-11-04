@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Curupira : MonoBehaviour, IDamageble
 {
+    private bool alive = true;
     private CurupiraStats Stats;
     private EnemyMovement _enemyMovement;
     private bool isAttacking;
@@ -20,7 +21,7 @@ public class Curupira : MonoBehaviour, IDamageble
 
     void Update()
     {
-        (transform.position, transform.rotation, isAttacking) = _enemyMovement.newPosition(
+        if (alive) (transform.position, transform.rotation, isAttacking) = _enemyMovement.newPosition(
             transform.position,
             Stats.baseSpeed,
             Stats.baseAttackRange,
@@ -42,6 +43,11 @@ public class Curupira : MonoBehaviour, IDamageble
     {
         
     }
+
+    public void onDie()
+    {
+        Destroy(gameObject);
+    }
     
     public void TakeDamage(int amount)
     {
@@ -49,7 +55,8 @@ public class Curupira : MonoBehaviour, IDamageble
 
         if (Stats.baseHealth <= 0)
         {
-            Destroy(gameObject);
+            _animator.SetTrigger("Die");
+            alive = false;
         }
     }
 }
