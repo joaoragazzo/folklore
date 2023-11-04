@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StoreController : MonoBehaviour
 {
     public GameObject storeItemPrefab; // Atribua o prefab do item da loja no editor
     public Transform storeItemParent; // O pai onde os itens da loja serão adicionados no UI.
-
+    public GameObject scroll;
+        
     private List<Upgrade> availableUpgrades = new List<Upgrade>();
 
     void Start()
@@ -24,6 +26,8 @@ public class StoreController : MonoBehaviour
         // Você pode fazer isso manualmente, ou se cada Upgrade é um ScriptableObject,
         // você pode carregá-los de um diretório.
 
+        scroll.GetComponent<Scrollbar>().size = availableUpgrades.Count;
+        
         foreach (var upgrade in availableUpgrades)
         {
             GameObject itemObj = Instantiate(storeItemPrefab, storeItemParent);

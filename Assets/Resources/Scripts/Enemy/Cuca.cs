@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Cuca : MonoBehaviour, IDamageble
 {
-
+    private bool alive = true;
     private CucaStats Stats;
     private EnemyMovement _enemyMovement;
     private bool isAttacking;
@@ -22,7 +22,7 @@ public class Cuca : MonoBehaviour, IDamageble
 
     void Update()
     {
-        (transform.position, transform.rotation, isAttacking) = _enemyMovement.newPosition(
+        if (alive) (transform.position, transform.rotation, isAttacking) = _enemyMovement.newPosition(
             transform.position,
             Stats.baseSpeed,
             Stats.baseAttackRange,
@@ -30,12 +30,12 @@ public class Cuca : MonoBehaviour, IDamageble
             );
 
         if (isAttacking)
-        {
-            _animator.SetTrigger("Cuca Attacking");
+        {  
+            _animator.SetTrigger("Attack");
         }
-        else if (!_animator.GetCurrentAnimatorStateInfo(0).IsName("Cuca Walk"))
+        else
         {
-            _animator.Play("Cuca Walk");
+            _animator.SetTrigger("Walk");
         }
         
     }
@@ -44,6 +44,11 @@ public class Cuca : MonoBehaviour, IDamageble
     {
         
     }
+
+    public void onDie()
+    {
+        Destroy(gameObject);
+    }
     
     public void TakeDamage(int amount)
     {
@@ -51,7 +56,8 @@ public class Cuca : MonoBehaviour, IDamageble
 
         if (Stats.baseHealth <= 0)
         {
-            Destroy(gameObject);
+            alive = false;
+            _animator.SetTrigger("Die");
         }
     }
 }
