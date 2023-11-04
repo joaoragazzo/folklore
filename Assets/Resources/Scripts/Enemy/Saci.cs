@@ -30,12 +30,12 @@ public class Saci : MonoBehaviour, IDamageble
         );
 
         if (isAttacking)
-        {
-            _animator.SetTrigger("Saci Attacking");
+        {  
+            _animator.SetTrigger("Attack");
         }
         else
         {
-            _animator.Play("Saci Running");
+            _animator.SetTrigger("Walk");
         }
     }
 

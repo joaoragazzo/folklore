@@ -28,13 +28,14 @@ public class Curupira : MonoBehaviour, IDamageble
             );
 
         if (isAttacking)
-        {
-            _animator.SetTrigger("Curupira Attacking");
+        {  
+            _animator.SetTrigger("Attack");
         }
-        else if (!_animator.GetCurrentAnimatorStateInfo(0).IsName("Curupira Running"))
+        else
         {
-            _animator.Play("Curupira Running");
+            _animator.SetTrigger("Walk");
         }
+
     }
 
     public void onAttack()

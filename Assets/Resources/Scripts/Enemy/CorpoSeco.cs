@@ -30,12 +30,12 @@ public class CorpoSeco : MonoBehaviour, IDamageble
             );
 
         if (isAttacking)
-        {
-            _animator.SetTrigger("Zombie Attacking");
+        {  
+            _animator.SetTrigger("Attack");
         }
-        else if (!_animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Walking"))
+        else
         {
-            _animator.Play("Zombie Walking");
+            _animator.SetTrigger("Walk");
         }
         
     }

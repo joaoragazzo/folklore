@@ -30,12 +30,12 @@ public class Cuca : MonoBehaviour, IDamageble
             );
 
         if (isAttacking)
-        {
-            _animator.SetTrigger("Cuca Attacking");
+        {  
+            _animator.SetTrigger("Attack");
         }
-        else if (!_animator.GetCurrentAnimatorStateInfo(0).IsName("Cuca Walk"))
+        else
         {
-            _animator.Play("Cuca Walk");
+            _animator.SetTrigger("Walk");
         }
         
     }

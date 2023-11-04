@@ -31,12 +31,12 @@ public class Mula : MonoBehaviour, IDamageble
         );
 
         if (isAttacking)
-        {
-            _animator.SetTrigger("Mula Attacking");
+        {  
+            _animator.SetTrigger("Attack");
         }
-        else if (!_animator.GetCurrentAnimatorStateInfo(0).IsName("Mula Running"))
+        else
         {
-            _animator.Play("Mula Running");
+            _animator.SetTrigger("Walk");
         }
         
     }
