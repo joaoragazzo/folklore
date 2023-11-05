@@ -15,7 +15,7 @@ public class Curupira : MonoBehaviour, IDamageble
     {
         _playerInteraction = new PlayerInteraction();
         _animator = GetComponent<Animator>();
-        Stats = new CurupiraStats();
+        Stats = new CurupiraStats(new WorldInteraction());
         _enemyMovement = new EnemyMovement();
     }
 

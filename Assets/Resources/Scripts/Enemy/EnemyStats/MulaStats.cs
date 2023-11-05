@@ -2,10 +2,11 @@
 
 public class MulaStats : EnemyStats
 {
-    private WorldInteraction _worldInteraction = new WorldInteraction();
+    private WorldInteraction _worldInteraction;
     
-    public MulaStats()
+    public MulaStats(WorldInteraction worldInteraction)
     {
+        _worldInteraction = worldInteraction;
         _worldInteraction.Initialize();
         
         baseHealth = 250 * Mathf.Pow(1.05f, (_worldInteraction.worldStats.DayCounter - 1));

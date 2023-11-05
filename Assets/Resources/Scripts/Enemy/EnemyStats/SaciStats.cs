@@ -2,10 +2,11 @@
 
 public class SaciStats : EnemyStats
 {
-    private WorldInteraction _worldInteraction = new WorldInteraction();
+    private WorldInteraction _worldInteraction;
     
-    public SaciStats()
+    public SaciStats(WorldInteraction worldInteraction)
     {
+        _worldInteraction = worldInteraction;
         _worldInteraction.Initialize();
         
         baseHealth = 150  * Mathf.Pow(1.05f, (_worldInteraction.worldStats.DayCounter - 1));

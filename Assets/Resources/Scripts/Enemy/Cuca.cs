@@ -10,13 +10,14 @@ public class Cuca : MonoBehaviour, IDamageble
     private bool isAttacking;
     private PlayerInteraction _playerInteraction;
     private Animator _animator;
+    [SerializeField] private GameObject projectile;
     
     void Start()
     {
         _animator = GetComponent<Animator>();
         _playerInteraction = new PlayerInteraction();
         _playerInteraction.Initialize();
-        Stats = new CucaStats();
+        Stats = new CucaStats(new WorldInteraction());
         _enemyMovement = new EnemyMovement();
     }
 
@@ -42,7 +43,7 @@ public class Cuca : MonoBehaviour, IDamageble
 
     public void onAttack()
     {
-        
+        Instantiate(projectile, transform.position, transform.rotation);
     }
 
     public void onDie()

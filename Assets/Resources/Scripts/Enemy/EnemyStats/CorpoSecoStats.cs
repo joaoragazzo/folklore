@@ -3,10 +3,11 @@ using UnityEngine;
 
 public class CorpoSecoStats: EnemyStats
 {
-    private WorldInteraction _worldInteraction = new WorldInteraction();
+    private WorldInteraction _worldInteraction;
     
-    public CorpoSecoStats()
+    public CorpoSecoStats(WorldInteraction worldInteraction)
     {
+        _worldInteraction = worldInteraction;
         _worldInteraction.Initialize();
         
         baseHealth = 400 * Mathf.Pow(1.05f, (_worldInteraction.worldStats.DayCounter - 1));
