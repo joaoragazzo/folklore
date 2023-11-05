@@ -1,8 +1,15 @@
-﻿public class CorpoSecoStats: EnemyStats
+﻿
+using UnityEngine;
+
+public class CorpoSecoStats: EnemyStats
 {
+    private WorldInteraction _worldInteraction = new WorldInteraction();
+    
     public CorpoSecoStats()
     {
-        baseHealth = 400;
+        _worldInteraction.Initialize();
+        
+        baseHealth = 400 * Mathf.Pow(1.05f, (_worldInteraction.worldStats.DayCounter - 1));
         baseSpeed = 1.5f;
         baseAttackDamage = 33f;
         baseAttackRange = 3f;
