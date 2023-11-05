@@ -11,13 +11,12 @@ public class CucaProjectile : MonoBehaviour
 
     public void Awake()
     {
-        _stats = new CucaStats(new WorldInteraction());
-        _rigidbody = GetComponent<Rigidbody>();
+        
     }
 
     public void Start()
     {
-        _rigidbody.velocity = Vector3.forward * 75f;
+        
     }
 }
 

@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CorpoSecoStats: EnemyStats
 {
@@ -9,7 +8,6 @@ public class CorpoSecoStats: EnemyStats
     {
         _worldInteraction = worldInteraction;
         _worldInteraction.Initialize();
-        
         baseHealth = 400 * Mathf.Pow(1.05f, (_worldInteraction.worldStats.DayCounter - 1));
         baseSpeed = 1.5f;
         baseAttackDamage = 33f;

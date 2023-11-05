@@ -10,10 +10,12 @@ public class Cuca : MonoBehaviour, IDamageble
     private bool isAttacking;
     private PlayerInteraction _playerInteraction;
     private Animator _animator;
+    private CucaProjectileSpawn attackScript;
     [SerializeField] private GameObject projectile;
     
     void Start()
     {
+        attackScript = transform.Find("CharacterArmature/Root/Body/Hips/Abdomen/Torso/Chest/Shoulder.R/UpperArm.R/LowerArm.R/Wrist.R/Middle1.R/AttackSpawn").GetComponent<CucaProjectileSpawn>();
         _animator = GetComponent<Animator>();
         _playerInteraction = new PlayerInteraction();
         _playerInteraction.Initialize();
@@ -43,7 +45,7 @@ public class Cuca : MonoBehaviour, IDamageble
 
     public void onAttack()
     {
-        Instantiate(projectile, transform.position, transform.rotation);
+        attackScript.Attack();
     }
 
     public void onDie()

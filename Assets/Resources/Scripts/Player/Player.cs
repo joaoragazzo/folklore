@@ -55,8 +55,6 @@ public class Player : MonoBehaviour
         Vector3 right = Vector3.right;
 
         Stats.CanMove = !(Stats.ZombiesAttacking.Count >= 1);
-        Debug.Log(Stats.ZombiesAttacking.Count + " " + Stats.CanMove);
-
 
         Stats.IsRunning = Input.GetKey(KeyCode.LeftShift);
         

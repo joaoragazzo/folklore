@@ -6,7 +6,6 @@ public class CucaStats : EnemyStats
     
     public CucaStats(WorldInteraction worldInteraction)
     {
-        
         _worldInteraction = worldInteraction;
         _worldInteraction.Initialize();
         baseHealth = 100 * Mathf.Pow(1.05f, (_worldInteraction.worldStats.DayCounter - 1));
