@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 561922827023334207}
   - component: {fileID: 2242566930179072781}
   - component: {fileID: 3439423426047000297}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 2154697243825835997}
   - component: {fileID: 7531825713426397827}
   - component: {fileID: 1946102809347963115}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4946,7 +4946,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5914449770804864455}
   - component: {fileID: 2291528634771261465}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5091,7 +5091,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3534382977344368966}
   - component: {fileID: 6266694176036776259}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5187,7 +5187,7 @@ GameObject:
   - component: {fileID: 5565110696869384956}
   - component: {fileID: 8014144694419463864}
   - component: {fileID: -4126250983567245342}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CucaAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
