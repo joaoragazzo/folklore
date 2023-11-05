@@ -43,6 +43,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Stats.Health < 0)
+            Stats.Health = 0;
+        
         if(Stats.CanTurn)
             LookAtMousePosition();
         
