@@ -42,8 +42,14 @@ public class PlayerStatsController : MonoBehaviour
         }
     }
     
+<<<<<<< Updated upstream
     
     public void TakeDamage(int amount)
+=======
+
+
+    public void TakeDamage(float amount)
+>>>>>>> Stashed changes
     {
         Health -= amount;
 

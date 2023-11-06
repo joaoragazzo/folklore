@@ -242,7 +242,6 @@ MonoBehaviour:
   mouseColliderMask:
     serializedVersion: 2
     m_Bits: 1
-  bulletVFX: {fileID: 4344875997646288821, guid: 1f60ea79b160f0b49bdfb5d0a984499f, type: 3}
 --- !u!1 &5482018154694619496
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,7 +291,6 @@ MonoBehaviour:
   mouseColliderMask:
     serializedVersion: 2
     m_Bits: 1
-  bulletVFX: {fileID: 0}
   pelletsCount: 8
   spreadAngle: 20
 --- !u!1 &5952036087878287927
@@ -347,7 +345,7 @@ GameObject:
   - component: {fileID: 7170100773374219116}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -489,7 +487,6 @@ MonoBehaviour:
   mouseColliderMask:
     serializedVersion: 2
     m_Bits: 1
-  bulletVFX: {fileID: 0}
 --- !u!1001 &638294924964845638
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -639,6 +636,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2888766858304802976, guid: b08b78e796218e142856fb2067a272a7, type: 3}
       propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3457015475123604262, guid: b08b78e796218e142856fb2067a272a7, type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3457015475123604262, guid: b08b78e796218e142856fb2067a272a7, type: 3}
