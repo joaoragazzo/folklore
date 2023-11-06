@@ -15,7 +15,7 @@ public class Curupira : MonoBehaviour, IDamageble
     {
         attackScript = transform.Find("CharacterArmature/Root/Body/Hips/Abdomen/Torso/Chest/Shoulder.R/UpperArm.R/LowerArm.R/Wrist.R/Middle1.R/Crossbow/AttackSpawn").GetComponent<CurupiraProjectileSpawn>();
         _animator = GetComponent<Animator>();
-        Stats = new CurupiraStats(new WorldInteraction());
+        Stats = new CurupiraStats();
         _enemyMovement = new EnemyMovement();
     }
 

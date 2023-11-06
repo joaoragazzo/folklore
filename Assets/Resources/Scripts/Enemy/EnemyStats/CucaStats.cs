@@ -2,13 +2,9 @@
 
 public class CucaStats : EnemyStats
 {
-    private WorldInteraction _worldInteraction;
-    
-    public CucaStats(WorldInteraction worldInteraction)
+    public CucaStats()
     {
-        _worldInteraction = worldInteraction;
-        _worldInteraction.Initialize();
-        baseHealth = 100 * Mathf.Pow(1.05f, (_worldInteraction.worldStats.DayCounter - 1));
+        baseHealth = 100 * Mathf.Pow(1.05f, (WorldStatsController.Stats.DayCounter - 1));
         baseSpeed = 5.0f;
         baseAttackDamage = 10;
         baseAttackRange = 10f;

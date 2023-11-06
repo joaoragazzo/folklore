@@ -16,7 +16,7 @@ public class Cuca : MonoBehaviour, IDamageble
     {
         attackScript = transform.Find("CharacterArmature/Root/Body/Hips/Abdomen/Torso/Chest/Shoulder.R/UpperArm.R/LowerArm.R/Wrist.R/Middle1.R/AttackSpawn").GetComponent<CucaProjectileSpawn>();
         _animator = GetComponent<Animator>();
-        Stats = new CucaStats(new WorldInteraction());
+        Stats = new CucaStats();
         _enemyMovement = new EnemyMovement();
     }
 

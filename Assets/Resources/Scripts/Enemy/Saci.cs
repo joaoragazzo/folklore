@@ -15,7 +15,7 @@ public class Saci : MonoBehaviour, IDamageble
     void Start()
     {
         _animator = GetComponent<Animator>();
-        Stats = new SaciStats(new WorldInteraction());
+        Stats = new SaciStats();
         _enemyMovement = new EnemyMovement();
     }
 

@@ -13,7 +13,7 @@ public class CorpoSeco : MonoBehaviour, IDamageble
     void Start()
     {
         
-        Stats = new CorpoSecoStats(new WorldInteraction());
+        Stats = new CorpoSecoStats();
         _enemyMovement = new EnemyMovement();
         _animator = GetComponent<Animator>();
     }

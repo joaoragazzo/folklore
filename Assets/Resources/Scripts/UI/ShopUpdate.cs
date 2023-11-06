@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class ShopUpdate : MonoBehaviour
 {
-    public WorldInteraction worldInteraction;
     
     public GameObject shopIcons;
 
@@ -14,11 +13,7 @@ public class ShopUpdate : MonoBehaviour
    private bool showShop = false;
     // Start is called before the first frame update
 
-    void Start()
-    {
-        worldInteraction = new WorldInteraction();
-        worldInteraction.Initialize();
-    }
+
 
     // Update is called once per frame
     void Update()
@@ -28,7 +23,7 @@ public class ShopUpdate : MonoBehaviour
             showShop = !showShop;
         }
 
-        if (!worldInteraction.worldStats.IsDay)
+        if (!WorldStatsController.Stats.IsDay)
         {
             showShop = false;
         }
@@ -37,14 +32,14 @@ public class ShopUpdate : MonoBehaviour
 
         if (showShop)
         {
-            worldInteraction.worldStats.Pause();
+            WorldStatsController.Stats.Pause();
         }
         else
         {
-            worldInteraction.worldStats.Unpause();
+            WorldStatsController.Stats.Unpause();
         }
 
-        if (worldInteraction.worldStats.IsDay)
+        if (WorldStatsController.Stats.IsDay)
         {
             // Se a condição for verdadeira, desative o objeto pai
             shopIcons.SetActive(true);

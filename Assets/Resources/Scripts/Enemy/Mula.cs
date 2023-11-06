@@ -14,7 +14,7 @@ public class Mula : MonoBehaviour, IDamageble
     void Start()
     {
         _animator = GetComponent<Animator>();
-        Stats = new MulaStats(new WorldInteraction());
+        Stats = new MulaStats();
         _enemyMovement = new EnemyMovement();
     }
 

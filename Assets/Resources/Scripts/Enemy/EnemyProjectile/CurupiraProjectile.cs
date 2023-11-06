@@ -18,7 +18,7 @@ public class CurupiraProjectile : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _stats = new CurupiraStats(new WorldInteraction());
+            _stats = new CurupiraStats();
             
             PlayerStatsController.Stats.Health -= _stats.baseAttackDamage;
             Destroy(gameObject);

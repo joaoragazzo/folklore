@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
-public class WorldStats
+public class WorldStatsController : MonoBehaviour
 {
+    public static WorldStatsController Stats { get; private set; }
     
     public int DayCounter { get; set; } = 0;
     public float Time { get; set; } = 0;
@@ -11,7 +11,20 @@ public class WorldStats
     public bool IsPaused { get; set; } = false;
     public int DayDurationInSeconds { get; set; } = 120;
     public int NightDurationInSeconds { get; set;  } = 210;
-    
+
+
+    private void Awake()
+    {
+        if (Stats == null)
+        {
+            Stats = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public void Pause()
     {
@@ -24,5 +37,4 @@ public class WorldStats
         IsPaused = false;
         PlayerStatsController.Stats.Unfreeze();
     }
-
 }
