@@ -42,8 +42,7 @@ public class PlayerStatsController : MonoBehaviour
         }
     }
     
-
-
+    
     public void TakeDamage(int amount)
     {
         Health -= amount;
@@ -68,9 +67,5 @@ public class PlayerStatsController : MonoBehaviour
         CanTurn = true;
         CanMove = true;
     }
-
-
-
-    
     
 }

@@ -83,7 +83,7 @@ public class AxeSwing : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
+        
         IDamageble damageableEntity = other.GetComponent<IDamageble>();
 
         if (damageableEntity != null && isRotating && !hitObjectsDuringSwing.Contains(damageableEntity)) // Se é uma entidade danificável e o machado está girando.
