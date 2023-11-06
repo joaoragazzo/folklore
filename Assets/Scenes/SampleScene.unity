@@ -154,6 +154,7 @@ Transform:
   m_Children:
   - {fileID: 2086118327}
   - {fileID: 216130934}
+  - {fileID: 1324955791}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &98727062
@@ -1216,6 +1217,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 216130934}
+  - component: {fileID: 216130935}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1238,6 +1240,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 64946180}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &216130935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216130933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62ec0ac1037542afbadfe7d11b521ab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &601258995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1508,6 +1522,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1467909909537872573, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
   m_PrefabInstance: {fileID: 98727062}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1324955790
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1324955791}
+  - component: {fileID: 1324955792}
+  m_Layer: 0
+  m_Name: World
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1324955791
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324955790}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 64946180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1324955792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324955790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5750c7449e5c4c3799762fedcd85e320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &1570986722 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 4271682585799533967, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
