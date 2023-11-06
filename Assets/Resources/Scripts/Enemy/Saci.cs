@@ -42,7 +42,7 @@ public class Saci : MonoBehaviour, IDamageble
 
     public void onAttack()
     {
-        
+        _playerInteraction.PlayerStats.Health -= Stats.baseAttackDamage;
     }
 
     public void onDie()
