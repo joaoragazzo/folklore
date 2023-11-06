@@ -392,6 +392,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3025685671246414882, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
+      propertyPath: bulletVFX
+      value: 
+      objectReference: {fileID: 2180246909551672211, guid: c904ace610bf04d4999769299e0d472a, type: 3}
+    - target: {fileID: 3025685671246414882, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: spreadAngle
       value: 10
       objectReference: {fileID: 0}
@@ -926,7 +930,7 @@ PrefabInstance:
     - target: {fileID: 7535531648315085529, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: bulletVFX
       value: 
-      objectReference: {fileID: 797523203188049986, guid: 56e588d8f6737c846b1b2cda40036799, type: 3}
+      objectReference: {fileID: 2879833820151339691, guid: 749748063f2d1744eafa0893b4edb367, type: 3}
     - target: {fileID: 7535531648315085529, guid: 461abd83b71a0c345a3a2ec89c2220db, type: 3}
       propertyPath: m_Enabled
       value: 1

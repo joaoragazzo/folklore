@@ -9,7 +9,6 @@ public class DroneAttackShotgun : MonoBehaviour
     public float fireRate = 1f;
     private float nextTimeToFire = 2f;
     [SerializeField] private LayerMask mouseColliderMask;
-    [SerializeField] private Transform bulletVFX;
 
     public int pelletsCount = 8; // Quantos projéteis por disparo.
     public float spreadAngle = 20f; // ângulo de dispersão dos projéteis.

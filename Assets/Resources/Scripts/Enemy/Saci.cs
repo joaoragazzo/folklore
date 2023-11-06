@@ -17,7 +17,7 @@ public class Saci : MonoBehaviour, IDamageble
         _playerInteraction = new PlayerInteraction();
         _playerInteraction.Initialize();
         _animator = GetComponent<Animator>();
-        Stats = new SaciStats();
+        Stats = new SaciStats(new WorldInteraction());
         _enemyMovement = new EnemyMovement();
     }
 
@@ -42,7 +42,7 @@ public class Saci : MonoBehaviour, IDamageble
 
     public void onAttack()
     {
-        
+        _playerInteraction.PlayerStats.Health -= Stats.baseAttackDamage;
     }
 
     public void onDie()

@@ -1,9 +1,15 @@
-﻿public class MulaStats : EnemyStats
-{
+﻿using UnityEngine;
 
-    public MulaStats()
+public class MulaStats : EnemyStats
+{
+    private WorldInteraction _worldInteraction;
+    
+    public MulaStats(WorldInteraction worldInteraction)
     {
-        baseHealth = 250;
+        _worldInteraction = worldInteraction;
+        _worldInteraction.Initialize();
+        
+        baseHealth = 250 * Mathf.Pow(1.05f, (_worldInteraction.worldStats.DayCounter - 1));
         baseSpeed = 10f;
         baseAttackDamage = 25f;
         baseAttackRange = 7f;

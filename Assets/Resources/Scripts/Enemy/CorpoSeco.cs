@@ -16,7 +16,7 @@ public class CorpoSeco : MonoBehaviour, IDamageble
     {
         _playerInteraction = new PlayerInteraction();
         _playerInteraction.Initialize();
-        Stats = new CorpoSecoStats();
+        Stats = new CorpoSecoStats(new WorldInteraction());
         _enemyMovement = new EnemyMovement();
         _animator = GetComponent<Animator>();
     }
