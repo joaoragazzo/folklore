@@ -3,13 +3,9 @@ using UnityEngine;
 
     public class SniperDamageUpgrade : Upgrade
     {
-        private PlayerInteraction playerInteraction;
 
         public SniperDamageUpgrade()
         {
-            playerInteraction = new PlayerInteraction();
-            playerInteraction.Initialize();
-
             Name = "Dano da Sniper";
             Description = "Dano da Sniper +10%";
             Image = Resources.Load<Sprite>("Images/Upgrades/critdamageupgrade");
@@ -19,10 +15,10 @@ using UnityEngine;
 
         public override bool ApplyUpgrade()
         {
-            if (playerInteraction.PlayerStats.Money >= Price)
+            if (PlayerStatsController.Stats.Money >= Price)
             {
-                playerInteraction.PlayerStats.SniperDamage += (float)0.10;
-                playerInteraction.PlayerStats.Money -= Price;
+                PlayerStatsController.Stats.SniperDamage += (float)0.10;
+                PlayerStatsController.Stats.Money -= Price;
                 return true;
             }
 

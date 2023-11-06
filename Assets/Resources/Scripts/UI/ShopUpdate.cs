@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class ShopUpdate : MonoBehaviour
 {
-    public PlayerInteraction playerInteraction;
     public WorldInteraction worldInteraction;
     
     public GameObject shopIcons;
@@ -14,15 +13,10 @@ public class ShopUpdate : MonoBehaviour
 
    private bool showShop = false;
     // Start is called before the first frame update
-    private void Awake()
-    {
-        playerInteraction = new PlayerInteraction();
-        worldInteraction = new WorldInteraction();
-    }
 
     void Start()
     {
-        playerInteraction.Initialize();
+        worldInteraction = new WorldInteraction();
         worldInteraction.Initialize();
     }
 

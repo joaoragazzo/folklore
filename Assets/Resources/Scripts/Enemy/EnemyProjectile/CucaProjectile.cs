@@ -18,10 +18,7 @@ public class CucaProjectile : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _stats = new CucaStats(new WorldInteraction());
-            PlayerInteraction playerInteraction = new PlayerInteraction();
-            playerInteraction.Initialize();
-            
-            playerInteraction.PlayerStats.Health -= _stats.baseAttackDamage;
+            PlayerStatsController.Stats.Health -= _stats.baseAttackDamage;
             Destroy(gameObject);
         }
 

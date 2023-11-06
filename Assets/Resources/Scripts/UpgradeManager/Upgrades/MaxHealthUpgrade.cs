@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class MaxHealthUpgrade : Upgrade
 {
-    private PlayerInteraction playerInteraction;
     
     public MaxHealthUpgrade()
     {
-        playerInteraction = new PlayerInteraction();
-        playerInteraction.Initialize();
 
         Name = "Vida Max.";
         Description = "Vida máxima +5%";
@@ -20,10 +17,10 @@ public class MaxHealthUpgrade : Upgrade
 
     public override bool ApplyUpgrade()
     {
-        if (playerInteraction.PlayerStats.Money >= Price)
+        if (PlayerStatsController.Stats.Money >= Price)
         {
-            playerInteraction.PlayerStats.MaxHealth *= (float)1.05;
-            playerInteraction.PlayerStats.Money -= Price;
+            PlayerStatsController.Stats.MaxHealth *= (float)1.05;
+            PlayerStatsController.Stats.Money -= Price;
             return true;
         }
 

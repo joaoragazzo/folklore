@@ -5,17 +5,14 @@ using UnityEngine;
 public class CorpoSeco : MonoBehaviour, IDamageble
 {
     private bool alive = true;
-    private CorpoSecoStats Stats;
-    private EnemyMovement _enemyMovement;
     private bool isAttacking;
-    private Animator _animator;
-    private PlayerInteraction _playerInteraction;
-    
+    private CorpoSecoStats    Stats;
+    private EnemyMovement     _enemyMovement;
+    private Animator          _animator;
     
     void Start()
     {
-        _playerInteraction = new PlayerInteraction();
-        _playerInteraction.Initialize();
+        
         Stats = new CorpoSecoStats(new WorldInteraction());
         _enemyMovement = new EnemyMovement();
         _animator = GetComponent<Animator>();
@@ -26,8 +23,7 @@ public class CorpoSeco : MonoBehaviour, IDamageble
         if (alive) (transform.position, transform.rotation, isAttacking) = _enemyMovement.newPosition(
             transform.position,
             Stats.baseSpeed,
-            Stats.baseAttackRange,
-            isAttacking
+            Stats.baseAttackRange
             );
 
         if (isAttacking)
@@ -43,17 +39,17 @@ public class CorpoSeco : MonoBehaviour, IDamageble
     
     public void onZombieAttackEnd()
     {
-        _playerInteraction.PlayerStats.ZombiesAttacking.Remove(this);
+        PlayerStatsController.Stats.ZombiesAttacking.Remove(this);
     }
 
     public void onZombieAttackBite()
     {
-        _playerInteraction.PlayerStats.Health -= Stats.baseAttackDamage;
+        PlayerStatsController.Stats.Health -= Stats.baseAttackDamage;
     }
 
     public void onZombieAttackBegin()
     {
-        _playerInteraction.PlayerStats.ZombiesAttacking.Add(this);
+        PlayerStatsController.Stats.ZombiesAttacking.Add(this);
     }
 
     public void onDie()
@@ -63,7 +59,7 @@ public class CorpoSeco : MonoBehaviour, IDamageble
     
     public void TakeDamage(int amount)
     {
-        _playerInteraction.PlayerStats.ZombiesAttacking.Remove(this);
+        PlayerStatsController.Stats.ZombiesAttacking.Remove(this);
         
         Stats.baseHealth -= amount;
 

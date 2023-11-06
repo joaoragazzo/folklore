@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class TreeHealthSystem : MonoBehaviour, IDamageble
 {
-    private PlayerInteraction playerInteraction = new PlayerInteraction();
     
     private int health = 3;
     private float shakeDuration = 0.5f;
@@ -19,22 +18,19 @@ public class TreeHealthSystem : MonoBehaviour, IDamageble
         treeCollider = GetComponent<Collider>();
     }
 
-    private void Start()
-    {
-        playerInteraction.Initialize();
-    }
+
     
     public void TakeDamage(int damage)
     {
-        Debug.Log(playerInteraction.PlayerStats.Strength);
-        health -= playerInteraction.PlayerStats.Strength;
+        Debug.Log(PlayerStatsController.Stats.Strength);
+        health -= PlayerStatsController.Stats.Strength;
         
         StartCoroutine(Shake());
         
         if (health <= 0 && !dead)
         {
             dead = true;
-            playerInteraction.PlayerStats.Money += 3;
+            PlayerStatsController.Stats.Money += 3;
             float randomAngle = (Random.value > 0.5f) ? -10f : -180f;
             StartCoroutine(FallOver(randomAngle));
         }

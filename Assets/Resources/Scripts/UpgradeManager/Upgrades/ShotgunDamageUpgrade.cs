@@ -1,12 +1,9 @@
 ﻿using UnityEngine;
     public class ShotgunDamageUpgrade : Upgrade
     {
-        private PlayerInteraction playerInteraction;
 
         public ShotgunDamageUpgrade()
         {
-            playerInteraction = new PlayerInteraction();
-            playerInteraction.Initialize();
 
             Name = "Dano da Shotgun";
             Description = "Dano da Shotgun +10%";
@@ -17,10 +14,10 @@
 
         public override bool ApplyUpgrade()
         {
-            if (playerInteraction.PlayerStats.Money >= Price)
+            if (PlayerStatsController.Stats.Money >= Price)
             {
-                playerInteraction.PlayerStats.ShotgunDamage += (float)0.10;
-                playerInteraction.PlayerStats.Money -= Price;
+                PlayerStatsController.Stats.ShotgunDamage += (float)0.10;
+                PlayerStatsController.Stats.Money -= Price;
                 return true;
             }
 

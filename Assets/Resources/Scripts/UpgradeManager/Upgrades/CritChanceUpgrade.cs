@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class CritChanceUpgrade : Upgrade
 {
-    private PlayerInteraction playerInteraction;
     
     public CritChanceUpgrade()
     {
-        playerInteraction = new PlayerInteraction();
-        playerInteraction.Initialize();
-
         Name = "Chance de Crítico";
         Description = "Chance de Crítico +10";
         Image = Resources.Load<Sprite>("Images/Upgrades/critdamageupgrade");
@@ -20,10 +16,10 @@ public class CritChanceUpgrade : Upgrade
 
     public override bool ApplyUpgrade()
     {
-        if (playerInteraction.PlayerStats.Money >= Price)
+        if (PlayerStatsController.Stats.Money >= Price)
         {
-            playerInteraction.PlayerStats.CritChance += 10;
-            playerInteraction.PlayerStats.Money -= Price;
+            PlayerStatsController.Stats.CritChance += 10;
+            PlayerStatsController.Stats.Money -= Price;
             return true;
         }
 

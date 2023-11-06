@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class StrengthUpgrade : Upgrade
 {
-    public PlayerInteraction playerInteraction;
 
     public StrengthUpgrade()
     {
-        playerInteraction = new PlayerInteraction();
-        playerInteraction.Initialize();
-
         Name = "Força";
         Description = "Força +1";
         Image = Resources.Load<Sprite>("Images/Upgrades/treedamageupgradeicon");
@@ -21,10 +17,10 @@ public class StrengthUpgrade : Upgrade
     public override bool ApplyUpgrade()
     {
 
-        if (playerInteraction.PlayerStats.Money >= Price)
+        if (PlayerStatsController.Stats.Money >= Price)
         {
-            playerInteraction.PlayerStats.Strength += 1;
-            playerInteraction.PlayerStats.Money -= Price;
+            PlayerStatsController.Stats.Strength += 1;
+            PlayerStatsController.Stats.Money -= Price;
             return true;
         }
         

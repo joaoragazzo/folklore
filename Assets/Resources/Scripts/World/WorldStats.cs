@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WorldStats
 {
-    public PlayerInteraction playerInteraction = new PlayerInteraction();
     
     public int DayCounter { get; set; } = 0;
     public float Time { get; set; } = 0;
@@ -17,13 +16,13 @@ public class WorldStats
     public void Pause()
     {
         IsPaused = true;
-        playerInteraction.PlayerStats.Freeze();
+        PlayerStatsController.Stats.Freeze();
     }
 
     public void Unpause()
     {
         IsPaused = false;
-        playerInteraction.PlayerStats.Unfreeze();
+        PlayerStatsController.Stats.Unfreeze();
     }
 
 }

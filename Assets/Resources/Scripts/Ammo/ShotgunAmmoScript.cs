@@ -6,7 +6,6 @@ using UnityEngine;
 public class ShotgunAmmoScript : MonoBehaviour
 {
     private Rigidbody ammoRigidbody;
-    private PlayerInteraction playerInteraction;
     public float lifeDuration = 5;
     public double damage;
     
@@ -19,9 +18,7 @@ public class ShotgunAmmoScript : MonoBehaviour
 // Start is called before the first frame update
     void Start()
     {
-        playerInteraction = new PlayerInteraction();
-        playerInteraction.Initialize();
-        damage = playerInteraction.PlayerStats.ShotgunDamage;
+        damage = PlayerStatsController.Stats.ShotgunDamage;
         float speed = 150f;
         ammoRigidbody.velocity = transform.forward * speed;
         Destroy(gameObject, lifeDuration);

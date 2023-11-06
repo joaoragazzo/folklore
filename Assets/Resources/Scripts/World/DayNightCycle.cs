@@ -14,7 +14,6 @@ public class DayNightCycle : MonoBehaviour
     private void Awake()
     {
         worldStats = new WorldStats();
-        worldStats.playerInteraction.Initialize();
     }
 
     

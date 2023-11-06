@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class SpeedUpgrade : Upgrade
 {
-    private PlayerInteraction playerInteraction;
     
     public SpeedUpgrade()
     {
-        playerInteraction = new PlayerInteraction();
-        playerInteraction.Initialize();
-
+        
         Name = "Velocidade";
         Description = "Velocidade +15%";
         Image = Resources.Load<Sprite>("Images/Upgrades/speedupgradeicon");
@@ -20,10 +17,10 @@ public class SpeedUpgrade : Upgrade
 
     public override bool ApplyUpgrade()
     {
-        if (playerInteraction.PlayerStats.Money >= Price)
+        if (PlayerStatsController.Stats.Money >= Price)
         {
-            playerInteraction.PlayerStats.WalkSpeed *= (float)1.15;
-            playerInteraction.PlayerStats.Money -= Price;
+            PlayerStatsController.Stats.WalkSpeed *= (float)1.15;
+            PlayerStatsController.Stats.Money -= Price;
             return true;
         }
 

@@ -5,17 +5,14 @@ using UnityEngine;
 public class Mula : MonoBehaviour, IDamageble
 {
     private bool alive = true;
+    private bool isAttacking;
     private MulaStats Stats;
     private EnemyMovement _enemyMovement;
-    private bool isAttacking;
-    private PlayerInteraction _playerInteraction;
     private Animator _animator;
     
     
     void Start()
     {
-        _playerInteraction = new PlayerInteraction();
-        _playerInteraction.Initialize();
         _animator = GetComponent<Animator>();
         Stats = new MulaStats(new WorldInteraction());
         _enemyMovement = new EnemyMovement();
@@ -26,8 +23,7 @@ public class Mula : MonoBehaviour, IDamageble
         if (alive) (transform.position, transform.rotation, isAttacking) = _enemyMovement.newPosition(
             transform.position,
             Stats.baseSpeed,
-            Stats.baseAttackRange,
-            isAttacking
+            Stats.baseAttackRange
         );
 
         if (isAttacking)
