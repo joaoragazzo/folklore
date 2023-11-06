@@ -5,10 +5,9 @@ using UnityEngine;
 public class Cuca : MonoBehaviour, IDamageble
 {
     private bool alive = true;
+    private bool isAttacking;
     private CucaStats Stats;
     private EnemyMovement _enemyMovement;
-    private bool isAttacking;
-    private PlayerInteraction _playerInteraction;
     private Animator _animator;
     private CucaProjectileSpawn attackScript;
     [SerializeField] private GameObject projectile;
@@ -17,9 +16,7 @@ public class Cuca : MonoBehaviour, IDamageble
     {
         attackScript = transform.Find("CharacterArmature/Root/Body/Hips/Abdomen/Torso/Chest/Shoulder.R/UpperArm.R/LowerArm.R/Wrist.R/Middle1.R/AttackSpawn").GetComponent<CucaProjectileSpawn>();
         _animator = GetComponent<Animator>();
-        _playerInteraction = new PlayerInteraction();
-        _playerInteraction.Initialize();
-        Stats = new CucaStats(new WorldInteraction());
+        Stats = new CucaStats();
         _enemyMovement = new EnemyMovement();
     }
 
@@ -28,8 +25,7 @@ public class Cuca : MonoBehaviour, IDamageble
         if (alive) (transform.position, transform.rotation, isAttacking) = _enemyMovement.newPosition(
             transform.position,
             Stats.baseSpeed,
-            Stats.baseAttackRange,
-            isAttacking
+            Stats.baseAttackRange
             );
 
         if (isAttacking)

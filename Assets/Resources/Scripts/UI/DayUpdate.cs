@@ -6,16 +6,12 @@ using UnityEngine.UI;
 
 public class DayUpdate : MonoBehaviour
 {
-    private WorldInteraction worldInteraction;
     
     private TextMeshProUGUI dayCounter;
     
     // Start is called before the first frame update
     void Start()
     {
-        worldInteraction = new WorldInteraction();
-        
-        worldInteraction.Initialize();
         dayCounter = GetComponent<TextMeshProUGUI>();
     }
 
@@ -23,6 +19,6 @@ public class DayUpdate : MonoBehaviour
     void Update()
     {
         
-        dayCounter.text = "DIA " + worldInteraction.worldStats.DayCounter;
+        dayCounter.text = "DIA " + WorldStatsController.Stats.DayCounter;
     }
 }

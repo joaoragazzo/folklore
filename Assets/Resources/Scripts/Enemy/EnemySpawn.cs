@@ -6,7 +6,6 @@ using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
-    private WorldInteraction worldInteraction;
     
     public Transform playerTransform;
     public GameObject[] enemyPrefabs;
@@ -34,12 +33,10 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnEnemies()
     {
-        worldInteraction = new WorldInteraction();
-        worldInteraction.Initialize();
         while (true)
         {
-            //Debug.Log("Está dia? " + worldInteraction.worldStats.IsDay);
-            if (currentEnemyCount < maxEnemies && !worldInteraction.worldStats.IsDay)
+            //Debug.Log("Está dia? " + WorldStatsController.Stats.IsDay);
+            if (currentEnemyCount < maxEnemies && !WorldStatsController.Stats.IsDay)
             {
                 SpawnEnemy();
             }

@@ -6,18 +6,16 @@ using UnityEngine;
 public class Saci : MonoBehaviour, IDamageble
 {
     private bool alive = true;
+    private bool isAttacking;
     private SaciStats Stats;
     private EnemyMovement _enemyMovement;
-    private bool isAttacking;
-    private PlayerInteraction _playerInteraction;
+    private PlayerStatsController _player;
     private Animator _animator;
 
     void Start()
     {
-        _playerInteraction = new PlayerInteraction();
-        _playerInteraction.Initialize();
         _animator = GetComponent<Animator>();
-        Stats = new SaciStats(new WorldInteraction());
+        Stats = new SaciStats();
         _enemyMovement = new EnemyMovement();
     }
 
@@ -26,8 +24,7 @@ public class Saci : MonoBehaviour, IDamageble
         if (alive) (transform.position, transform.rotation, isAttacking) = _enemyMovement.newPosition(
             transform.position,
             Stats.baseSpeed,
-            Stats.baseAttackRange,
-            isAttacking
+            Stats.baseAttackRange
         );
 
         if (isAttacking)
@@ -42,7 +39,7 @@ public class Saci : MonoBehaviour, IDamageble
 
     public void onAttack()
     {
-        _playerInteraction.PlayerStats.Health -= Stats.baseAttackDamage;
+        PlayerStatsController.Stats.Health -= Stats.baseAttackDamage;
     }
 
     public void onDie()

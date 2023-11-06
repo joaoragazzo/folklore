@@ -3,12 +3,9 @@ using UnityEngine;
 public class GetMousePosition : MonoBehaviour
 {
     private Camera cam;
-    private PlayerInteraction playerInteraction;
 
     void Start()
     {
-        playerInteraction = new PlayerInteraction();
-        playerInteraction.Initialize();
         cam = Camera.main; // Atribui a câmera principal à variável
     }
 
@@ -21,7 +18,7 @@ public class GetMousePosition : MonoBehaviour
 
         Physics.Raycast(ray, out hit);
         
-        playerInteraction.PlayerStats.Mouse3DPosition = hit.point;
+        PlayerStatsController.Stats.Mouse3DPosition = hit.point;
 
         // if (Physics.Raycast(ray, out hit))
         // {

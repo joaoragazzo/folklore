@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class AxeSpeedUpgrade : Upgrade
 {
-    private PlayerInteraction playerInteraction;
     
     public AxeSpeedUpgrade()
     {
-        playerInteraction = new PlayerInteraction();
-        playerInteraction.Initialize();
 
         Name = "Balanço";
         Description = "Balanço +50%";
@@ -20,10 +17,10 @@ public class AxeSpeedUpgrade : Upgrade
 
     public override bool ApplyUpgrade()
     {
-        if (playerInteraction.PlayerStats.Money >= Price)
+        if (PlayerStatsController.Stats.Money >= Price)
         {
-            playerInteraction.PlayerStats.AxeRotateSpeed *= (float)1.5;
-            playerInteraction.PlayerStats.Money -= Price;
+            PlayerStatsController.Stats.AxeRotateSpeed *= (float)1.5;
+            PlayerStatsController.Stats.Money -= Price;
             return true;
         }
 

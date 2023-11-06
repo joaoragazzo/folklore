@@ -2,12 +2,9 @@
 
     public class CritMultiplierUpgrade : Upgrade
     {
-        private PlayerInteraction playerInteraction;
 
         public CritMultiplierUpgrade()
         {
-            playerInteraction = new PlayerInteraction();
-            playerInteraction.Initialize();
 
             Name = "Dano Crítico";
             Description = "Dano Crítico +10%";
@@ -18,10 +15,10 @@
 
         public override bool ApplyUpgrade()
         {
-            if (playerInteraction.PlayerStats.Money >= Price)
+            if (PlayerStatsController.Stats.Money >= Price)
             {
-                playerInteraction.PlayerStats.CritMultiplier += (float)0.10;
-                playerInteraction.PlayerStats.Money -= Price;
+                PlayerStatsController.Stats.CritMultiplier += (float)0.10;
+                PlayerStatsController.Stats.Money -= Price;
                 return true;
             }
 

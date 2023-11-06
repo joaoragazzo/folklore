@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-public class DifficultySetter: MonoBehaviour
+public class DifficultyStatsController: MonoBehaviour
 {
-    public static DifficultySetter instance { get; private set; }
+    public static DifficultyStatsController instance { get; private set; }
 
     public int difficulty;
 
