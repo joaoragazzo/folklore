@@ -1,9 +1,10 @@
-﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class CucaProjectile : MonoBehaviour
+public class CurupiraProjectile : MonoBehaviour
 {
-    private CucaStats _stats;
+    private CurupiraStats _stats;
     private float lifeDuration = 5f;
     
 
@@ -17,7 +18,7 @@ public class CucaProjectile : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _stats = new CucaStats(new WorldInteraction());
+            _stats = new CurupiraStats(new WorldInteraction());
             PlayerInteraction playerInteraction = new PlayerInteraction();
             playerInteraction.Initialize();
             
@@ -30,6 +31,4 @@ public class CucaProjectile : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
 }
-

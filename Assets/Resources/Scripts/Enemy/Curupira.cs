@@ -10,9 +10,11 @@ public class Curupira : MonoBehaviour, IDamageble
     private bool isAttacking;
     private PlayerInteraction _playerInteraction;
     private Animator _animator;
+    private CurupiraProjectileSpawn attackScript;
     
     void Start()
     {
+        attackScript = transform.Find("CharacterArmature/Root/Body/Hips/Abdomen/Torso/Chest/Shoulder.R/UpperArm.R/LowerArm.R/Wrist.R/Middle1.R/Crossbow/AttackSpawn").GetComponent<CurupiraProjectileSpawn>();
         _playerInteraction = new PlayerInteraction();
         _animator = GetComponent<Animator>();
         Stats = new CurupiraStats(new WorldInteraction());
@@ -41,7 +43,7 @@ public class Curupira : MonoBehaviour, IDamageble
 
     public void onAttack()
     {
-        
+        attackScript.Attack();
     }
 
     public void onDie()
