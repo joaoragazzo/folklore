@@ -20,6 +20,8 @@ public class Mula : MonoBehaviour, IDamageble
 
     void Update()
     {
+        if (WorldStatsController.Stats.IsPaused) return;
+        
         if (alive) (transform.position, transform.rotation, isAttacking) = _enemyMovement.newPosition(
             transform.position,
             Stats.baseSpeed,

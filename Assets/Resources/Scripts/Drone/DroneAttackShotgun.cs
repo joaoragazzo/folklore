@@ -20,7 +20,7 @@ public class DroneAttackShotgun : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f, mouseColliderMask))
         {
             Vector3 aimDir = (raycastHit.point - transform.position).normalized;
-            if (Input.GetMouseButton(0) && Time.time >= nextTimeToFire)
+            if (Input.GetMouseButton(0) && Time.time >= nextTimeToFire && PlayerStatsController.Stats.CanFire)
             {
                 for (int i = 0; i < pelletsCount; i++)
                 {

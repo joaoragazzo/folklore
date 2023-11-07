@@ -60,13 +60,13 @@ public class DroneMovement : MonoBehaviour
         
 
         // Movendo o drone para frente ou para trás, baseado na distância segura e de seguimento
-        if (distanceToPlayer < safeDistance)
+        if (distanceToPlayer < safeDistance && !PlayerStatsController.Stats.Freezed)
         {
             Vector3 newPosition = transform.position - directionToPlayer * moveSpeed * Time.deltaTime;
             newPosition.y = height + verticalMovement;
             transform.position = newPosition;
         }
-        else if (distanceToPlayer >= followDistance)
+        else if (distanceToPlayer >= followDistance && !PlayerStatsController.Stats.Freezed)
         {
             Vector3 newPosition = transform.position + directionToPlayer * moveSpeed * Time.deltaTime;
             newPosition.y = height + verticalMovement;

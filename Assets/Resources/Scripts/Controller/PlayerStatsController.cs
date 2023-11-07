@@ -28,6 +28,7 @@ public class PlayerStatsController : MonoBehaviour
     public double SniperDamage { get; set; } = 250;
     public List<Upgrade> Upgrades { get; set; } = new List<Upgrade>();
     public HashSet<CorpoSeco> ZombiesAttacking { get; set; } = new HashSet<CorpoSeco>();
+    public bool Freezed = false;
     
     private void Awake()
     {
@@ -42,14 +43,9 @@ public class PlayerStatsController : MonoBehaviour
         }
     }
     
-<<<<<<< Updated upstream
     
-    public void TakeDamage(int amount)
-=======
-
-
+    
     public void TakeDamage(float amount)
->>>>>>> Stashed changes
     {
         Health -= amount;
 
@@ -65,6 +61,7 @@ public class PlayerStatsController : MonoBehaviour
         CanFire = false;
         CanTurn = false;
         CanMove = false;
+        Freezed = true;
     }
 
     public void Unfreeze()
@@ -72,6 +69,7 @@ public class PlayerStatsController : MonoBehaviour
         CanFire = true;
         CanTurn = true;
         CanMove = true;
+        Freezed = false;
     }
     
 }

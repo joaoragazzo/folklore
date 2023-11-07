@@ -18,7 +18,7 @@ public class DroneAttackRifle : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f, mouseColliderMask))
         {
             Vector3 aimDir = (raycastHit.point - transform.position).normalized;
-            if (Input.GetMouseButton(0) && Time.time >= nextTimeToFire)
+            if (Input.GetMouseButton(0) && Time.time >= nextTimeToFire && PlayerStatsController.Stats.CanFire)
             {
                 Instantiate(projectilePrefab, transform.position, Quaternion.LookRotation(aimDir, Vector3.up));
                 
