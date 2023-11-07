@@ -1,9 +1,4 @@
-using System;
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using Cursor = UnityEngine.Cursor;
 
 
@@ -11,25 +6,18 @@ using Cursor = UnityEngine.Cursor;
 [RequireComponent(typeof(CharacterController))]
 public class Player : MonoBehaviour
 {
-    // Player PlayerStatsController.Stats
-    public PlayerStatsController PlayerStatsController { get; private set; }
-    
     private Camera mainCamera;
     
     private Vector3 moveDirection = Vector3.zero;
     private CharacterController characterController;
     private WorldGeneration worldgeneration;
     
-
-
-    // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         worldgeneration = GetComponent<WorldGeneration>();
         mainCamera = Camera.main;
         
-        //Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = true;
     }
 
@@ -44,36 +32,34 @@ public class Player : MonoBehaviour
         
         #region Movement script
         
-        //Vector3 foward = transform.TransformDirection(Vector3.forward);
-        //Vector3 right = transform.TransformDirection(Vector3.right);
-        
         Vector3 forward = Vector3.forward;
         Vector3 right = Vector3.right;
-
+        
         PlayerStatsController.Stats.CanMove = !(PlayerStatsController.Stats.ZombiesAttacking.Count >= 1);
 
         PlayerStatsController.Stats.IsRunning = Input.GetKey(KeyCode.LeftShift);
         
-        float curSpeedX = PlayerStatsController.Stats.CanMove ? (PlayerStatsController.Stats.IsRunning ? PlayerStatsController.Stats.RunSpeedMultiplier * PlayerStatsController.Stats.WalkSpeed : PlayerStatsController.Stats.WalkSpeed) * Input.GetAxis("Vertical") : 0 ;
-        float curSpeedY = PlayerStatsController.Stats.CanMove ? (PlayerStatsController.Stats.IsRunning ? PlayerStatsController.Stats.RunSpeedMultiplier * PlayerStatsController.Stats.WalkSpeed : PlayerStatsController.Stats.WalkSpeed) * Input.GetAxis("Horizontal") : 0 ;
-        //float movementDirectionY = moveDirection.y;
+        float curSpeedWS = PlayerStatsController.Stats.CanMove ? (PlayerStatsController.Stats.IsRunning ? PlayerStatsController.Stats.RunSpeedMultiplier * PlayerStatsController.Stats.WalkSpeed : PlayerStatsController.Stats.WalkSpeed) * Input.GetAxis("Vertical") : 0 ;
+        float curSpeedAD = PlayerStatsController.Stats.CanMove ? (PlayerStatsController.Stats.IsRunning ? PlayerStatsController.Stats.RunSpeedMultiplier * PlayerStatsController.Stats.WalkSpeed : PlayerStatsController.Stats.WalkSpeed) * Input.GetAxis("Horizontal") : 0 ;
 
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
             PlayerStatsController.Stats.IsMoving = true;
         }
-        else PlayerStatsController.Stats.IsMoving = false;
-        
-        
-        moveDirection = (forward * curSpeedX) + (right * curSpeedY);
-
-        // Verifica se o jogador está se movendo diagonalmente (ambos os eixos têm entrada)
-        if (Mathf.Abs(curSpeedX) > 0.1f && Mathf.Abs(curSpeedY) > 0.1f)
+        else
         {
-            // Normaliza o vetor de movimento para garantir que a velocidade diagonal não seja mais rápida
+            PlayerStatsController.Stats.IsMoving = false;
+        }
+        
+        moveDirection = (forward * curSpeedWS) + (right * curSpeedAD);
+        
+        if (Mathf.Abs(curSpeedWS) > 0.1f && Mathf.Abs(curSpeedAD) > 0.1f)
+        {
             moveDirection.Normalize();
             moveDirection *= (PlayerStatsController.Stats.IsRunning ? PlayerStatsController.Stats.RunSpeedMultiplier * PlayerStatsController.Stats.WalkSpeed : PlayerStatsController.Stats.WalkSpeed); // Aplica a velocidade correta após a normalização
         }
+
+        PlayerStatsController.Stats.PlayerVelocity = moveDirection;
         
         characterController.Move(moveDirection * Time.deltaTime);
         
