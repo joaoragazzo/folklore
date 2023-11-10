@@ -59,7 +59,7 @@ public class CorpoSeco : MonoBehaviour, IDamageble
         Destroy(gameObject);
     }
     
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
         PlayerStatsController.Stats.ZombiesAttacking.Remove(this);
         

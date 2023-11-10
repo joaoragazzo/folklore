@@ -544,6 +544,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FogoArea
       objectReference: {fileID: 0}
+    - target: {fileID: 5457223732821297604, guid: 15ad2ed41557e0947998d53bb8772ceb, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6227930985476924205, guid: 15ad2ed41557e0947998d53bb8772ceb, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1322,9 +1326,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4448197224590757846}
     m_Modifications:
+    - target: {fileID: 800954021887015931, guid: 74ed9689f16b1b24498268f6c3f76bbc, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 2890852690880383609, guid: 74ed9689f16b1b24498268f6c3f76bbc, type: 3}
       propertyPath: m_Name
       value: Fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 2890852690880383609, guid: 74ed9689f16b1b24498268f6c3f76bbc, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4472860530503006821, guid: 74ed9689f16b1b24498268f6c3f76bbc, type: 3}
       propertyPath: m_Materials.Array.data[0]

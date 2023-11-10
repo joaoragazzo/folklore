@@ -49,7 +49,7 @@ public class Saci : MonoBehaviour, IDamageble
         Destroy(gameObject);
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
         Stats.baseHealth -= amount;
 

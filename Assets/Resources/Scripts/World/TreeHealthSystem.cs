@@ -4,7 +4,7 @@ using UnityEngine;
 public class TreeHealthSystem : MonoBehaviour, IDamageble
 {
     
-    private int health = 3;
+    private float health = 3;
     private float shakeDuration = 0.5f;
     private float shakeMagnitude = 0.1f;
     public float fallDuration = 2.0f;
@@ -20,7 +20,7 @@ public class TreeHealthSystem : MonoBehaviour, IDamageble
 
 
     
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         Debug.Log(PlayerStatsController.Stats.Strength);
         health -= PlayerStatsController.Stats.Strength;

@@ -21,6 +21,7 @@ public class StoreController : MonoBehaviour
         availableUpgrades.Add(new RifleDamageUpgrade());
         availableUpgrades.Add(new ShotgunDamageUpgrade());
         availableUpgrades.Add(new SniperDamageUpgrade());
+        availableUpgrades.Add(new DroneTreeDamageUpgrade());
         
         // Preencha a lista 'availableUpgrades' com seus upgrades.
         // Você pode fazer isso manualmente, ou se cada Upgrade é um ScriptableObject,

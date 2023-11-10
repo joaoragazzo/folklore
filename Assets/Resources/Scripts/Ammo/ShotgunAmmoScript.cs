@@ -8,7 +8,7 @@ public class ShotgunAmmoScript : MonoBehaviour
     private Rigidbody ammoRigidbody;
     public float lifeDuration = 5;
     public double damage;
-    
+    public static bool droneTreeDamageUpgrade = false;
     
     private void Awake()
     {
@@ -29,12 +29,19 @@ public class ShotgunAmmoScript : MonoBehaviour
         if(other.CompareTag("Enemy")) // Verifica se o objeto atingido tem a tag "Enemy"
         {
             IDamageble damageableEntity = other.GetComponent<IDamageble>();
-            damageableEntity.TakeDamage((int)damage);
+            damageableEntity.TakeDamage((float)PlayerStatsController.Stats.ShotgunDamage);
             Destroy(gameObject);
         }
         
-        if(other.CompareTag("Tree") || other.CompareTag("Ground")) // Verifica se o objeto atingido tem a tag "Enemy"
+        if((other.CompareTag("Tree") && !droneTreeDamageUpgrade) || other.CompareTag("Ground")) // Verifica se o objeto atingido tem a tag "Enemy"
         {
+            Destroy(gameObject);
+        }
+
+        if (other.CompareTag("Tree") && droneTreeDamageUpgrade)
+        {
+            IDamageble damageableEntity = other.GetComponent<IDamageble>();
+            damageableEntity.TakeDamage((float)0.375);
             Destroy(gameObject);
         }
     }
