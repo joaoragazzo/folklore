@@ -37,7 +37,7 @@ public class PlayerAnimator : MonoBehaviour
         forwardSpeed = Mathf.Clamp(forwardSpeed, -1f, 1f);
 
         _animator.SetFloat("VelocityS", forwardSpeed);
-
+        
         if (Input.GetButtonDown("Fire2") && !PlayerStatsController.Stats.isAttackingWithAxe)
         {
             _animator.SetTrigger("isAxeAttacking");
