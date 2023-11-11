@@ -1,4 +1,6 @@
-﻿using Unity.VisualScripting;
+﻿using System;
+using System.Linq.Expressions;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour
@@ -12,39 +14,76 @@ public class PlayerAnimator : MonoBehaviour
     
     public void Update()
     {
+        if (PlayerStatsController.Stats.isAttackingWithAxe) return;
+
+        if (!PlayerStatsController.Stats.IsAlive)
+        {
+            _animator.SetTrigger("isDead");
+        }
+        
         _animator.SetBool("isMoving", PlayerStatsController.Stats.IsMoving);
-
-        // Obtem a velocidade do jogador no espaço do mundo
+        
         Vector3 worldVelocity = PlayerStatsController.Stats.PlayerVelocity;
-        
-        // Transforma a velocidade do mundo para o espaço local do jogador
         Vector3 localVelocity = transform.InverseTransformDirection(worldVelocity);
-
-        // Agora localVelocity.z reflete a velocidade para frente/para trás em relação à direção que o jogador está olhando
         float forwardSpeed = localVelocity.z / PlayerStatsController.Stats.WalkSpeed;
-
-        // Normalizar a velocidade para uso nas animações (supondo que 1 seja a velocidade máxima para frente e -1 para trás)
+        
         forwardSpeed = Mathf.Clamp(forwardSpeed, -1f, 1f);
 
-        // Configurar as variáveis de animação de acordo
         _animator.SetFloat("VelocityW", forwardSpeed);
-        
-        // Obtem a velocidade do jogador no espaço do mundo
+
         worldVelocity = PlayerStatsController.Stats.PlayerVelocity;
-        
-        // Transforma a velocidade do mundo para o espaço local do jogador
         localVelocity = transform.InverseTransformDirection(worldVelocity);
-
-        // Agora localVelocity.z reflete a velocidade para frente/para trás em relação à direção que o jogador está olhando
         forwardSpeed = localVelocity.x / PlayerStatsController.Stats.WalkSpeed;
-
-        // Normalizar a velocidade para uso nas animações (supondo que 1 seja a velocidade máxima para frente e -1 para trás)
         forwardSpeed = Mathf.Clamp(forwardSpeed, -1f, 1f);
 
-        // Configurar as variáveis de animação de acordo
         _animator.SetFloat("VelocityS", forwardSpeed);
 
+        if (Input.GetButtonDown("Fire2") && !PlayerStatsController.Stats.isAttackingWithAxe)
+        {
+            _animator.SetTrigger("isAxeAttacking");
+        }
+        
+    }
 
+    public void onAttackBegin()
+    {
+        PlayerStatsController.Stats.isAttackingWithAxe = true;
+        CheckObjectsInBoxCollider();
+    }
+
+    public void onAttackEnd()
+    {
+        PlayerStatsController.Stats.isAttackingWithAxe = false;
+    }
+
+    public void onDieAnimationEnd()
+    {
+        
+    }
+
+    void CheckObjectsInBoxCollider()
+    {
+        BoxCollider boxCollider = GetComponent<BoxCollider>();
+
+        // O centro e o tamanho do boxCollider
+        Vector3 center = transform.TransformPoint(boxCollider.center);
+        Vector3 halfExtents = boxCollider.size * 2;
+
+        // Encontrar todos os colisores dentro do box
+        Collider[] hitColliders = Physics.OverlapBox(center, halfExtents, transform.rotation);
+
+        // Iterar pelos colisores encontrados
+        foreach (var hitCollider in hitColliders)
+        {
+            try
+            {
+                IDamageble entity = hitCollider.GetComponent<IDamageble>();
+                entity.TakeDamage(PlayerStatsController.Stats.Strength);
+            } catch (Exception e)
+            {
+                continue;
+            }
+        }
     }
     
 }

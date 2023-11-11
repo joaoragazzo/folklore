@@ -1852,7 +1852,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: DAY 0
+  m_text: DIA 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c994f400440d3e044899e8ea014fc506, type: 2}
   m_sharedMaterial: {fileID: 33912585740936896, guid: c994f400440d3e044899e8ea014fc506, type: 2}

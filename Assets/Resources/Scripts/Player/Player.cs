@@ -24,8 +24,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayerStatsController.Stats.Health < 0)
+        if (PlayerStatsController.Stats.Health <= 0)
+        {
             PlayerStatsController.Stats.Health = 0;
+            PlayerStatsController.Stats.IsAlive = false;
+            WorldStatsController.Stats.Pause();
+        }
         
         if(PlayerStatsController.Stats.CanTurn)
             LookAtMousePosition();
@@ -35,12 +39,10 @@ public class Player : MonoBehaviour
         Vector3 forward = Vector3.forward;
         Vector3 right = Vector3.right;
         
-        PlayerStatsController.Stats.CanMove = !(PlayerStatsController.Stats.ZombiesAttacking.Count >= 1);
-
         PlayerStatsController.Stats.IsRunning = Input.GetKey(KeyCode.LeftShift);
         
-        float curSpeedWS = PlayerStatsController.Stats.CanMove ? (PlayerStatsController.Stats.IsRunning ? PlayerStatsController.Stats.RunSpeedMultiplier * PlayerStatsController.Stats.WalkSpeed : PlayerStatsController.Stats.WalkSpeed) * Input.GetAxis("Vertical") : 0 ;
-        float curSpeedAD = PlayerStatsController.Stats.CanMove ? (PlayerStatsController.Stats.IsRunning ? PlayerStatsController.Stats.RunSpeedMultiplier * PlayerStatsController.Stats.WalkSpeed : PlayerStatsController.Stats.WalkSpeed) * Input.GetAxis("Horizontal") : 0 ;
+        float curSpeedWS = PlayerStatsController.Stats.CanMove && !PlayerStatsController.Stats.isAttackingWithAxe  && !(PlayerStatsController.Stats.ZombiesAttacking.Count >= 1) ? (PlayerStatsController.Stats.IsRunning ? PlayerStatsController.Stats.RunSpeedMultiplier * PlayerStatsController.Stats.WalkSpeed : PlayerStatsController.Stats.WalkSpeed) * Input.GetAxis("Vertical") : 0 ;
+        float curSpeedAD = PlayerStatsController.Stats.CanMove && !PlayerStatsController.Stats.isAttackingWithAxe  && !(PlayerStatsController.Stats.ZombiesAttacking.Count >= 1) ? (PlayerStatsController.Stats.IsRunning ? PlayerStatsController.Stats.RunSpeedMultiplier * PlayerStatsController.Stats.WalkSpeed : PlayerStatsController.Stats.WalkSpeed) * Input.GetAxis("Horizontal") : 0 ;
 
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {

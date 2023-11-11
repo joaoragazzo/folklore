@@ -18,7 +18,6 @@ public class DayUpdate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         dayCounter.text = "DIA " + WorldStatsController.Stats.DayCounter;
     }
 }

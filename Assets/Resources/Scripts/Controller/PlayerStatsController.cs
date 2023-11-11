@@ -31,6 +31,8 @@ public class PlayerStatsController : MonoBehaviour
     public List<Upgrade> Upgrades { get; set; } = new List<Upgrade>();
     public HashSet<CorpoSeco> ZombiesAttacking { get; set; } = new HashSet<CorpoSeco>();
     public bool Freezed = false;
+    public bool isAttackingWithAxe = false;
+    public HashSet<IDamageble> TreesThatAlreadyHasBeenDamaged = new HashSet<IDamageble>();
     
     private void Awake()
     {
@@ -67,6 +69,8 @@ public class PlayerStatsController : MonoBehaviour
         CanTurn = false;
         CanMove = false;
         Freezed = true;
+        
+        Debug.Log("Player is Freezed!");
     }
 
     public void Unfreeze()
