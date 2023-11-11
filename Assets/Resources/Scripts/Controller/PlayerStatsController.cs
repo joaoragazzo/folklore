@@ -9,6 +9,7 @@ public class PlayerStatsController : MonoBehaviour
     public float MaxHealth { get; set; } = 100f;
     public float WalkSpeed { get; set; } = 6f;
     public float RunSpeedMultiplier { get; set; } = 2f;
+    public float MaxSpeed { get; private set; }
     public int Strength { get; set; } = 1;
     public float CritChance { get; set; } = 0.0f;
     public float CritMultiplier { get; set; } = 2.5f;
@@ -23,12 +24,15 @@ public class PlayerStatsController : MonoBehaviour
     public bool IsAttacking { get; set; }
     public Vector3 Mouse3DPosition { get; set; }
     public Vector3 PlayerPosition { get; set; }
+    public Vector3 PlayerVelocity { get; set; }
     public double RifleDamage { get; set; } = 10;
     public double ShotgunDamage { get; set; } = 10;
     public double SniperDamage { get; set; } = 250;
     public List<Upgrade> Upgrades { get; set; } = new List<Upgrade>();
     public HashSet<CorpoSeco> ZombiesAttacking { get; set; } = new HashSet<CorpoSeco>();
     public bool Freezed = false;
+    public bool isAttackingWithAxe = false;
+    public HashSet<IDamageble> TreesThatAlreadyHasBeenDamaged = new HashSet<IDamageble>();
     
     private void Awake()
     {
@@ -42,8 +46,11 @@ public class PlayerStatsController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
-    
+
+    void Update()
+    {
+        MaxSpeed = RunSpeedMultiplier * WalkSpeed;
+    }
     
     public void TakeDamage(float amount)
     {
@@ -62,6 +69,8 @@ public class PlayerStatsController : MonoBehaviour
         CanTurn = false;
         CanMove = false;
         Freezed = true;
+        
+        Debug.Log("Player is Freezed!");
     }
 
     public void Unfreeze()

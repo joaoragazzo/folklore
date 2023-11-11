@@ -38,6 +38,9 @@ public class DroneMovement : MonoBehaviour
 
     private void Update()
     {
+        if (WorldStatsController.Stats.IsPaused) return;
+        
+        
         float deltaTime = Time.timeSinceLevelLoad;
         float verticalMovement = Mathf.Sin(deltaTime * vertialFrequency + initialPhase) * verticalAmplitude;
         
@@ -75,29 +78,6 @@ public class DroneMovement : MonoBehaviour
         
         
         
-        // Verifica a proximidade de outros drones e ajusta a posição para evitar colisão
-        
-        Vector3 totalRepulsionVector = Vector3.zero;
-        foreach (var otherDrone in allDrones)
-        {
-            if (otherDrone != this)
-            {
-                float distanceToDrone = Vector3.Distance(transform.position, otherDrone.transform.position);
-
-                if (distanceToDrone < droneAvoidanceDistance)
-                {
-                    // Calcula o vetor de repulsão. Quanto mais próximo o drone, maior a força.
-                    Vector3 repulsionVector = (transform.position - otherDrone.transform.position).normalized;
-                    repulsionVector /= distanceToDrone; // Aumenta a força à medida que a distância diminui
-                    
-                    totalRepulsionVector += repulsionVector;
-                }
-            }
-        }
-        
-        GetComponent<Rigidbody>().AddForce(totalRepulsionVector * repulsionForce);
-        
-        
         // Fazendo o drone olhar para a posição do mouse
 
         if (PlayerStatsController.Stats.CanTurn)
@@ -113,6 +93,25 @@ public class DroneMovement : MonoBehaviour
               
                 
                 transform.LookAt(lookAtPoint);
+            }
+        }
+        
+        ApplyRepulsionForce();
+    }
+    
+    private void ApplyRepulsionForce()
+    {
+        foreach (var otherDrone in allDrones)
+        {
+            if (otherDrone != this)
+            {
+                float distance = Vector3.Distance(transform.position, otherDrone.transform.position);
+                if (distance < droneAvoidanceDistance)
+                {
+                    Vector3 repulsionDir = (transform.position - otherDrone.transform.position).normalized;
+                    float repulsionMagnitude = Mathf.Clamp((droneAvoidanceDistance - distance) / droneAvoidanceDistance, 0, 1);
+                    transform.position += repulsionDir * repulsionForce * repulsionMagnitude * Time.deltaTime;
+                }
             }
         }
     }
