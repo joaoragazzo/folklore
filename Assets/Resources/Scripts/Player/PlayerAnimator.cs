@@ -58,7 +58,8 @@ public class PlayerAnimator : MonoBehaviour
 
     public void onDieAnimationEnd()
     {
-        
+        Debug.Log("Die animation end!");
+        GameStatsController.Stats.gameOver = true;
     }
 
     void CheckObjectsInBoxCollider()

@@ -4,13 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ShopUpdate : MonoBehaviour
-{
-    
+{ 
     public GameObject shopIcons;
 
-   public GameObject shopObject;
+    public GameObject shopObject;
 
-   private bool showShop = false;
+    private bool showShop = false;
     // Start is called before the first frame update
 
 

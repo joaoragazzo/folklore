@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-public class DifficultyStatsController: MonoBehaviour
+public class GameStatsController: MonoBehaviour
 {
-    public static DifficultyStatsController Stats { get; private set; }
+    public static GameStatsController Stats { get; private set; }
 
-    public int difficulty;
+    public bool gameOver { get; set; } = false;
 
     private void Awake()
     {
