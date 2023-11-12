@@ -20,21 +20,13 @@ public class StoreItem : MonoBehaviour
         descriptionText.text = upgrade.Description;
         iconImage.sprite = upgrade.Image;
         priceText.text = "$ " + upgrade.Price.ToString();
-
+        
         purchaseButton.onClick.AddListener(OnPurchaseButtonClicked);
     }
 
-    private void OnPurchaseButtonClicked()
+    public void OnPurchaseButtonClicked()
     {
-        bool success = upgrade.ApplyUpgrade();
-
-        if (success)
-        {
-            // Opcionalmente, atualize a UI ou faça outras coisas se o upgrade foi bem-sucedido.
-        }
-        else
-        {
-            // Opcionalmente, informe ao jogador que a compra falhou.
-        }
+        upgrade.ApplyUpgrade();
     }
+
 }

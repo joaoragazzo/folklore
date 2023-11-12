@@ -9,9 +9,10 @@ public class SpeedUpgrade : Upgrade
     {
         
         Name = "Velocidade";
-        Description = "Velocidade +15%";
+        Description = "Velocidade +15";
         Image = Resources.Load<Sprite>("Images/Upgrades/speedupgradeicon");
         Price = 20;
+        UpgradeIncrement = 15;
         Max = int.MaxValue;
     }
 
@@ -21,6 +22,7 @@ public class SpeedUpgrade : Upgrade
         {
             PlayerStatsController.Stats.WalkSpeed *= (float)1.15;
             PlayerStatsController.Stats.Money -= Price;
+            PlayerStatsController.Stats.Upgrades.Add(new SpeedUpgrade());
             return true;
         }
 

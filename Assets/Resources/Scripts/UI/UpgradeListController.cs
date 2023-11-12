@@ -1,17 +1,17 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System.Reflection;
 using System;
 
-public class StoreController : MonoBehaviour
+public class UpgradeListController : MonoBehaviour
 {
     public GameObject storeItemPrefab; 
     public Transform storeItemParent; 
         
     private List<Upgrade> availableUpgrades = new List<Upgrade>();
-
-    void Start()
+    
+    private void Start()
     {
         var upgradeTypes = Assembly.GetExecutingAssembly().GetTypes()
             .Where(t => t.IsSubclassOf(typeof(Upgrade))
@@ -27,8 +27,8 @@ public class StoreController : MonoBehaviour
         foreach (var upgrade in availableUpgrades)
         {
             GameObject itemObj = Instantiate(storeItemPrefab, storeItemParent);
-            StoreItem storeItem = itemObj.GetComponent<StoreItem>();
-            storeItem.Setup(upgrade);
+            UpgradeItem upgradeItem = itemObj.GetComponent<UpgradeItem>();
+            upgradeItem.Setup(upgrade);
         }
     }
     

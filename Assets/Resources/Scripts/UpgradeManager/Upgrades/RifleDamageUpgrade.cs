@@ -7,9 +7,10 @@
         {
 
             Name = "Dano do Rifle";
-            Description = "Dano do Rifle +10%";
+            Description = "Dano do Rifle +10";
             Image = Resources.Load<Sprite>("Images/Upgrades/critdamageupgrade");
             Price = 6;
+            UpgradeIncrement = 10;
             Max = 500;
         }
         public override bool ApplyUpgrade()
@@ -18,6 +19,7 @@
             {
                 PlayerStatsController.Stats.RifleDamage += (float)0.10;
                 PlayerStatsController.Stats.Money -= Price;
+                PlayerStatsController.Stats.Upgrades.Add(new RifleDamageUpgrade());
                 return true;
             }
 

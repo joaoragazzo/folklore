@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class PlayerStatsController : MonoBehaviour
 {
@@ -79,6 +80,27 @@ public class PlayerStatsController : MonoBehaviour
         CanTurn = true;
         CanMove = true;
         Freezed = false;
+    }
+
+    public int CountUpgradeByType<T>() where T : class
+    {
+        return Upgrades.OfType<T>().Count();
+    }
+
+    public int CountAcressByType<T>() where T : Upgrade
+    {
+        if(Upgrades.OfType<T>().Sum(upgrade => upgrade.UpgradeIncrement) > 0)
+                return Upgrades.OfType<T>().Sum(upgrade => upgrade.UpgradeIncrement);
+
+        return 0;
+    }
+    
+    public int CountAcressByName(string upgradeName)
+    {
+        var matchingUpgrades = Upgrades
+            .Where(upgrade => upgrade.Name == upgradeName);
+        
+        return matchingUpgrades.Sum(upgrade => upgrade.UpgradeIncrement);
     }
     
 }

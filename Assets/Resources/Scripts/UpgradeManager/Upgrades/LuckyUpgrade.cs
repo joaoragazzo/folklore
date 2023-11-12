@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CritChanceUpgrade : Upgrade
+public class LuckyUpgrade : Upgrade
 {
-    
-    public CritChanceUpgrade()
+    public LuckyUpgrade()
     {
-        Name = "Chance de Crítico";
-        Description = "Chance de Crítico +10";
-        Image = Resources.Load<Sprite>("Images/Upgrades/critdamageupgrade");
+        Name = "Sorte";
+        Description = "Sorte +10";
+        Image = Resources.Load<Sprite>("Images/Upgrades/luckyupgrade");
         Price = 30;
+        UpgradeIncrement = 10;
         Max = 10;
     }
 
@@ -20,6 +20,7 @@ public class CritChanceUpgrade : Upgrade
         {
             PlayerStatsController.Stats.CritChance += 10;
             PlayerStatsController.Stats.Money -= Price;
+            PlayerStatsController.Stats.Upgrades.Add(new LuckyUpgrade());
             return true;
         }
 

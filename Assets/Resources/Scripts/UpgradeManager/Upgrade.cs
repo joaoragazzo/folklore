@@ -9,6 +9,7 @@ public abstract class Upgrade
     public Sprite Image { get; protected set; }
     public int Price { get; protected set; }
     public int Max { get; protected set; }
+    public int UpgradeIncrement { get; protected set; }
     
     
     public abstract bool ApplyUpgrade();

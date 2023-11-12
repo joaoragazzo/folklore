@@ -19,6 +19,7 @@ public class DroneTreeDamageUpgrade : Upgrade
         {
             RifleAmmoScript.droneTreeDamageUpgrade = true;
             PlayerStatsController.Stats.Money -= Price;
+            PlayerStatsController.Stats.Upgrades.Add(new DroneTreeDamageUpgrade());
             return true;
         }
 
