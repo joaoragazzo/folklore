@@ -2275,6 +2275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storeItemPrefab: {fileID: 6861207320944445113, guid: 6cfc5210e4fb6ea48b29ce9b6443debe, type: 3}
   storeItemParent: {fileID: 4813016684263494945}
+  upgradeListItem: {fileID: 7424770489662747904}
 --- !u!1 &6327271433258648473
 GameObject:
   m_ObjectHideFlags: 0

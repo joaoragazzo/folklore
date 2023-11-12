@@ -7,7 +7,9 @@ using System;
 public class UpgradeListController : MonoBehaviour
 {
     public GameObject storeItemPrefab; 
-    public Transform storeItemParent; 
+    public Transform storeItemParent;
+    public GameObject upgradeListItem;
+    private bool isShowing = false;
         
     private List<Upgrade> availableUpgrades = new List<Upgrade>();
     
@@ -30,6 +32,16 @@ public class UpgradeListController : MonoBehaviour
             UpgradeItem upgradeItem = itemObj.GetComponent<UpgradeItem>();
             upgradeItem.Setup(upgrade);
         }
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            isShowing = !isShowing;
+        }
+        
+        upgradeListItem.SetActive(isShowing);
     }
     
 }
