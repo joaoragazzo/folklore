@@ -510,12 +510,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
-  followDistance: 3
+  followDistance: 5
   safeDistance: 2
-  droneAvoidanceDistance: 2
+  droneAvoidanceDistance: 5
   moveSpeed: 5
   mainCamera: {fileID: 0}
-  height: 3
+  height: 6
+  repulsionForce: 5
 --- !u!4 &8754861293059684038 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d4e7d059fbfa8214eb3ed3f3251a57f5, type: 3}

@@ -20,6 +20,7 @@ public class MaxHealthUpgrade : Upgrade
         if (PlayerStatsController.Stats.Money >= Price)
         {
             PlayerStatsController.Stats.MaxHealth *= (float)1.05;
+            PlayerStatsController.Stats.Health = PlayerStatsController.Stats.MaxHealth;
             PlayerStatsController.Stats.Money -= Price;
             return true;
         }
