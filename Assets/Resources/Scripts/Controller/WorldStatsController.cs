@@ -26,6 +26,12 @@ public class WorldStatsController : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        Pause();
+        Invoke("Unpause", GameStatsController.Stats.startTimeForPlayerStartPlaying);
+    }
+    
     public void Pause()
     {
         IsPaused = true;
@@ -36,6 +42,7 @@ public class WorldStatsController : MonoBehaviour
     public void Unpause()
     {
         IsPaused = false;
+        Debug.Log("Game is Unpaused!");
         PlayerStatsController.Stats.Unfreeze();
     }
 }

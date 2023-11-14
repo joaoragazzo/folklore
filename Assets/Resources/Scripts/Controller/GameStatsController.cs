@@ -20,4 +20,5 @@ public class GameStatsController: MonoBehaviour
     }
 
     public float initialSceneDelayInSeconds { get; private set; } = 3f;
+    public float startTimeForPlayerStartPlaying { get; private set; } = 12f;
 }

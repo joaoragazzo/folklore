@@ -20,6 +20,16 @@ public class ShopUpdate : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.B) || Input.GetKeyDown(KeyCode.P))
         {
             showShop = !showShop;
+            
+            if (showShop)
+            {
+                WorldStatsController.Stats.Pause();
+            }
+            else
+            {
+                WorldStatsController.Stats.Unpause();
+            }
+            
         }
 
         if (!WorldStatsController.Stats.IsDay)
@@ -28,15 +38,7 @@ public class ShopUpdate : MonoBehaviour
         }
         
         shopObject.SetActive(showShop);
-
-        if (showShop)
-        {
-            WorldStatsController.Stats.Pause();
-        }
-        else
-        {
-            WorldStatsController.Stats.Unpause();
-        }
+        
 
         if (WorldStatsController.Stats.IsDay)
         {
