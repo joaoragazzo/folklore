@@ -18,4 +18,6 @@ public class GameStatsController: MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public float initialSceneDelayInSeconds { get; private set; } = 3f;
 }
