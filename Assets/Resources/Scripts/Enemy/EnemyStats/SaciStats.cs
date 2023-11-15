@@ -5,7 +5,7 @@ public class SaciStats : EnemyStats
     
     public SaciStats()
     {
-        baseHealth = 150  * Mathf.Pow(1.05f, (WorldStatsController.Stats.DayCounter - 1));
+        baseHealth = 150  * Mathf.Pow(DifficultyStatsController.Stats.saciHealthIncrement, (WorldStatsController.Stats.DayCounter - 1));
         baseSpeed = 5f;
         baseAttackSpeed = 2f;
         baseAttackRange = 3f;
