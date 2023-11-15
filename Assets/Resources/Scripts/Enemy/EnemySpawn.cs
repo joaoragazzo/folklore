@@ -9,10 +9,10 @@ public class EnemySpawner : MonoBehaviour
     
     public Transform playerTransform;
     public GameObject[] enemyPrefabs;
-    public static int maxEnemies = (int)(DifficultyStatsController.Stats.maxEntitiesForNightBase * Mathf.Pow(DifficultyStatsController.Stats.DifficultyMaxEntitiesIncrementPerNight, WorldStatsController.Stats.DayCounter - 1)); 
+    public int maxEnemies; 
     private static int currentEnemyCount;
 
-    public float spawnInterval = DifficultyStatsController.Stats.entitiesDelaySpawnBase * Mathf.Pow(DifficultyStatsController.Stats.entitiesDelaySpawnDecrement, WorldStatsController.Stats.DayCounter -1);
+    public float spawnInterval;
 
     // Limites dentro dos quais os inimigos podem ser spawnados, relativos à posição da câmera.
     public float minX = 0f;
@@ -20,9 +20,12 @@ public class EnemySpawner : MonoBehaviour
     public float minZ = 0f;
     public float maxZ = 10f;
 
-    private void Awake()
+    void Update()
     {
-        
+        spawnInterval = DifficultyStatsController.Stats.entitiesDelaySpawnBase * Mathf.Pow(DifficultyStatsController.Stats.entitiesDelaySpawnDecrement, WorldStatsController.Stats.DayCounter -1);
+        maxEnemies = (int)(DifficultyStatsController.Stats.maxEntitiesForNightBase * Mathf.Pow(
+            DifficultyStatsController.Stats.DifficultyMaxEntitiesIncrementPerNight,
+            WorldStatsController.Stats.DayCounter - 1));
     }
 
     void Start()

@@ -13,14 +13,13 @@ public class MenuController : MonoBehaviour
     public void Start()
     {
         goBackToMenu.onClick.AddListener(goBackToMenuFunc);
-
     }
     
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            actualStateMenu = !actualStateMenu;
+            actualStateMenu = !actualStateMenu;            
             menuPrefab.SetActive(actualStateMenu);
 
             if (actualStateMenu)
