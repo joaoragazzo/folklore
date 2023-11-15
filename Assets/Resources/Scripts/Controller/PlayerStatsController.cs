@@ -12,7 +12,7 @@ public class PlayerStatsController : MonoBehaviour
     public float RunSpeedMultiplier { get; set; } = 2f;
     public float MaxSpeed { get; private set; }
     public int Strength { get; set; } = 1;
-    public float CritChance { get; set; } = 0.0f;
+    public int Lucky { get; set; } = 0;
     public float CritMultiplier { get; set; } = 2.5f;
     public float AxeRotateSpeed { get; set; } = 120f;
     public float BaseDamageMultiplier { get; set; } = 100f;

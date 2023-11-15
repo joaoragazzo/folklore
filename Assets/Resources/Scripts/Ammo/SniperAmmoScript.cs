@@ -24,12 +24,27 @@ public class SniperAmmoScript : MonoBehaviour
         Destroy(gameObject, lifeDuration);
     }
 
+    private bool critChance()
+    {
+        int lucky = PlayerStatsController.Stats.Lucky;
+        return lucky <= UnityEngine.Random.Range(0, 101);
+    }
+    
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Enemy")) // Verifica se o objeto atingido tem a tag "Enemy"
         {
             IDamageble damageableEntity = other.GetComponent<IDamageble>();
-            damageableEntity.TakeDamage((float)PlayerStatsController.Stats.SniperDamage);
+            
+            if (critChance())
+            {
+                damageableEntity.TakeDamage((float)PlayerStatsController.Stats.SniperDamage * PlayerStatsController.Stats.CritMultiplier);
+            }
+            else
+            {
+                damageableEntity.TakeDamage((float)PlayerStatsController.Stats.SniperDamage);  
+            }
+            
             Destroy(gameObject);
         }
         
