@@ -2195,6 +2195,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9076444133722326328}
   - component: {fileID: 6674355056423099035}
+  - component: {fileID: 1206506275501717287}
   m_Layer: 0
   m_Name: Death Screen Controller
   m_TagString: Untagged
@@ -2230,6 +2231,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathScreen: {fileID: 834759354202563736}
+--- !u!114 &1206506275501717287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5587511099120559796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f6fe83a8ef74a108ef2473ed6e40dcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goBackToMenu: {fileID: 3198715295813784779}
+  repeatGame: {fileID: 801432026562564851}
 --- !u!1 &6248014140026633178
 GameObject:
   m_ObjectHideFlags: 0
