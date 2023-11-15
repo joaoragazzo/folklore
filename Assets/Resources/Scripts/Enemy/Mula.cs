@@ -41,11 +41,12 @@ public class Mula : MonoBehaviour, IDamageble
 
     public void onAttack()
     {
-        
+        PlayerStatsController.Stats.Health -= Stats.baseAttackDamage;
     }
 
     public void onDie()
     {
+        WorldStatsController.Stats.enemiesExisting--;
         Destroy(gameObject); 
     }
     

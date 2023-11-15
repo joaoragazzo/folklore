@@ -11,7 +11,7 @@ public class WorldStatsController : MonoBehaviour
     public bool IsPaused { get; set; } = false;
     public int DayDurationInSeconds { get; set; } = 120;
     public int NightDurationInSeconds { get; set;  } = 210;
-
+    public int enemiesExisting { get; set; } = 0; 
 
     private void Awake()
     {

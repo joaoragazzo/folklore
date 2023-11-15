@@ -48,6 +48,7 @@ public class Curupira : MonoBehaviour, IDamageble
 
     public void onDie()
     {
+        WorldStatsController.Stats.enemiesExisting--;
         Destroy(gameObject);
     }
     

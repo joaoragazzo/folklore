@@ -56,6 +56,7 @@ public class CorpoSeco : MonoBehaviour, IDamageble
 
     public void onDie()
     {
+        WorldStatsController.Stats.enemiesExisting--;
         Destroy(gameObject);
     }
     

@@ -39,7 +39,7 @@ public class EnemySpawner : MonoBehaviour
         while (true)
         {
             //Debug.Log("Está dia? " + WorldStatsController.Stats.IsDay);
-            if (currentEnemyCount < maxEnemies && !WorldStatsController.Stats.IsDay)
+            if (WorldStatsController.Stats.enemiesExisting++ < maxEnemies && !WorldStatsController.Stats.IsDay)
             {
                 SpawnEnemy();
             }
@@ -64,12 +64,7 @@ public class EnemySpawner : MonoBehaviour
         Quaternion spawnRotation = Quaternion.identity; // Isso pode ser modificado conforme necessário
 
         Instantiate(enemyPrefab, spawnPosition, spawnRotation);
-        currentEnemyCount++;
+        WorldStatsController.Stats.enemiesExisting++;
     }
-
-    public static void EnemyDefeated()
-    {
-        if (currentEnemyCount > 0)
-            currentEnemyCount--;
-    }
+    
 }

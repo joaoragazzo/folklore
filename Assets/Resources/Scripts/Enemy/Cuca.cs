@@ -48,6 +48,7 @@ public class Cuca : MonoBehaviour, IDamageble
 
     public void onDie()
     {
+        WorldStatsController.Stats.enemiesExisting--;
         Destroy(gameObject);
     }
     

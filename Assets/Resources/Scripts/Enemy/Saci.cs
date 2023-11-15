@@ -46,6 +46,7 @@ public class Saci : MonoBehaviour, IDamageble
 
     public void onDie()
     {
+        WorldStatsController.Stats.enemiesExisting--;
         Destroy(gameObject);
     }
 
