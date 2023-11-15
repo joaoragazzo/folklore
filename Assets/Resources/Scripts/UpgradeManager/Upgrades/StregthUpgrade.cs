@@ -17,6 +17,9 @@ public class StrengthUpgrade : Upgrade
 
     public override bool ApplyUpgrade()
     {
+        if (PlayerStatsController.Stats.CountUpgradeByType<StreamingController>() == 3) return false;
+        
+        
         if (PlayerStatsController.Stats.Money >= Price)
         {
             PlayerStatsController.Stats.Strength += 1;
