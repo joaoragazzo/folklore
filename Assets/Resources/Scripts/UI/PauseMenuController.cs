@@ -22,8 +22,15 @@ public class MenuController : MonoBehaviour
         {
             actualStateMenu = !actualStateMenu;
             menuPrefab.SetActive(actualStateMenu);
-            if (!actualStateMenu) WorldStatsController.Stats.Pause();
-            else WorldStatsController.Stats.Unpause();
+
+            if (actualStateMenu)
+            {
+                WorldStatsController.Stats.Pause();
+            }
+            else
+            {
+                WorldStatsController.Stats.Unpause();
+            }
         }
     }
 
