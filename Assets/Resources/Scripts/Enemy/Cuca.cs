@@ -14,6 +14,7 @@ public class Cuca : MonoBehaviour, IDamageble
     
     void Start()
     {
+        Invoke("safeDestroy", GameStatsController.Stats.maxTimeForEntities);
         attackScript = transform.Find("CharacterArmature/Root/Body/Hips/Abdomen/Torso/Chest/Shoulder.R/UpperArm.R/LowerArm.R/Wrist.R/Middle1.R/AttackSpawn").GetComponent<CucaProjectileSpawn>();
         _animator = GetComponent<Animator>();
         Stats = new CucaStats();
@@ -61,5 +62,11 @@ public class Cuca : MonoBehaviour, IDamageble
             alive = false;
             _animator.SetTrigger("Die");
         }
+    }
+    
+    public void safeDestroy()
+    {
+        WorldStatsController.Stats.enemiesExisting--;
+        Destroy(gameObject);
     }
 }

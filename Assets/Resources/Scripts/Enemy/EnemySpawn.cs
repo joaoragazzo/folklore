@@ -22,6 +22,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("Inimigo spawnando. Quantidade de inimigos: " + WorldStatsController.Stats.enemiesExisting);
         spawnInterval = DifficultyStatsController.Stats.entitiesDelaySpawnBase * Mathf.Pow(DifficultyStatsController.Stats.entitiesDelaySpawnDecrement, WorldStatsController.Stats.DayCounter -1);
         maxEnemies = (int)(DifficultyStatsController.Stats.maxEntitiesForNightBase * Mathf.Pow(
             DifficultyStatsController.Stats.DifficultyMaxEntitiesIncrementPerNight,
@@ -39,7 +40,7 @@ public class EnemySpawner : MonoBehaviour
         while (true)
         {
             //Debug.Log("Está dia? " + WorldStatsController.Stats.IsDay);
-            if (WorldStatsController.Stats.enemiesExisting++ < maxEnemies && !WorldStatsController.Stats.IsDay)
+            if (WorldStatsController.Stats.enemiesExisting < maxEnemies && !WorldStatsController.Stats.IsDay)
             {
                 SpawnEnemy();
             }

@@ -21,6 +21,7 @@ public class Saci : MonoBehaviour, IDamageble
 
     void Update()
     {
+        Invoke("safeDestroy", GameStatsController.Stats.maxTimeForEntities);
         if (WorldStatsController.Stats.IsPaused) return;
         
         if (alive) (transform.position, transform.rotation, isAttacking) = _enemyMovement.newPosition(
@@ -59,5 +60,11 @@ public class Saci : MonoBehaviour, IDamageble
             alive = false;
             _animator.SetTrigger("Die");
         }
+    }
+    
+    public void safeDestroy()
+    {
+        WorldStatsController.Stats.enemiesExisting--;
+        Destroy(gameObject);
     }
 }

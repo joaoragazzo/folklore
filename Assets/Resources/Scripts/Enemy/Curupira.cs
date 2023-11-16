@@ -13,6 +13,7 @@ public class Curupira : MonoBehaviour, IDamageble
     
     void Start()
     {
+        Invoke("safeDestroy", GameStatsController.Stats.maxTimeForEntities);
         attackScript = transform.Find("CharacterArmature/Root/Body/Hips/Abdomen/Torso/Chest/Shoulder.R/UpperArm.R/LowerArm.R/Wrist.R/Middle1.R/Crossbow/AttackSpawn").GetComponent<CurupiraProjectileSpawn>();
         _animator = GetComponent<Animator>();
         Stats = new CurupiraStats();
@@ -61,5 +62,11 @@ public class Curupira : MonoBehaviour, IDamageble
             _animator.SetTrigger("Die");
             alive = false;
         }
+    }
+    
+    public void safeDestroy()
+    {
+        WorldStatsController.Stats.enemiesExisting--;
+        Destroy(gameObject);
     }
 }

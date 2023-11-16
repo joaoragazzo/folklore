@@ -13,6 +13,7 @@ public class Mula : MonoBehaviour, IDamageble
     
     void Start()
     {
+        Invoke("safeDestroy", GameStatsController.Stats.maxTimeForEntities);
         _animator = GetComponent<Animator>();
         Stats = new MulaStats();
         _enemyMovement = new EnemyMovement();
@@ -20,6 +21,7 @@ public class Mula : MonoBehaviour, IDamageble
 
     void Update()
     {
+        
         if (WorldStatsController.Stats.IsPaused) return;
         
         if (alive) (transform.position, transform.rotation, isAttacking) = _enemyMovement.newPosition(
@@ -59,5 +61,11 @@ public class Mula : MonoBehaviour, IDamageble
             alive = false;
             _animator.SetTrigger("Die");
         }
+    }
+    
+    public void safeDestroy()
+    {
+        WorldStatsController.Stats.enemiesExisting--;
+        Destroy(gameObject);
     }
 }

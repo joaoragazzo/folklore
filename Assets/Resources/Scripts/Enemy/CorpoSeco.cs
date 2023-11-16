@@ -12,7 +12,7 @@ public class CorpoSeco : MonoBehaviour, IDamageble
     
     void Start()
     {
-        
+        Invoke("safeDestroy", GameStatsController.Stats.maxTimeForEntities);
         Stats = new CorpoSecoStats();
         _enemyMovement = new EnemyMovement();
         _animator = GetComponent<Animator>();
@@ -72,5 +72,11 @@ public class CorpoSeco : MonoBehaviour, IDamageble
             _animator.SetTrigger("Die");
         }
         
+    }
+
+    public void safeDestroy()
+    {
+        WorldStatsController.Stats.enemiesExisting--;
+        Destroy(gameObject);
     }
 }
