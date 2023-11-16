@@ -8,7 +8,7 @@ public class DroneTreeDamageUpgrade : Upgrade
     {
         Name = "Dano do drone em Árvore";
         Description = "Habilita o dano em arvores";
-        Image = Resources.Load<Sprite>("Images/Upgrades/critdamageupgrade");
+        Image = Resources.Load<Sprite>("Images/Upgrades/arvorehitdamage");
         Price = 250;
         Max = 1;
     }

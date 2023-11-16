@@ -8,7 +8,7 @@
 
             Name = "Dano do Rifle";
             Description = "Dano do Rifle +10";
-            Image = Resources.Load<Sprite>("Images/Upgrades/critdamageupgrade");
+            Image = Resources.Load<Sprite>("Images/Upgrades/AK47");
             Price = 6;
             UpgradeIncrement = 10;
             Max = 500;

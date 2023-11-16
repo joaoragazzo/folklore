@@ -7,7 +7,7 @@ public class TimeToDestroy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 120);
+        Destroy(gameObject, 30);
     }
 
 }

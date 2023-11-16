@@ -8,7 +8,7 @@ using UnityEngine;
         {
             Name = "Dano da Sniper";
             Description = "Dano da Sniper +10";
-            Image = Resources.Load<Sprite>("Images/Upgrades/critdamageupgrade");
+            Image = Resources.Load<Sprite>("Images/Upgrades/AWP");
             Price = 20;
             UpgradeIncrement = 10;
             Max = 500;
