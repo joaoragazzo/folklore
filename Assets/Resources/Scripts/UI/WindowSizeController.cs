@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using TMPro; // ou "using TMPro;" se estiver usando TextMesh Pro
-using System.Collections;
+
 
 public class ScreenSettingsController : MonoBehaviour
 {

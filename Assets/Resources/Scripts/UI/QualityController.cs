@@ -1,6 +1,5 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 public class QualityController : MonoBehaviour
 {
