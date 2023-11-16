@@ -9,12 +9,17 @@ public class DroneTreeDamageUpgrade : Upgrade
         Name = "Dano do drone em Árvore";
         Description = "Habilita o dano em arvores";
         Image = Resources.Load<Sprite>("Images/Upgrades/critdamageupgrade");
-        Price = 0;
+        Price = 250;
         Max = 1;
     }
 
     public override bool ApplyUpgrade()
     {
+        if (PlayerStatsController.Stats.CountUpgradeByType<DroneTreeDamageUpgrade>() == Max)
+        {
+            return false;
+        }
+        
         if (PlayerStatsController.Stats.Money >= Price)
         {
             RifleAmmoScript.droneTreeDamageUpgrade = true;
