@@ -461,7 +461,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb2e97176dd64e58b6702a30341d3058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficulty: 0
 --- !u!1 &1656744058
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,6 +704,18 @@ PrefabInstance:
     - target: {fileID: 1791400235080928059, guid: a8ea982990d6d0944876210508fa62a6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995246704900369592, guid: a8ea982990d6d0944876210508fa62a6, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995246704900369592, guid: a8ea982990d6d0944876210508fa62a6, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995246704900369592, guid: a8ea982990d6d0944876210508fa62a6, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 2402228811573327154, guid: a8ea982990d6d0944876210508fa62a6, type: 3}
       propertyPath: m_AnchorMax.y

@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/InitialMovie.unity
     guid: f5e014cf089ae784ab7eeca86f1c5ca4
   - enabled: 1

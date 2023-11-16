@@ -15,7 +15,8 @@ public class ShopUpdate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B) || Input.GetKeyDown(KeyCode.P))
+        
+        if (Input.GetKeyDown(KeyCode.B) && WorldStatsController.Stats.IsDay)
         {
             showShop = !showShop;
             
