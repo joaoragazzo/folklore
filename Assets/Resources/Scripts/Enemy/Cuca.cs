@@ -1,8 +1,12 @@
 
 using UnityEngine;
 
+
 public class Cuca : MonoBehaviour, IDamageble
 {
+    [SerializeField]
+    private AudioClip audioClip; // Permitir atribuir um AudioClip no Inspector
+    private AudioSource audioSource;
     private bool alive = true;
     private bool isAttacking;
     private CucaStats Stats;
@@ -18,6 +22,7 @@ public class Cuca : MonoBehaviour, IDamageble
         _animator = GetComponent<Animator>();
         Stats = new CucaStats();
         _enemyMovement = new EnemyMovement();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -33,6 +38,11 @@ public class Cuca : MonoBehaviour, IDamageble
         if (isAttacking)
         {  
             _animator.SetTrigger("Attack");
+            if (audioClip != null)
+            {
+                audioSource.PlayOneShot(audioClip); // Toca o áudio especificado
+            }
+           
         }
         else
         {

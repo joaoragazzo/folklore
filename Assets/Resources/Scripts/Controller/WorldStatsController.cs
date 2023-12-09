@@ -9,7 +9,7 @@ public class WorldStatsController : MonoBehaviour
     public float Time { get; set; } = 0;
     public bool IsDay { get; set; } = true;
     public bool IsPaused { get; set; } = false;
-    public int DayDurationInSeconds { get; private set; } = 120;
+    public int DayDurationInSeconds { get; private set; } = 30;
     public int NightDurationInSeconds { get; private set;  } = 210;
     public int enemiesExisting { get; set; } = 0; 
 

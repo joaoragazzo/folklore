@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class Curupira : MonoBehaviour, IDamageble
 {
+    [SerializeField]
+    private AudioClip audioClip; // Permitir atribuir um AudioClip no Inspector
+    private AudioSource audioSource;
     private bool alive = true;
     private bool isAttacking;
     private CurupiraStats Stats;
@@ -17,6 +20,7 @@ public class Curupira : MonoBehaviour, IDamageble
         _animator = GetComponent<Animator>();
         Stats = new CurupiraStats();
         _enemyMovement = new EnemyMovement();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -32,6 +36,10 @@ public class Curupira : MonoBehaviour, IDamageble
         if (isAttacking)
         {  
             _animator.SetTrigger("Attack");
+            if (audioClip != null)
+            {
+                audioSource.PlayOneShot(audioClip); // Toca o áudio especificado
+            }
         }
         else
         {

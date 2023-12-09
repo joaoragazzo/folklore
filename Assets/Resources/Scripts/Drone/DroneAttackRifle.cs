@@ -3,10 +3,19 @@ using UnityEngine;
 
 public class DroneAttackRifle : MonoBehaviour
 {
+    [SerializeField]
+    private AudioClip audioClip; // Permitir atribuir um AudioClip no Inspector
+    private AudioSource audioSource; //Necessário pra execução do áudio
     public GameObject projectilePrefab; // O prefab do seu projétil; defina isso no inspetor da Unity.
     public float fireRate = 1f; // Quantos tiros por segundo.
     private float nextTimeToFire = 2f; // Controla o tempo até o próximo tiro.
     [SerializeField] private LayerMask mouseColliderMask = new LayerMask();
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     
     void Update()
     {
@@ -21,6 +30,11 @@ public class DroneAttackRifle : MonoBehaviour
                 Instantiate(projectilePrefab, transform.position, Quaternion.LookRotation(aimDir, Vector3.up));
                 
                 nextTimeToFire = Time.time + 1f/fireRate;
+
+                if (audioClip != null)
+                {
+                    audioSource.PlayOneShot(audioClip); // Toca o áudio especificado
+                }
             }
         }
         

@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class DroneAttackShotgun : MonoBehaviour
 {
+    [SerializeField]
+    private AudioClip audioClip; // Permitir atribuir um AudioClip no Inspector
+    private AudioSource audioSource; //Necessário pra execução do áudio
     public GameObject projectilePrefab;
     public float fireRate = 1f;
     private float nextTimeToFire = 2f;
@@ -10,6 +13,12 @@ public class DroneAttackShotgun : MonoBehaviour
 
     public int pelletsCount = 8; // Quantos projéteis por disparo.
     public float spreadAngle = 20f; // ângulo de dispersão dos projéteis.
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
 
     void Update()
     {
@@ -26,6 +35,11 @@ public class DroneAttackShotgun : MonoBehaviour
                 }
 
                 nextTimeToFire = Time.time + 1f/fireRate;
+                
+                if (audioClip != null)
+                {
+                    audioSource.PlayOneShot(audioClip); // Toca o áudio especificado
+                }
             }
         }
     }

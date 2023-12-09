@@ -6,6 +6,8 @@ using Cursor = UnityEngine.Cursor;
 [RequireComponent(typeof(CharacterController))]
 public class Player : MonoBehaviour
 {
+
+
     private Camera mainCamera;
     
     private Vector3 moveDirection = Vector3.zero;
@@ -19,6 +21,7 @@ public class Player : MonoBehaviour
         mainCamera = Camera.main;
         
         Cursor.visible = true;
+       
     }
 
     // Update is called once per frame
@@ -49,10 +52,13 @@ public class Player : MonoBehaviour
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
             PlayerStatsController.Stats.IsMoving = true;
+            
+        
         }
         else
         {
             PlayerStatsController.Stats.IsMoving = false;
+            
         }
         
         moveDirection = (forward * curSpeedWS) + (right * curSpeedAD);
