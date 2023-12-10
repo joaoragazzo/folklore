@@ -27,6 +27,7 @@ public class StoreItem : MonoBehaviour
     public void OnPurchaseButtonClicked()
     {
         upgrade.ApplyUpgrade();
+        priceText.text = "$ " + upgrade.Price;
     }
 
 }

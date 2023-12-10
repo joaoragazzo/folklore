@@ -17,13 +17,13 @@ public class UpgradeController : MonoBehaviour
         }
     }
 
-    public int critMultiplierUpgradePrice = 30;
-    public int droneTreeDamageUpgradePrice = 250;
-    public int luckyUpgradePrice = 30;
-    public int maxHealthUpgradePrice = 20;
-    public int rifleDamageUpgradePrice = 10;
-    public int shotgunDamageUpgradePrice = 10;
-    public int sniperDamageUpgradePrice = 20;
-    public int speedUpgradePrice = 20;
-    public int strengthUpgradePrice = 35;
+    public int critMultiplierUpgradePrice { get; set; } = 30;
+    public int droneTreeDamageUpgradePrice { get; set; } = 250;
+    public int luckyUpgradePrice { get; set; } = 30;
+    public int maxHealthUpgradePrice { get; set; } = 20;
+    public int rifleDamageUpgradePrice { get; set; } = 10;
+    public int shotgunDamageUpgradePrice { get; set; } = 10;
+    public int sniperDamageUpgradePrice { get; set; } = 20;
+    public int speedUpgradePrice { get; set; } = 20;
+    public int strengthUpgradePrice { get; set; } = 35;
 }
