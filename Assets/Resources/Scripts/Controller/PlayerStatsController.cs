@@ -8,8 +8,8 @@ public class PlayerStatsController : MonoBehaviour
     public bool IsAlive { get; set; } = true;
     public float Health { get; set; } = 100f;
     public float MaxHealth { get; set; } = 100f;
-    public float WalkSpeed { get; set; } = 6f;
-    public float RunSpeedMultiplier { get; set; } = 2f;
+    public float WalkSpeed { get; set; } = 8f;
+    public float RunSpeedMultiplier { get; set; } = 1.8f;
     public float MaxSpeed { get; private set; }
     public int Strength { get; set; } = 1;
     public int Lucky { get; set; } = 0;
