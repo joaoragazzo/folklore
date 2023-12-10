@@ -36,10 +36,6 @@ public class Curupira : MonoBehaviour, IDamageble
         if (isAttacking)
         {  
             _animator.SetTrigger("Attack");
-            if (audioClip != null)
-            {
-                audioSource.PlayOneShot(audioClip); // Toca o áudio especificado
-            }
         }
         else
         {
@@ -50,6 +46,10 @@ public class Curupira : MonoBehaviour, IDamageble
 
     public void onAttack()
     {
+        if (audioClip != null)
+        {
+            audioSource.PlayOneShot(audioClip); // Toca o áudio especificado
+        }
         attackScript.Attack();
     }
     
