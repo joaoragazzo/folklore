@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+
 
     public class CritDamageMultiplier : Upgrade
     {
@@ -8,7 +10,7 @@
             Name = "Dano Crítico";
             Description = "Dano Crítico +10";
             Image = Resources.Load<Sprite>("Images/Upgrades/critdamageupgrade");
-            Price = 30;
+            Price = UpgradeController.Stats.critMultiplierUpgradePrice;
             Max = 10;
         }
 
@@ -16,6 +18,7 @@
         {
             if (PlayerStatsController.Stats.Money >= Price)
             {
+                UpgradeController.Stats.critMultiplierUpgradePrice = (int)(UpgradeController.Stats.critMultiplierUpgradePrice * 1.07);
                 PlayerStatsController.Stats.CritMultiplier += (float)0.10;
                 PlayerStatsController.Stats.Money -= Price;
                 PlayerStatsController.Stats.Upgrades.Add(new CritDamageMultiplier());

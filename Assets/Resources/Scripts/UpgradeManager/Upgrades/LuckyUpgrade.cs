@@ -8,7 +8,7 @@ public class LuckyUpgrade : Upgrade
         Name = "Sorte";
         Description = "Sorte +10";
         Image = Resources.Load<Sprite>("Images/Upgrades/luckyupgrade");
-        Price = 30;
+        Price = UpgradeController.Stats.luckyUpgradePrice;
         UpgradeIncrement = 10;
         Max = 20;
     }
@@ -23,6 +23,7 @@ public class LuckyUpgrade : Upgrade
         
         if (PlayerStatsController.Stats.Money >= Price)
         {
+            UpgradeController.Stats.luckyUpgradePrice = (int)(UpgradeController.Stats.luckyUpgradePrice * 1.10);
             PlayerStatsController.Stats.Lucky += 5;
             PlayerStatsController.Stats.Money -= Price;
             PlayerStatsController.Stats.Upgrades.Add(new LuckyUpgrade());

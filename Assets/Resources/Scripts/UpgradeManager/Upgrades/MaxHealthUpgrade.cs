@@ -9,7 +9,7 @@ public class MaxHealthUpgrade : Upgrade
         Name = "Vida Max.";
         Description = "Vida máxima +5";
         Image = Resources.Load<Sprite>("Images/Upgrades/maxhealthupgradeicon");
-        Price = 20;
+        Price = UpgradeController.Stats.maxHealthUpgradePrice;
         UpgradeIncrement = 5;
         Max = int.MaxValue;
     }
@@ -18,7 +18,7 @@ public class MaxHealthUpgrade : Upgrade
     {
         if (PlayerStatsController.Stats.Money >= Price)
         {
-            
+            UpgradeController.Stats.maxHealthUpgradePrice = (int)(UpgradeController.Stats.maxHealthUpgradePrice* 1.07);
             PlayerStatsController.Stats.MaxHealth *= (float)1.05;
             PlayerStatsController.Stats.Health = PlayerStatsController.Stats.MaxHealth;
             PlayerStatsController.Stats.Money -= Price;
