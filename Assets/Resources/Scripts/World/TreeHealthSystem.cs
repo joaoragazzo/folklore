@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TreeHealthSystem : MonoBehaviour, IDamageble
 {
-    
+    [SerializeField] private AudioSource treeFalling;
     private float health = 3;
     private float shakeDuration = 0.5f;
     private float shakeMagnitude = 0.1f;
@@ -33,6 +33,10 @@ public class TreeHealthSystem : MonoBehaviour, IDamageble
             PlayerStatsController.Stats.Money += 3;
             float randomAngle = (Random.value > 0.5f) ? -10f : -180f;
             StartCoroutine(FallOver(randomAngle));
+            if(dead && !treeFalling.isPlaying) 
+            {
+                treeFalling.Play();
+            }
         }
     }
     
