@@ -101,7 +101,7 @@ public class Player : MonoBehaviour
 
         PlayerStatsController.Stats.PlayerPosition = transform.position;
 
-    /*  
+    
         #region Cycle Music 
         
         if(WorldStatsController.Stats.IsDay && !daySound.isPlaying)
@@ -110,15 +110,28 @@ public class Player : MonoBehaviour
             nightSound.Stop();
             daySound.Play();
         }
-        else if(!WorldStatsController.Stats.IsDay)
+
+        if (!WorldStatsController.Stats.IsDay)
         {
-            Debug.Log("Dia - Tocando som da noite");
+            daySound.Stop();
+        }
+        
+        if(!WorldStatsController.Stats.IsDay && !nightSound.isPlaying)
+        {
+            Debug.Log("Noite - Tocando som da noite");
             daySound.Stop();
             nightSound.Play();
         }
         
+        if (WorldStatsController.Stats.IsDay)
+        {
+            nightSound.Stop();
+        }
+        
         #endregion
-    */
+    
+    
+    
 
         #region Damage Sound
 
