@@ -7,9 +7,13 @@ using Cursor = UnityEngine.Cursor;
 public class Player : MonoBehaviour
 {
 
-
+    [SerializeField] private AudioSource attackSound;
+    [SerializeField] private AudioSource walkingSound;
+    [SerializeField] private AudioSource damageSound;
+    [SerializeField] private AudioSource daySound;
+    [SerializeField] private AudioSource nightSound;
+    private float oldHealth;
     private Camera mainCamera;
-    
     private Vector3 moveDirection = Vector3.zero;
     private CharacterController characterController;
     private WorldGeneration worldgeneration;
@@ -22,6 +26,8 @@ public class Player : MonoBehaviour
         
         Cursor.visible = true;
        
+        oldHealth = PlayerStatsController.Stats.Health;
+
     }
 
     // Update is called once per frame
@@ -52,13 +58,19 @@ public class Player : MonoBehaviour
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
             PlayerStatsController.Stats.IsMoving = true;
+            if(PlayerStatsController.Stats.IsMoving && !walkingSound.isPlaying)
+            {
+                walkingSound.Play();
+            }
             
-        
         }
         else
         {
             PlayerStatsController.Stats.IsMoving = false;
-            
+            if(walkingSound.isPlaying)
+            {
+                walkingSound.Stop();
+            }
         }
         
         moveDirection = (forward * curSpeedWS) + (right * curSpeedAD);
@@ -88,7 +100,45 @@ public class Player : MonoBehaviour
         #endregion
 
         PlayerStatsController.Stats.PlayerPosition = transform.position;
+
+    /*  
+        #region Cycle Music 
         
+        if(WorldStatsController.Stats.IsDay && !daySound.isPlaying)
+        {
+            Debug.Log("Dia - Tocando som do dia");
+            nightSound.Stop();
+            daySound.Play();
+        }
+        else if(!WorldStatsController.Stats.IsDay)
+        {
+            Debug.Log("Dia - Tocando som da noite");
+            daySound.Stop();
+            nightSound.Play();
+        }
+        
+        #endregion
+    */
+
+        #region Damage Sound
+
+        if(PlayerStatsController.Stats.Health < oldHealth && !damageSound.isPlaying)
+        {
+            damageSound.Play();
+        }
+        oldHealth = PlayerStatsController.Stats.Health;
+       
+        #endregion
+
+        #region Attack Sound
+
+        if(PlayerStatsController.Stats.isAttackingWithAxe && !attackSound.isPlaying)
+        {
+                attackSound.Play();
+        }
+
+        #endregion
+
     }
     
     void LookAtMousePosition()
